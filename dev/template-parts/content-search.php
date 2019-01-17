@@ -8,33 +8,24 @@
  */
 
 ?>
-
+<li>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<div class="placeholder" style="background-image: url(<?php has_post_thumbnail() ? the_post_thumbnail_url() : ''; ?>)">
+	</div>
+
 	<header class="entry-header">
+		<?php // wprig_post_thumbnail(); ?>
+
+		<?php wprig_post_categories(); ?>
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php
-				wprig_posted_on();
-				wprig_posted_by();
-				wprig_comments_link();
-			?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
 	</header><!-- .entry-header -->
-
-	<?php wprig_post_thumbnail(); ?>
-
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
 
 	<footer class="entry-footer">
 		<?php
-			wprig_post_categories();
-			wprig_post_tags();
+			wprig_posted_on();
 			wprig_edit_post_link();
 		?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
+</li>

@@ -22,7 +22,7 @@ get_header(); ?>
 				<?php
 					get_search_form();
 
-					the_widget( 'WP_Widget_Recent_Posts' );
+					the_widget( 'wprig_recent_posts' );
 				?>
 
 				<div class="widget widget_categories">
@@ -36,6 +36,7 @@ get_header(); ?>
 							'show_count' => 1,
 							'title_li'   => '',
 							'number'     => 10,
+							'depth'			 => 1,
 						)
 					);
 					?>

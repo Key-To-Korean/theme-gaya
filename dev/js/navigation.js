@@ -10,19 +10,13 @@ const SITENAV = document.querySelector( '.main-navigation' ),
 		TAB: 9
 	};
 
-// Initiate the menus when the DOM loads.
-document.addEventListener( 'DOMContentLoaded', function() {
-	initMainNavigation();
-	initMenuToggle();
-});
-
 /**
  * Initiate the main navigation script.
  */
 function initMainNavigation() {
 
 	// No point if no site nav.
-	if ( ! SITENAV ) {
+	if ( undefined === SITENAV ) {
 		return;
 	}
 
@@ -90,7 +84,7 @@ function initMainNavigation() {
 			const focusSelector = 'ul.toggle-show > li > a, ul.toggle-show > li > button';
 
 			if ( KEYMAP.TAB === event.keyCode ) {
-				if ( event.shiftKey ) {
+				if ( true === event.shiftKey ) {
 
 					// Means we're tabbing out of the beginning of the submenu.
 					if ( isfirstFocusableElement( this, document.activeElement, focusSelector ) ) {
@@ -111,6 +105,8 @@ function initMainNavigation() {
 
 }
 
+initMainNavigation();
+
 /**
  * Initiate the mobile menu toggle button.
  */
@@ -118,7 +114,7 @@ function initMenuToggle() {
 	const MENUTOGGLE = SITENAV.querySelector( '.menu-toggle' );
 
 	// Return early if MENUTOGGLE is missing.
-	if ( ! MENUTOGGLE ) {
+	if ( undefined === MENUTOGGLE ) {
 		return;
 	}
 
@@ -130,6 +126,8 @@ function initMenuToggle() {
 		this.setAttribute( 'aria-expanded', 'false' === this.getAttribute( 'aria-expanded' ) ? 'true' : 'false' );
 	}, false );
 }
+
+initMenuToggle();
 
 /**
  * Toggle submenus open and closed, and tell screen readers what's going on.

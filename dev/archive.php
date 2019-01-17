@@ -1,11 +1,8 @@
 <?php
 /**
- * The template for displaying category archives.
+ * The template for displaying archive pages
  *
- * When active, applies to all category archives.
- * To target a specific category, rename file to category-{slug/id}.php
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#category
+ * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package wprig
  */
@@ -20,8 +17,11 @@ get_header(); ?>
 		/* Display the appropriate header when required. */
 		wprig_index_header();
 
-		/* Start the Loop */
-		while ( have_posts() ) :
+		echo '<ul class="category-posts-grid archive-posts-grid">';
+
+		/* Start the "Official" Loop */
+		$count = 0;
+		while ( have_posts() && $count < 16 ) :
 			the_post();
 
 			/*
@@ -36,10 +36,14 @@ get_header(); ?>
 			 * If you want to override this in a child theme, then include a file
 			 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
 			 */
-			get_template_part( 'template-parts/content', get_post_type() );
+			get_template_part( 'template-parts/content', 'archive' );
 
+		$count++;
 		endwhile;
 
+		echo '</ul>';
+
+		/* Finally a Posts Navigation */
 		the_posts_navigation();
 
 	else :
@@ -52,5 +56,4 @@ get_header(); ?>
 	</main><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();

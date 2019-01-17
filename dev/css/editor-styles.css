@@ -5,6 +5,7 @@
  body.gutenberg-editor-page .editor-writing-flow {
 	color: var(--global-font-color);
 	font-family: var(--global-font-family);
+	font-size: var(--global-font-size)px;
 	font-size: calc(var(--global-font-size) / 16)rem;
 	line-height: var(--global-font-line-height);
 }
@@ -23,33 +24,16 @@ body.gutenberg-editor-page .edit-post-visual-editor p {
 }
 
 body.gutenberg-editor-page .editor-post-title .editor-post-title__input {
+	font-size: 32px;
 	font-size: 2rem;
 	line-height: 1.4;
 }
 
 body.gutenberg-editor-page .edit-post-visual-editor p {
 	font-family: var(--global-font-family);
+	font-size: var(--global-font-size)px;
 	font-size: calc(var(--global-font-size) / 16)rem;
 
-}
-
-body.gutenberg-editor-page .wp-block-cover-image .wp-block-cover-image-text,
-body.gutenberg-editor-page .wp-block-cover-image .wp-block-cover-image h2 {
-	color: #fff;
-	font-size: 2em;
-	line-height: 1.25;
-}
-
-.editor-block-list__block ol.wp-block-latest-comments,
-.editor-block-list__block ul.wp-block-latest-posts {
-	padding-top: 1.5em;
-	padding-bottom: 1.5em;
-	border: 1px solid hsl(0, 0%, 80%);
-}
-
-.editor-block-list__block ol.wp-block-latest-comments {
-	padding-right: 1.5em;
-	padding-left: 1.5em;
 }
 
 /* Visualize editor color palette (defined in functions.php). */
@@ -138,17 +122,21 @@ body.gutenberg-editor-page .wp-block-cover-image .wp-block-cover-image h2 {
 /* Visualize editor font sizes (defined in functions.php). */
 
 .has-small-font-size {
+	font-size: var(--small-font-size)px;
 	font-size: calc(var(--small-font-size) / 16)rem;
 }
 
 .has-regular-font-size {
+	font-size: var(--regular-font-size)px;
 	font-size: calc(var(--regular-font-size) / 16)rem;
 }
 
 .has-large-font-size {
+	font-size: var(--large-font-size)px;
 	font-size: calc(var(--large-font-size) / 16)rem;
 }
 
 .has-larger-font-size {
+	font-size: var(--larger-font-size)px;
 	font-size: calc(var(--larger-font-size) / 16)rem;
 }

@@ -1,0 +1,91 @@
+/* Adsense widgets */
+.adsense {
+	width: 100%;
+	clear: both;
+	border-bottom: 1px solid var(--border-main-color);
+	border-top: 1px solid var(--border-main-color);
+	font-size: 1rem;
+	grid-column: span 2;
+	padding: 1rem 0;
+	display: grid;
+	grid-template-columns: 1fr 5fr;
+	grid-gap: 2rem;
+	-ms-flex-pack: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.adsense.above-header {
+	margin: 0 -4rem;
+	border-top: 0;
+	grid-column: span 2;
+	width: calc(100% + 8rem);
+}
+
+.adsense.above-header div,
+.adsense.above-header aside,
+.adsense.fixed-footer aside,
+.adsense.fixed-footer div {
+	margin: 0 auto;
+	grid-column: span 2;
+}
+
+.adsense.above-header .section-title,
+.adsense.fixed-footer .section-title {
+  display: none;
+}
+
+.adsense.above-post-ad {
+	/* margin-bottom: 2rem; */
+}
+
+.widget-pre-post,
+.widget-post-post {
+	grid-column: span 2;
+	display: grid;
+	grid-template-columns: 1fr 5fr;
+	border-top: 1px dotted black;
+	border-bottom: 1px dotted black;
+	padding: 1rem 0;
+	grid-gap: 2rem;
+	margin-bottom: 0;
+}
+
+.widget-pre-post > div,
+.widget-post-post > div {
+	grid-column: 2 / span 1;
+	overflow: hidden;
+}
+
+
+.adsense.fixed-footer {
+	grid-column: span 2;
+	padding: 1rem 0;
+	margin: 0 auto;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+	width: 100%;
+	background: var(--gaya-white);
+	border-top: 1px solid var(--gaya-grey5);
+	box-shadow: 0px 0px 40px rgba(0,0,0,0.14);
+	height: 120px;
+	transition: all 0.1s;
+}
+
+.adsense.fixed-footer #dismiss-footer {
+	margin: 0 4rem;
+	position: absolute;
+	right: 0;
+	top: 1rem;
+	color: var(--gaya-grey4);
+	cursor: pointer;
+}
+
+.adsense.fixed-footer.dismissed {
+	height: 0;
+	padding: 0;
+	border: none;
+	box-shadow: none;
+}

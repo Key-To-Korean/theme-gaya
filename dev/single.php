@@ -1,11 +1,8 @@
 <?php
 /**
- * The template for displaying all single posts and pages
+ * The template for displaying all single posts
  *
- * If posts and pages use the same template, singular.php can be used.
- * This template is ignored if single.php and/or page.php is present.
- *
- * @link https://developer.wordpress.org/themes/template-files-section/post-template-files/#singular-php
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
  * @package wprig
  */
@@ -33,5 +30,4 @@ get_header(); ?>
 	</main><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();

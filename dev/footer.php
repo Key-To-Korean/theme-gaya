@@ -12,21 +12,36 @@
 ?>
 
 <footer id="colophon" class="site-footer">
+
+	<?php get_sidebar( 'footer-top' ); ?>
+	<?php get_sidebar( 'footer-bottom' ); ?>
+
 	<div class="site-info">
-		<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'wprig' ) ); ?>">
-			<?php
-			/* translators: %s: CMS name, i.e. WordPress. */
-			printf( esc_html__( 'Proudly powered by %s', 'wprig' ), 'WordPress' );
-			?>
-		</a>
-		<span class="sep"> | </span>
-		<?php
-			/* translators: 1: Theme name, 2: Theme author. */
-			printf( esc_html__( 'Theme: %1$s by %2$s.', 'wprig' ), '<a href="' . esc_url( 'https://github.com/wprig/wprig/' ) . '">WP Rig</a>', 'the contributors' );
-		?>
+		<div class="copyright">
+			<span class="copyright-dates"><?php wprig_dynamic_copyright(); ?></span>
+			<span class="copyright-message">All rights reserved.</span>
+		</div>
+		<div class="credits">
+			<?php wprig_footer_credits(); ?>
+		</div>
 	</div><!-- .site-info -->
 </footer><!-- #colophon -->
+
+<i class="fa fa-chevron-circle-up .topbutton"></i>
+
 </div><!-- #page -->
+
+<?php if ( is_active_sidebar( 'widget-ad-fixed-footer' ) ) : ?>
+	<!-- Fixed Footer Ad -->
+	<div class="adsense adsense-widget fixed-footer">
+		<i id="dismiss-footer" class="fa fa-times-circle"></i>
+		<?php
+			/* Print styles for adsense widgets */
+			wp_print_styles( array( 'wprig-adsense' ) ); // Note: If this was already done it will be skipped.
+			dynamic_sidebar( 'widget-ad-fixed-footer' );
+		?>
+	</div>
+<?php endif; ?>
 
 <?php wp_footer(); ?>
 

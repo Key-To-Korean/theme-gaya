@@ -41,10 +41,18 @@ function wprig_setup() {
 		*/
 	add_theme_support( 'post-thumbnails' );
 
+	/*
+	 * Add Excerpts to Pages
+	 */
+	add_post_type_support( 'page', 'excerpt' );
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
 			'primary' => esc_html__( 'Primary', 'wprig' ),
+			'quicklinks' => esc_html__( 'Quicklinks', 'wprig' ),
+			'social'  => esc_html__( 'Social', 'wprig' ),
+			'footer'  => esc_html__( 'Footer', 'wprig' ),
 		)
 	);
 
@@ -61,6 +69,22 @@ function wprig_setup() {
 			'caption',
 		)
 	);
+
+	/*
+	 * Enable support for Post Formats.
+	 * See https://developer.wordpress.org/themes/functionality/post-formats/
+	 */
+	add_theme_support( 'post-formats', array(
+		'aside',    // style needed
+		'status',   // style needed
+		'quote',    // style needed
+		'link',     // style needed
+		'image',    // style needed
+		'gallery',  // style needed
+		'video',    // style needed
+		'audio',    // style needed
+		'chat',     // style needed	
+	) );
 
 	// Set up the WordPress core custom background feature.
 	add_theme_support(
@@ -82,30 +106,24 @@ function wprig_setup() {
 	 */
 	add_theme_support(
 		'custom-logo', array(
-			'height'      => 250,
-			'width'       => 250,
-			'flex-width'  => false,
+			'height'      => 80,
+			'width'       => 240,
+			'flex-width'  => true,
 			'flex-height' => false,
 		)
 	);
 
 	/**
-	 * Add support for default block styles.
-	 *
-	 * @link https://wordpress.org/gutenberg/handbook/extensibility/theme-support/#default-block-styles
-	 */
-	add_theme_support( 'wp-block-styles' );
-	/**
 	 * Add support for wide aligments.
 	 *
-	 * @link https://wordpress.org/gutenberg/handbook/extensibility/theme-support/#wide-alignment
+	 * @link https://wordpress.org/gutenberg/handbook/extensibility/theme-support/
 	 */
 	add_theme_support( 'align-wide' );
 
 	/**
 	 * Add support for block color palettes.
 	 *
-	 * @link https://wordpress.org/gutenberg/handbook/extensibility/theme-support/#block-color-palettes
+	 * @link https://wordpress.org/gutenberg/handbook/extensibility/theme-support/
 	 */
 	add_theme_support( 'editor-color-palette', array(
 		array(
@@ -166,7 +184,7 @@ function wprig_setup() {
 	/**
 	 * Add support for font sizes.
 	 *
-	 * @link https://wordpress.org/gutenberg/handbook/extensibility/theme-support/#block-font-sizes
+	 * @link https://wordpress.org/gutenberg/handbook/extensibility/theme-support/
 	 */
 	add_theme_support( 'editor-font-sizes', array(
 		array(
@@ -229,28 +247,38 @@ function wprig_fonts_url() {
 	$fonts_url = '';
 
 	/**
-	 * Translator: If Roboto Sans does not support characters in your language, translate this to 'off'.
+	 * Translator: If Noto Sans does not support characters in your language, translate this to 'off'.
 	 */
-	$roboto = esc_html_x( 'on', 'Roboto Condensed font: on or off', 'wprig' );
+	$noto_sans = esc_html_x( 'on', 'Noto Sans font: on or off', 'wprig' );
 	/**
-	 * Translator: If Crimson Text does not support characters in your language, translate this to 'off'.
+	 * Translator: If Nanum Gothic does not support characters in your language, translate this to 'off'.
 	 */
-	$crimson_text = esc_html_x( 'on', 'Crimson Text font: on or off', 'wprig' );
+	$nanum_gothic = esc_html_x( 'on', 'Nanum Gothic font: on or off', 'wprig' );
+	/**
+	 * Translator: If Satisfy does not support characters in your language, translate this to 'off'.
+	 */
+	$satisfy = esc_html_x( 'on', 'Satisfy font: on or off', 'wprig' );
+	
 
 	$font_families = array();
 
-	if ( 'off' !== $roboto ) {
-		$font_families[] = 'Roboto Condensed:400,400i,700,700i';
+	if ( 'off' !== $noto_sans ) {
+		$font_families[] = 'Noto Sans:400,400i,700,700i';
 	}
 
-	if ( 'off' !== $crimson_text ) {
-		$font_families[] = 'Crimson Text:400,400i,600,600i';
+	if ( 'off' !== $nanum_gothic ) {
+		$font_families[] = 'Nanum Gothic:400,700,800';
 	}
 
-	if ( in_array( 'on', array( $roboto, $crimson_text ) ) ) {
+	if ( 'off' !== $satisfy ) {
+		$font_families[] = 'Satisfy';
+	}
+
+
+	if ( in_array( 'on', array( $noto_sans, $nanum_gothic, $satisfy ) ) ) {
 		$query_args = array(
 			'family' => urlencode( implode( '|', $font_families ) ),
-			'subset' => urlencode( 'latin,latin-ext' ),
+			'subset' => urlencode( 'latin,latin-ext,korean' ),
 		);
 
 		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
@@ -286,7 +314,7 @@ add_filter( 'wp_resource_hints', 'wprig_resource_hints', 10, 2 );
  */
 function wprig_gutenberg_styles() {
 	// Add custom fonts, used in the main stylesheet.
-	wp_enqueue_style( 'wprig-fonts', wprig_fonts_url(), array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+	wp_enqueue_style( 'wprig-fonts', wprig_fonts_url(), array(), null );
 
 	// Enqueue main stylesheet.
 	wp_enqueue_style( 'wprig-base-style', get_theme_file_uri( '/css/editor-styles.css' ), array(), '20180514' );
@@ -303,10 +331,80 @@ function wprig_widgets_init() {
 		'name'          => esc_html__( 'Sidebar', 'wprig' ),
 		'id'            => 'sidebar-1',
 		'description'   => esc_html__( 'Add widgets here.', 'wprig' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer Widgets Top', 'wprig' ),
+		'description'   => esc_html__( 'Widgets appearing in the top of the footer of the site.', 'wprig' ),
+		'id'            => 'sidebar-footer-1',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer Widgets Bottom', 'wprig' ),
+		'description'   => esc_html__( 'Widgets appearing in the bottom of the footer of the site.', 'wprig' ),
+		'id'            => 'sidebar-footer-2',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Ad Above Header', 'wprig' ),
+		'description'   => esc_html__( 'Space for an ad above the header.', 'wprig' ),
+		'id'            => 'widget-ad-header',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s widget-over-header">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3 class="section-title">',
+		'after_title'   => '</h3>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Ad Above Post', 'wprig' ),
+		'description'   => esc_html__( 'Space for an ad above the Post or Page content.', 'wprig' ),
+		'id'            => 'widget-ad-pre-post',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s widget-pre-post">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3 class="section-title">',
+		'after_title'   => '</h3>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Ad After Post', 'wprig' ),
+		'description'   => esc_html__( 'Space for an ad after the Post or Page content.', 'wprig' ),
+		'id'            => 'widget-ad-post-post',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s widget-post-post">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3 class="section-title">',
+		'after_title'   => '</h3>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Ad Post Bottom', 'wprig' ),
+		'description'   => esc_html__( 'Space for an ad at the bottom of the Post or Page.', 'wprig' ),
+		'id'            => 'widget-ad-post-bottom',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s widget-post-bottom">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3 class="section-title">',
+		'after_title'   => '</h3>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Ad Fixed Footer', 'wprig' ),
+		'description'   => esc_html__( 'Space for an an in a fixed (disappearing) footer at the bottom of the Post or Page.', 'wprig' ),
+		'id'            => 'widget-ad-fixed-footer',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s widget-fixed-bottom">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3 class="section-title">',
+		'after_title'   => '</h3>',
 	) );
 }
 add_action( 'widgets_init', 'wprig_widgets_init' );
@@ -316,7 +414,9 @@ add_action( 'widgets_init', 'wprig_widgets_init' );
  */
 function wprig_styles() {
 	// Add custom fonts, used in the main stylesheet.
-	wp_enqueue_style( 'wprig-fonts', wprig_fonts_url(), array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+	wp_enqueue_style( 'wprig-fonts', wprig_fonts_url(), array(), null );
+	wp_enqueue_style( 'wprig-noto-sans-kr', 'https://fonts.googleapis.com/earlyaccess/notosanskr.css', array(), '20180810' );
+	wp_enqueue_style( 'wprig-fa', 'https://use.fontawesome.com/releases/v5.2.0/css/all.css' );
 
 	// Enqueue main stylesheet.
 	wp_enqueue_style( 'wprig-base-style', get_stylesheet_uri(), array(), '20180514' );
@@ -327,6 +427,11 @@ function wprig_styles() {
 	wp_register_style( 'wprig-sidebar', get_theme_file_uri( '/css/sidebar.css' ), array(), '20180514' );
 	wp_register_style( 'wprig-widgets', get_theme_file_uri( '/css/widgets.css' ), array(), '20180514' );
 	wp_register_style( 'wprig-front-page', get_theme_file_uri( '/css/front-page.css' ), array(), '20180514' );
+	wp_register_style( 'wprig-adsense', get_theme_file_uri( '/css/adsense.css' ), array(), '20180822' );
+
+	// Enqueue Slick slider
+	wp_enqueue_style( 'wprig-slick-slider', get_template_directory_uri() . '/slick/slick.css' );
+	wp_enqueue_style( 'wprig-slick-theme', get_template_directory_uri() . '/slick/slick-theme.css' );
 }
 add_action( 'wp_enqueue_scripts', 'wprig_styles' );
 
@@ -339,6 +444,10 @@ function wprig_scripts() {
 	if ( wprig_is_amp() ) {
 		return;
 	}
+
+	// Enqueue the main theme JS functions file.
+	wp_enqueue_script( 'wprig-functions', get_theme_file_uri( '/js/functions.js' ), array(), '20180811', false );
+	wp_script_add_data( 'wprig-functions', 'async', true );
 
 	// Enqueue the navigation script.
 	wp_enqueue_script( 'wprig-navigation', get_theme_file_uri( '/js/navigation.js' ), array(), '20180514', false );
@@ -357,8 +466,41 @@ function wprig_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
+	// Enqueue Slick Slider JS.
+	wp_enqueue_script( 'wprig-slick-js', get_template_directory_uri() . '/slick/slick.min.js', array( 'jquery' ), '20150212', true );
+
 }
 add_action( 'wp_enqueue_scripts', 'wprig_scripts' );
+
+/**
+ * Remove Jetpack Sharedaddy Sharing from post excerpts 
+ */
+function remove_sharedaddy_excerpt_sharing() {
+   remove_filter( 'the_excerpt', 'sharing_display', 19 );
+}
+add_action( 'init', 'remove_sharedaddy_excerpt_sharing', 20 );
+
+/**
+ * Add Custom Logo to Login Screen 
+ * @source https://developer.wordpress.org/reference/functions/the_custom_logo/
+ */
+function wprig_filter_login_head() {
+	if ( has_custom_logo() ) :
+		$image = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
+		?>
+		<style type="text/css">
+			.login h1 a {
+				background-image: url(<?php echo esc_url( $image[0] ); ?>);
+				-webkit-background-size: <?php echo absint( $image[1] )?>px;
+				background-size: <?php echo absint( $image[1] ) ?>px;
+				height: <?php echo absint( $image[2] ) ?>px;
+				width: <?php echo absint( $image[1] ) ?>px;
+			}
+		</style>
+		<?php
+	endif;
+}
+add_action( 'login_head', 'wprig_filter_login_head', 100 );
 
 /**
  * Custom responsive image sizes.
@@ -381,13 +523,86 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
 
 /**
+ * Load SVG icon functions.
+ */
+require get_template_directory() . '/inc/icon-functions.php';
+
+/**
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
 
 /**
- * Optional: Add theme support for lazyloading images.
+ * Pluggable: Add theme support for lazyloading images.
  *
  * @link https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/
  */
 require get_template_directory() . '/pluggable/lazyload/lazyload.php';
+
+/**
+ * Pluggable: Ad Placeholders
+ */
+require get_template_directory() . '/pluggable/ad-placeholders.php';
+
+/**
+ * Pluggable: Better Widgets
+ */
+require get_template_directory() . '/pluggable/better-widgets/archives.php';
+require get_template_directory() . '/pluggable/better-widgets/recent-comments.php';
+require get_template_directory() . '/pluggable/better-widgets/recent-posts.php';
+require get_template_directory() . '/pluggable/better-widgets/subscribe.php';
+
+/**
+ * Pluggable: Post Format Functions
+ */
+require get_template_directory() . '/pluggable/post-formats/aside.php';
+require get_template_directory() . '/pluggable/post-formats/audio.php';
+require get_template_directory() . '/pluggable/post-formats/gallery.php';
+require get_template_directory() . '/pluggable/post-formats/link.php';
+require get_template_directory() . '/pluggable/post-formats/quote.php';
+require get_template_directory() . '/pluggable/post-formats/video.php';
+
+/**
+ * Pluggable: Better Excerpts
+ */
+require get_template_directory() . '/pluggable/better-excerpts.php';
+
+/**
+ * Pluggable: Author Box
+ */
+require get_template_directory() . '/pluggable/author-box.php';
+
+/**
+ * Pluggable: Dynamic Footer
+ */
+require get_template_directory() . '/pluggable/dynamic-footer.php';
+
+/**
+ * Pluggable: Breadcrumbs
+ */
+require get_template_directory() . '/pluggable/breadcrumbs.php';
+
+/**
+ * Pluggable: Featured Posts (Stickies on Front Page)
+ */
+require get_template_directory() . '/pluggable/featured-posts.php';
+
+/**
+ * Pluggable: Post Functions (Word Count, etc)
+ */
+require get_template_directory() . '/pluggable/post-functions.php';
+
+/**
+ * Pluggable: Social Menu
+ */
+require get_template_directory() . '/pluggable/social-menu.php';
+
+/**
+ * Pluggable: Pseduo Jetpack Related Posts
+ */
+require get_template_directory() . '/pluggable/related-posts.php';
+
+/**
+ * Optional: Adds Link Section and Links Widget back into WordPress
+ */
+add_filter( 'pre_option_link_manager_enabled', '__return_true' ); 
