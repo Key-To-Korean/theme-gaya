@@ -27,7 +27,8 @@
 	</div><!-- .site-info -->
 </footer><!-- #colophon -->
 
-<i class="fa fa-chevron-circle-up .topbutton"></i>
+<!-- <i class="fa fa-chevron-circle-up topbutton"></i> -->
+<a class="topbutton" href="#"><i class="fa fa-chevron-up"></i></a>
 
 </div><!-- #page -->
 

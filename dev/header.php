@@ -31,10 +31,6 @@
 				<?php get_search_form(); ?>
 		</div>
 
-		<div class="drawer">
-			<?php get_sidebar(); ?>
-		</div>
-
 		<?php if ( has_nav_menu( 'social' ) ) : ?>
 			<nav class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Social Links Menu', 'k2k' ); ?>">
 				<?php
@@ -179,3 +175,7 @@
 			</div>
 		</header><!-- #masthead -->
 	</section><!-- .header-section -->
+
+	<div class="drawer">
+			<?php get_sidebar(); ?>
+		</div>

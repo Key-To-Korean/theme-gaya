@@ -77,6 +77,7 @@
 .post-thumbnail img {
 	margin: 0 auto;
 	grid-column: span 2;
+	width: 100%;
 }
 
 .post-thumbnail-link {
@@ -161,6 +162,18 @@
 		padding-left: 0px;
 		padding-right: 0px;
 	}
+
+	.author-box,
+	.comments-section {
+		max-width: calc(var(--content-width) * 16)px; /* Fallback for older browsers. */
+		max-width: var(--content-width)rem;
+		margin: 0 auto;
+	}
+
+	.jp-relatedposts-grid {
+		max-width: calc(var(--content-width) * 16)px; /* Fallback for older browsers. */
+		max-width: var(--content-width)rem;
+	}
 }
 
 .page-links {
@@ -201,9 +214,9 @@
 	text-decoration: none;
 	color: var(--global-header-color);
 	margin-right: 4px;
-	margin-bottom: 4px;
-	border: 2px solid #ccc;
-	border-radius: 2px;
+	margin-bottom: 6px;
+	border: 2px solid var(--gaya-grey5);
+	border-radius: 24px;
 }
 
 .tags-links a:before{
@@ -245,11 +258,17 @@
 	width: 100%;
 	margin: 0;
 	padding: 1rem 4rem;
-	bottom: 0;
+	bottom: -10rem;
 	left: 0;
 	background: white;
 	border-top: 1px solid var(--border-main-color);
 	z-index: 10;
+	line-height: 1.4;
+	transition: all 0.5s;
+}
+
+.post-navigation-container.active {
+	bottom: 0;
 }
 
 .post-navigation-sub {
@@ -268,7 +287,7 @@
 	margin-top: 0;
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
-	line-height: 1.5;
+	font-size: 1.2rem;
 }
 
 .post-navigation .post-excerpt {
@@ -345,6 +364,11 @@
 		margin-left: calc((100% - var(--content-width)rem) / 2); */
 	}
 
+}
+
+img.alignnone,
+img.aligncenter {
+	width: 100%;
 }
 
 /*--------------------------------------------------------------
@@ -619,6 +643,7 @@ embed,
 iframe,
 object {
 	max-width: 100%;
+	width: 100%;
 }
 
 /*--------------------------------------------------------------
@@ -816,6 +841,19 @@ object {
 
 .jp-sharing-input-touch .sd-content ul li {
 	padding-left: 0px;
+}
+
+#jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post {
+	width: 100%;
+}
+
+#jp-relatedposts h3.jp-relatedposts-headline em:before {
+	display: none;
+}
+
+.akismet_comment_form_privacy_notice {
+	font-size: 0.8rem;
+	opacity: 0.8;
 }
 
 /*--------------------------------------------------------------

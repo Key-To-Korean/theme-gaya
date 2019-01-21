@@ -126,7 +126,7 @@ if ( is_singular() ) : ?>
 		// );
 		?>
 
-		<h3 class="section-title">Up Next</h3>
+		<!-- <h3 class="section-title">Up Next</h3> -->
 		<?php
 		// Previous/next post navigation.
     $next_post = get_next_post();

@@ -8,17 +8,19 @@
 jQuery( document ).ready( function( $ ) {
 
     /**
-     * Back to Top button 
+     * Back to Top button
      * @TODO needs fix
      */
-    var offset = 0;
-    var speed = 250;
+    var offset = 500;
+    var speed = 500;
     var duration = 500;
     $( window ).scroll( function() {
         if ( $( this ).scrollTop() < offset ) {
             $( '.topbutton' ) .fadeOut( duration );
+            $( '.post-navigation-container' ).removeClass( 'active' );
         } else {
-        $( '.topbutton' ).fadeIn( duration );
+            $( '.topbutton' ).fadeIn( duration );
+            $( '.post-navigation-container' ).addClass( 'active' );
         }
     });
     $( '.topbutton' ).on( 'click', function() {
@@ -45,7 +47,7 @@ jQuery( document ).ready( function( $ ) {
     //       centerPadding: '50px',
     //       cssEase: 'ease',
     //       customPaging: '',
-            dots: true,
+            dots: true
 
     //       draggable: true,
     //       fade: false,
@@ -95,15 +97,18 @@ jQuery( document ).ready( function( $ ) {
     $( '#site-search-button, .search-toggle' ).click( function() {
         if ( $( '#secondary' ).hasClass( 'active' ) ) {
             $( '#secondary' ).removeClass( 'active' );
+
 //            $( '.site' ).removeClass( 'blur' );
         } else {
             $( '#secondary' ).removeClass( 'active' );
+
 //            $( '.site' ).removeClass( 'blur' );
         }
 
         // @TODO: Needs some work to turn OFF search when button is clicked again
         if ( $( '.site-search-overlay' ).hasClass( 'active' ) ) {
             $( '.site-search-overlay' ).removeClass( 'active' );
+
 //            $( '.site' ).removeClass( 'blur' );
         } else {
             $( '.site-search-overlay' ).addClass( 'active' );
@@ -112,10 +117,17 @@ jQuery( document ).ready( function( $ ) {
         }
 
     });
+
     // Turn off site search when it's not in focus
     $( '.site-search-overlay .search-field' ).focusout( function() {
        $( '.site-search-overlay' ).removeClass( 'active' );
        $( '.site' ).removeClass( 'blur' );
+    });
+
+    /* Open Drawer (Sidebar) */
+    $( '#drawer-toggle, .drawer-toggle' ).click( function() {
+        $( '.drawer' ).toggleClass( 'active' );
+        $( '.site-main' ).toggleClass( 'drawer-open' );
     });
 
     /*

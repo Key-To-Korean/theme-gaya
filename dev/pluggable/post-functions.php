@@ -164,7 +164,7 @@ function wprig_post_nav() {
                                     </div>
                             <?php } ?>
 
-                            <span class="meta-nav" aria-hidden="true"><?php _e( 'Previously', 'wprig' ); ?></span>
+                            <h3 class="meta-nav section-title" aria-hidden="true"><?php _e( 'Previously', 'wprig' ); ?></h3>
                             <span class="screen-reader-text"><?php _e( 'Previous Post', 'wprig' ); ?></span>
                             <span class="post-title"><?php echo $previous->post_title; ?></span>
 
@@ -186,7 +186,7 @@ function wprig_post_nav() {
                                     </div>
                             <?php } ?>
 
-                            <span class="meta-nav" aria-hidden="true"><?php _e( 'Next time', 'wprig' ); ?></span>
+                            <h3 class="meta-nav section-title" aria-hidden="true"><?php _e( 'Next time', 'wprig' ); ?></h3>
                             <span class="screen-reader-text"><?php _e( 'Next Post', 'wprig' ); ?></span>
                             <span class="post-title"><?php echo $next->post_title; ?></span>
 
