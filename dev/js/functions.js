@@ -18,6 +18,8 @@ jQuery( document ).ready( function( $ ) {
         if ( $( this ).scrollTop() < offset ) {
             $( '.topbutton' ) .fadeOut( duration );
             $( '.post-navigation-container' ).removeClass( 'active' );
+        } else if ( $( this ).scrollTop() > $( this ).height - 200 ) {
+            $( '.post-navigation-container' ).removeClass( 'active' );
         } else {
             $( '.topbutton' ).fadeIn( duration );
             $( '.post-navigation-container' ).addClass( 'active' );

@@ -473,12 +473,16 @@ function wprig_scripts() {
 add_action( 'wp_enqueue_scripts', 'wprig_scripts' );
 
 /**
- * Remove Jetpack Sharedaddy Sharing from post excerpts 
+ * Remove Jetpack Sharedaddy Sharing and Jetpack Likes from post excerpts 
  */
 function remove_sharedaddy_excerpt_sharing() {
-   remove_filter( 'the_excerpt', 'sharing_display', 19 );
+	 remove_filter( 'the_excerpt', 'sharing_display', 19 );
+	 if ( class_exists( 'Jetpack_Likes' ) ) {
+			remove_filter( 'the_excerpt', array( Jetpack_Likes::init(), 'post_likes' ), 30, 1 );
+		}
 }
 add_action( 'init', 'remove_sharedaddy_excerpt_sharing', 20 );
+add_action( 'loop_start', 'remove_sharedaddy_excerpt_sharing' );
 
 /**
  * Add Custom Logo to Login Screen 

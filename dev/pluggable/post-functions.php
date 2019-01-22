@@ -166,7 +166,7 @@ function wprig_post_nav() {
 
                             <h3 class="meta-nav section-title" aria-hidden="true"><?php _e( 'Previously', 'wprig' ); ?></h3>
                             <span class="screen-reader-text"><?php _e( 'Previous Post', 'wprig' ); ?></span>
-                            <span class="post-title"><?php echo $previous->post_title; ?></span>
+                            <span class="post-title"><?php echo mb_strimwidth( $previous->post_title, 0, 50, '&hellip;' ); ?></span>
 
                         </a>
                     </div>
@@ -188,7 +188,7 @@ function wprig_post_nav() {
 
                             <h3 class="meta-nav section-title" aria-hidden="true"><?php _e( 'Next time', 'wprig' ); ?></h3>
                             <span class="screen-reader-text"><?php _e( 'Next Post', 'wprig' ); ?></span>
-                            <span class="post-title"><?php echo $next->post_title; ?></span>
+                            <span class="post-title"><?php echo mb_strimwidth( $next->post_title, 0, 50, '&hellip;' ); ?></span>
 
                         </a>
                     </div>

@@ -26,7 +26,7 @@
 
 <body <?php body_class(); ?>>
 
-		<div class="site-search-overlay">
+		<div class="site-search-overlay gradient-overlay">
 				<i class="fa fa-times-circle close-search"></i>
 				<?php get_search_form(); ?>
 		</div>
