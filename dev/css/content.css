@@ -20,6 +20,11 @@
 }
 */
 
+.page-header {
+	max-width: 75rem;
+	margin: 0 auto;
+}
+
 .hentry {
 	margin-bottom: 1rem;
 }
@@ -78,12 +83,27 @@
 	margin: 0 auto;
 	grid-column: span 2;
 	width: 100%;
+	position: relative;
 }
 
 .post-thumbnail-link {
 	position: absolute;
 	width: 100%;
 	height: 100%;
+}
+
+.post-thumbnail .post-edit-link {
+	position: absolute;
+	display: block;
+	right: 1rem;
+	bottom: 1rem;
+	color: white;
+	text-decoration: none;
+	border: 1px solid white;
+	border-radius: 25px;
+	padding: 0px 20px;
+	font-size: 0.8rem;
+	background: rgba(0,0,0,0.5);
 }
 
 .placeholder {
@@ -868,12 +888,13 @@ h3.category-title.all-categories {
 }
 
 ul.archive-posts-grid {
-	margin: 0;
+	margin: 0 auto;
 	padding: 0;
 	list-style: none;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-gap: 2rem;
+	max-width: 75rem;
 }
 
 /* Author Pages */
@@ -926,8 +947,25 @@ ul.author-posts-grid {
 .author-posts-grid .post-thumbnail,
 .search-posts-grid .post-thumbnail {
 	width: 100%;
-	height: 120px;
-	background: #0073af;
+	height: 150px;
+	margin-bottom: 1rem;
+	background-image: var(--gradient-teal); 
+	transition: all 0.5s;
+	background-position: center;
+	background-size: cover;
+	position: relative;
+}
+
+.archive-posts-grid .post-thumbnail:hover,
+.archive-posts-grid .post-thumbnail:active,
+.archive-posts-grid .post-thumbnail:focus,
+.author-posts-grid .post-thumbnail:hover,
+.author-posts-grid .post-thumbnail:active,
+.author-posts-grid .post-thumbnail:focus,
+.search-posts-grid .post-thumbnail:hover,
+.search-posts-grid .post-thumbnail:active,
+.search-posts-grid .post-thumbnail:focus {
+	box-shadow: var(--image-hover-shadow);
 }
 
 .archive-posts-grid .entry-content,

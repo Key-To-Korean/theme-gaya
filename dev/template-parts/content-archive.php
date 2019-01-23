@@ -10,8 +10,8 @@
 ?>
 <li>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<div class="placeholder" style="background-image: url(<?php has_post_thumbnail() ? the_post_thumbnail_url() : ''; ?>)">
-	</div>
+
+	<?php wprig_archive_thumbnails(); ?>
 
 	<header class="entry-header">
 		<?php
@@ -26,9 +26,7 @@
 	<!-- </div>.entry-content -->
 
 	<footer class="entry-footer">
-		<?php
-		wprig_edit_post_link();
-		?>
+
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
 </li>

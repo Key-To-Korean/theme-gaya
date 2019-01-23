@@ -120,7 +120,8 @@ get_header(); ?>
 			<hr />
 		<?php } 
 
-		the_posts_navigation();
+		// the_posts_navigation();
+		wprig_paging_nav();
 
 	else :
 

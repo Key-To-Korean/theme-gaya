@@ -9,25 +9,8 @@
 
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php
-	/* Grab AN img URL to set as the background of the section */
-	if ( has_post_thumbnail() )
-		$img_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
-	elseif ( '' !== wprig_get_the_first_image_url( 'large-thumb' ) )
-		$img_url = wprig_get_the_first_image_url( 'large-thumb' );
-	elseif ( '' !== has_header_image() )
-		$img_url = get_header_image();
-	else
-		$img_url = '';
-	?>
-
-		<div class="post-thumbnail" style="background-image: url(<?php echo $img_url; ?>)">
-		<a class="post-thumbnail-link" href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
 	
-		<?php wprig_edit_post_link(); ?>
-		</a>
-		</div>
-
+	<?php wprig_archive_thumbnails(); ?>
 
 	<header class="entry-header">
 		<div class="post-cats">

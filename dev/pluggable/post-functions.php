@@ -2,12 +2,12 @@
 /**
  * Customize the Home page Post limit
  */
-function wprig_homepage_limits( $limits ) {
-    if ( is_home() ) {
-        return 'LIMIT 0, 30';
-    }
-    return $limits;
-}
+// function wprig_homepage_limits( $limits ) {
+//     if ( is_home() ) {
+//         return 'LIMIT 0, 30';
+//     }
+//     return $limits;
+// }
 // add_filter( 'post_limits', 'wprig_homepage_limits' );
 
 /**

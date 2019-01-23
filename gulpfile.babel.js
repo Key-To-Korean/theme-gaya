@@ -186,7 +186,7 @@ export function styles() {
 				'custom-media-queries': {
 					preserve: false,
 					extensions: cssVars.queries,
-				}
+				},
 			}
 		})
 	]))

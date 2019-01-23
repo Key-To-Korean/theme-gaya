@@ -62,7 +62,7 @@ get_header(); ?>
 
 		echo '</ul>';
 
-		the_posts_navigation();
+		// the_posts_navigation();
 		wprig_paging_nav();
 
 	else :

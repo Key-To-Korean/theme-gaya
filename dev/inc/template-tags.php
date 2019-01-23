@@ -340,3 +340,26 @@ function wprig_child_pages() {
 		echo '<ul class="child-page-menu">' . $childpages . '</ul>';
 	}
 }
+
+/**
+ * Custom function to get the post thumbnail, or AN image and set it for archive pages
+ */
+function wprig_archive_thumbnails() {
+	/* Grab AN img URL to set as the background of the section */
+	if ( has_post_thumbnail() )
+		$img_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+	elseif ( '' !== wprig_get_the_first_image_url( 'large-thumb' ) )
+		$img_url = wprig_get_the_first_image_url( 'large-thumb' );
+	elseif ( has_header_image() )
+		$img_url = get_header_image();
+	else
+		$img_url = '/wp-content/themes/gaya/images/korean-pattern-lg.svg';
+	?>
+
+	<div class="post-thumbnail" style="background-image: url( <?php echo $img_url; ?> ), -webkit-gradient(linear,left top,left bottom,from(#00bfa5),to(#00897b)), linear-gradient(180deg,#00bfa5,#00897b);">
+		<a class="post-thumbnail-link" href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
+		<?php wprig_edit_post_link(); ?>
+		</a>
+	</div>
+	<?
+}

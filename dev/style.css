@@ -21,7 +21,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 ----------------------------------------------------------------
 # Normalize
 # Accessibility
-# Layout
+# Layout 
 # Typography
 # Elements
 # Links
@@ -452,7 +452,7 @@ template {
 .header-section {
 	grid-column: span 2;
 	background-color: var(--gaya-white);
-	margin: 0 -4rem;
+	margin: 0 0;
 	padding: 0 4rem;
 	border-bottom: 1px solid var(--gaya-grey5);
 }
@@ -482,7 +482,10 @@ template {
 
 .site-main {
 	transition: all 0.5s;
+	margin: 0rem 4rem 0;
+	padding-top: 4rem;
 }
+
 .drawer-open {
 	transform: translateX(-25rem);
 	transition: all 0.5s;
@@ -490,7 +493,7 @@ template {
 
 @media (--sidebar-query) {
 	.has-sidebar .site {
-		margin: 0 4rem;
+		/* margin: 0 4rem; */
 		display: grid;
 		grid-template-columns: 3fr 1fr;
 		grid-gap: 2rem;
