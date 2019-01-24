@@ -610,3 +610,9 @@ require get_template_directory() . '/pluggable/related-posts.php';
  * Optional: Adds Link Section and Links Widget back into WordPress
  */
 add_filter( 'pre_option_link_manager_enabled', '__return_true' ); 
+
+/**
+ * DEV ONLY!!
+ * @TODO remove function & file before production
+ */
+require get_template_directory() . '/inc/developer-functions.php';

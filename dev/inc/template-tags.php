@@ -353,7 +353,7 @@ function wprig_archive_thumbnails() {
 	elseif ( has_header_image() )
 		$img_url = get_header_image();
 	else
-		$img_url = '/wp-content/themes/gaya/images/korean-pattern-lg.svg';
+		$img_url = wprig_placeholder_image_url();
 	?>
 
 	<div class="post-thumbnail" style="background-image: url( <?php echo $img_url; ?> ), -webkit-gradient(linear,left top,left bottom,from(#00bfa5),to(#00897b)), linear-gradient(180deg,#00bfa5,#00897b);">
@@ -362,4 +362,11 @@ function wprig_archive_thumbnails() {
 		</a>
 	</div>
 	<?
+}
+
+/**
+ * Custom function to return a placeholder image URL
+ */
+function wprig_placeholder_image_url() {
+	return '/wp-content/themes/gaya/images/korean-pattern-lg.svg';
 }
