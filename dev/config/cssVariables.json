@@ -8,6 +8,7 @@
 		"global-header-color": "#32373c",
 		"global-font-family": "'Nanum Gothic', sans-serif",
 		"global-font-size": "18",
+		"global-font-size-sm": "16",
 		"global-font-line-height": "1.8",
 		"highlight-font-family": "'Noto Sans', sans-serif",
 		"content-width": "45",

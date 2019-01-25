@@ -350,8 +350,8 @@ function wprig_archive_thumbnails() {
 		$img_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
 	elseif ( '' !== wprig_get_the_first_image_url( 'large-thumb' ) )
 		$img_url = wprig_get_the_first_image_url( 'large-thumb' );
-	elseif ( has_header_image() )
-		$img_url = get_header_image();
+	// elseif ( has_header_image() )
+	// 	$img_url = get_header_image();
 	else
 		$img_url = wprig_placeholder_image_url();
 	?>

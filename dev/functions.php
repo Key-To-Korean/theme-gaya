@@ -446,7 +446,7 @@ function wprig_scripts() {
 	}
 
 	// Enqueue the main theme JS functions file.
-	wp_enqueue_script( 'wprig-functions', get_theme_file_uri( '/js/functions.js' ), array(), '20180811', false );
+	wp_enqueue_script( 'wprig-functions', get_theme_file_uri( '/js/functions.js' ), array( 'jquery' ), '20180811', false );
 	wp_script_add_data( 'wprig-functions', 'async', true );
 
 	// Enqueue the navigation script.

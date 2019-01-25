@@ -55,8 +55,14 @@
 .widget-post-post > div {
 	grid-column: 2 / span 1;
 	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
 }
 
+.index-page .widget-post-post > div, 
+.index-page .widget-pre-post > div {
+	grid-column: span 2;
+}
 
 .adsense.fixed-footer {
 	grid-column: span 2;
@@ -88,4 +94,24 @@
 	padding: 0;
 	border: none;
 	box-shadow: none;
+}
+
+.adsense-test {
+	background-image: url(/wp-content/themes/gaya/images/korean-pattern-lg.svg),radial-gradient(circle at 1% 1%,#00bfa5,#00897b);
+	background-repeat: no-repeat;
+	background-position: 100% 100%;
+	background-size: auto;
+	text-align: center;
+	width: 720px;
+	height: 90px;
+	color: white;
+	position: relative;
+}
+
+.adsense-test span {
+	grid-column: span 2;
+	transform: translate(50%, -50%);
+	position: absolute;
+	top: 50%;
+	right: 50%;
 }

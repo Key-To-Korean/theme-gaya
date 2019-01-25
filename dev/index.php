@@ -17,7 +17,7 @@ get_header();
 wp_print_styles( array( 'gaya-content', 'gaya-front-page' ) ); // Note: If this was already done it will be skipped.
 
 ?>
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main index-page">
 
 	<?php
 	// Only show Featured Posts on the FIRST page.

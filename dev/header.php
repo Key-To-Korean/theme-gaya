@@ -95,12 +95,15 @@
 				
 				<div class="position-right">
 					<?php 
+					include_once( get_template_directory() . '/inc/class-nav-menu-dropdown.php' );
+
 					if ( has_nav_menu( 'quicklinks' ) ) :
 						wp_nav_menu(
 							array(
 								'theme_location' => 'quicklinks',
 								'menu_id'				=> 'quicklinks-menu',
-								'container'			=> 'ul',
+								'walker'         => new wprig_Nav_Menu_Dropdown(),
+        				'items_wrap'     => '<div class="mobile-menu"><form><select onchange="if (this.value) window.location.href=this.value">%3$s</select></form></div>',
 							)
 						);
 					endif;

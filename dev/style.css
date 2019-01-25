@@ -21,7 +21,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 ----------------------------------------------------------------
 # Normalize
 # Accessibility
-# Layout 
+# Layout
 # Typography
 # Elements
 # Links
@@ -543,6 +543,18 @@ textarea {
 	line-height: var(--global-font-line-height);
 }
 
+@media screen and (max-width: 45rem) {
+	body,
+	button,
+	input,
+	select,
+	optgroup,
+	textarea {
+		font-size: var(--global-font-size-sm)px;
+		font-size: calc(var(--global-font-size-sm) / 16)rem;
+	}
+}
+
 button.awesome-button,
 a.awesome-button {
 	float: right;
@@ -575,6 +587,12 @@ h5, .small-caps {
 h6 {
 	font-size: 0.8rem;
 	font-weight: 700;
+}
+@media screen and ( max-width: 45rem ) {
+	h1 { font-size: 2.2rem; }
+	h2 { font-size: 1.75rem; }
+	h3 { font-size: 1.35rem; }
+	h4 { font-size: 1rem; }
 }
 
 h3.section-title,
@@ -1138,10 +1156,8 @@ textarea {
 }
 
 .header-section .position-right {
-	/* position: absolute;
-	right: 0;
-	top: 0; */
 	text-align: right;
+	grid-column: 3;
 }
 
 .header-section .position-right div {
