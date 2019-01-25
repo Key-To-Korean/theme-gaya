@@ -26,7 +26,7 @@ get_header(); ?>
 			if ( ! empty ( $author_site ) ) {
 				echo '<li>' . 
 					'<a class="author-site" href="' . esc_url( $author_site ) . '" target="_blank" rel="nofollow">' . 
-					'<i class="fa fa-globe"></i>' . 
+					'<i class="fa fa-home"></i>' . 
 					'<span class="screen-reader-text">' . esc_html__( 'Website', 'wprig' ) . '</span>' . 
 					'</a></li>'; 
 			}
@@ -66,6 +66,8 @@ get_header(); ?>
 				endwhile;
 
 				echo '</ul>';
+
+				gaya_paging_nav();
 
 			else :
 

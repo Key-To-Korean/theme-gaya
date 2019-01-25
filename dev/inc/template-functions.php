@@ -196,3 +196,26 @@ function wprig_add_nav_menu_aria_current( $atts, $item ) {
 }
 add_filter( 'nav_menu_link_attributes', 'wprig_add_nav_menu_aria_current', 10, 2 );
 add_filter( 'page_menu_link_attributes', 'wprig_add_nav_menu_aria_current', 10, 2 );
+
+/**
+ * Change how archive titles are displayed in the theme
+ *
+ * @param string $title Archive Title
+ * @return string New Title markup
+ */
+function wprig_archive_title( $title ) {
+	if ( is_category() ) {
+			$title = single_cat_title( '', false );
+	} elseif ( is_tag() ) {
+			$title = single_tag_title( '', false );
+	} elseif ( is_author() ) {
+			$title = '<span class="vcard">' . get_the_author() . '</span>';
+	} elseif ( is_post_type_archive() ) {
+			$title = post_type_archive_title( '', false );
+	} elseif ( is_tax() ) {
+			$title = single_term_title( '', false );
+	}
+
+	return $title;
+}
+add_filter( 'get_the_archive_title', 'wprig_archive_title' );

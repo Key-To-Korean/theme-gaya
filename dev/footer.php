@@ -35,7 +35,7 @@
 <?php if ( is_active_sidebar( 'widget-ad-fixed-footer' ) ) : ?>
 	<!-- Fixed Footer Ad -->
 	<div class="adsense adsense-widget fixed-footer">
-		<i id="dismiss-footer" class="fa fa-times-circle"></i>
+		<i id="dismiss-footer" class="fa fa-times"></i>
 		<?php
 			/* Print styles for adsense widgets */
 			wp_print_styles( array( 'wprig-adsense' ) ); // Note: If this was already done it will be skipped.

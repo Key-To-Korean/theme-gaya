@@ -107,7 +107,7 @@ function wprig_setup() {
 	add_theme_support(
 		'custom-logo', array(
 			'height'      => 80,
-			'width'       => 240,
+			'width'       => 80,
 			'flex-width'  => true,
 			'flex-height' => false,
 		)

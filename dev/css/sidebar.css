@@ -1,6 +1,12 @@
 /*--------------------------------------------------------------
 # Sidebar
 --------------------------------------------------------------*/
+.dismiss-drawer {
+	position: absolute;
+	right: 4rem;
+	top: 4rem;
+	color: var(--gaya-grey4);
+}
 
 .primary-sidebar {
 	padding: 1.5rem;

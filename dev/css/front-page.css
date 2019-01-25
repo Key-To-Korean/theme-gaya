@@ -178,7 +178,7 @@
 .featured-posts {
 	margin: -2rem -4rem 2rem;
 	/* padding: 0 4rem; */
-	height: 50vh;
+	height: 70vh;
 	position: relative;
 	width: calc(100% + 8rem);
 }
@@ -207,13 +207,13 @@ h1.featured-title {
 .featured {
 	background-size: cover;
 	background-position: center;
-	height: 50vh;
+	height: 70vh;
 	padding: 4rem;
 	position: relative;
 }
 
 .featured-article {
-	height: 50vh;
+	height: 70vh;
 	margin: -4rem;
 	padding: 4rem;
 	background: rgba(0,0,0,0.5);

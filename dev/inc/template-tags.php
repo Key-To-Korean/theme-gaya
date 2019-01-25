@@ -76,18 +76,39 @@ function wprig_index_header() {
 				if ( empty( $first_name ) ) $first_name = get_the_author_meta( 'display_name' );
 
 				if ( ! empty( $first_name ) ) {
-					echo '<h1 class="page-title">' . $first_name . ' ' . $last_name . '</h1>';
-				} else {
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
+					echo '<h1 class="page-title">Author:<span>' . $first_name . ' ' . $last_name . '</span></h1>';
+				} else { ?>
+					<h1 class="page-title">
+						<?php
+						/* translators: %s: search query. */
+						printf( esc_html__( 'Author: %s', 'wprig' ), '<span>' . the_archive_title() . '</span>' );
+						?>
+					</h1>
+					<?php
 				}
 			?>
 		</header><!-- .page-header -->
 		<?php
-	} elseif ( is_archive() ) {
+	} elseif ( is_category() ) {
 		?>
 		<header class="page-header">
+			<h1 class="page-title">
+				<?php _e( 'Category: ', 'wprig' ); ?>
+				<span><?php the_archive_title(); ?></span>
+			</h1>
 			<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
+				the_archive_description( '<div class="archive-description">', '</div>' );
+			?>
+		</header><!-- .page-header -->
+		<?php
+	} elseif ( is_tag() || is_tax() ) {
+		?>
+		<header class="page-header">
+			<h1 class="page-title">
+				<?php _e( 'Keyword: ', 'wprig' ); ?>
+				<span>#<?php the_archive_title(); ?></span>
+			</h1>
+			<?php
 				the_archive_description( '<div class="archive-description">', '</div>' );
 			?>
 		</header><!-- .page-header -->

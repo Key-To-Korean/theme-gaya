@@ -27,7 +27,7 @@
 <body <?php body_class(); ?>>
 
 		<div class="site-search-overlay gradient-overlay">
-				<i class="fa fa-times-circle close-search"></i>
+				<i class="fa fa-times close-search"></i>
 				<?php get_search_form(); ?>
 		</div>
 
@@ -171,14 +171,15 @@
 					<i id="search-toggle" class="fa fa-search search-toggle"></i>
 					<a href="#search-container" class="screen-reader-text"><?php esc_html_e( 'Search this site', 'k2k' ); ?></a>
 				</div>
-				<div class="drawer-box">
-					<i id="drawer-toggle" class="fa fa-cog drawer-toggle"></i>
-					<a href="#drawer-container" class="screen-reader-text"><?php esc_html_e( 'Open Sidebar', 'k2k' ); ?></a>
-				</div>
 			</div>
 		</header><!-- #masthead -->
 	</section><!-- .header-section -->
 
+	<div class="drawer-box">
+		<i id="drawer-toggle" class="fa fa-cog drawer-toggle"></i>
+		<a href="#drawer-container" class="screen-reader-text"><?php esc_html_e( 'Open Sidebar', 'k2k' ); ?></a>
+	</div>
 	<div class="drawer">
-			<?php get_sidebar(); ?>
-		</div>
+		<i id="dismiss-drawer" class="fa fa-times dismiss-drawer"></i>
+		<?php get_sidebar(); ?>
+	</div>

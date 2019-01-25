@@ -933,7 +933,7 @@ ul.author-posts-grid {
 .archive-posts-grid .entry-title,
 .author-posts-grid .entry-title,
 .search-posts-grid .entry-title {
-	font-size: 0.9rem;
+	font-size: 1rem;
 	line-height: 1.5;
 	font-weight: normal;
 }
@@ -1014,4 +1014,24 @@ ul.search-posts-grid {
 
 .search-posts-grid .entry-header {
 	margin-top: 1rem;
+}
+
+/*--------------------------------------------------------------
+# Search & Archive Titles
+--------------------------------------------------------------*/
+.search .page-title,
+.archive .page-title {
+	text-transform: uppercase;
+	font-size: 0.7rem;
+	letter-spacing: 1px;
+	line-height: 1.5;
+	font-weight: 100;
+}
+
+.search .page-title span,
+.archive .page-title span {
+	font-size: 2.5rem;
+	display: block;
+	font-weight: bold;
+	text-transform: capitalize;
 }
