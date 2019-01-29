@@ -39,6 +39,11 @@
 	margin: 0 auto;
 }
 
+.page-section {
+	max-width: 75rem;
+	margin: 0 auto;
+}
+
 .entry-header {
 	grid-column: span 2;
 }

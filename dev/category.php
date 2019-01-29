@@ -84,7 +84,7 @@ get_header(); ?>
 
 				// The Loop
 				if ( $query->have_posts() ) {
-
+					echo '<section class="page-section">';
 					echo '<h3 class="category-title">' . $term->name . '</h3>';
 					echo '<ul class="category-posts-grid archive-posts-grid">';
 
@@ -97,6 +97,7 @@ get_header(); ?>
 					}
 
 					echo '</ul>';
+					echo '</section>';
 				} else {
 					// no posts found
 				}
@@ -107,16 +108,18 @@ get_header(); ?>
 			endforeach;
 			?> 
 			<hr />
-			<h3 class="category-title all-categories">All Categories</h3>
-			<ul class="blog-categories">
-				<?php 
-				$categories = get_category( get_query_var( 'cat' ) );
-					// use $categories->parent and '&child_of' . $categories->parent . if you want only SUB categories
-					$categories = wp_list_categories( 'orderby=id&depth=1&show_count=0
-						&title_li=&use_desc_for_title=1' .
-						"&echo=0");
-				echo $categories; ?>
-			</ul>
+			<section class="page-section">
+				<h3 class="category-title all-categories">All Categories</h3>
+				<ul class="blog-categories">
+					<?php 
+					$categories = get_category( get_query_var( 'cat' ) );
+						// use $categories->parent and '&child_of' . $categories->parent . if you want only SUB categories
+						$categories = wp_list_categories( 'orderby=id&depth=1&show_count=0
+							&title_li=&use_desc_for_title=1' .
+							"&echo=0");
+					echo $categories; ?>
+				</ul>
+			</section>
 			<hr />
 		<?php } 
 

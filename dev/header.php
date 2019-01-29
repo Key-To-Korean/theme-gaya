@@ -39,7 +39,7 @@
 									'menu_class'		 => 'social-links-menu',
 									'depth'					=> 1,
 									'link_before'		=> '<span class="screen-reader-text">',
-									'link_after'		 => '</span>' /* . k2k_get_svg( array( 'icon' => 'chain' ) ),*/
+									'link_after'		 => '</span>' . wprig_get_svg( array( 'icon' => 'chain' ) ),
 					) );
 				?>
 			</nav><!-- .social-navigation -->
@@ -48,7 +48,9 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'wprig' ); ?></a>
 
-	<section class="header-section full-bleed">
+	<section class="header-section full-bleed <?php echo has_header_image() ? 'has-header-image' : ''; ?>"
+		<?php echo has_header_image() ? 'style="background-image: url(' . get_header_image() . '); background-position: center; background-size: cover;"' : ''; ?>
+	>
 
 		<?php if ( is_active_sidebar( 'widget-ad-header' ) ) : ?>
 			<!-- Above Header Ad -->
@@ -71,13 +73,18 @@
 		<!-- Top "News Flash" type section -->
 		<div class="header-flash">
 			<div class="header-contact">
+				<?php $wprig_description = get_bloginfo( 'description', 'display' ); ?>
+				<?php if ( $wprig_description || is_customize_preview() ) : ?>
+					<p class="site-description"><?php echo $wprig_description; /* WPCS: xss ok. */ ?></p>
+				<?php endif; ?>
+
 				<?php 
 					$header_text1 = get_theme_mod( 'header_text1' );
 					$header_text2 = get_theme_mod( 'header_text2' );
 					$header_text3 = get_theme_mod( 'header_text3' );
 					
 					if ( $header_text1 || $header_text2 || $header_text3 ) : ?> 
-					<ul>
+					<ul class="header-info">
 						<?php 
 							echo $header_text1 ? "<li class='header-text-one'>$header_text1</li>" : ''; 
 							echo $header_text2 ? "<li class='header-text-two'>$header_text2</li>" : '';
@@ -87,11 +94,6 @@
 					<?php 
 					endif; 
 				?>
-
-				<?php $wprig_description = get_bloginfo( 'description', 'display' ); ?>
-				<?php if ( $wprig_description || is_customize_preview() ) : ?>
-					<p class="site-description"><?php echo $wprig_description; /* WPCS: xss ok. */ ?></p>
-				<?php endif; ?>
 				
 				<div class="position-right">
 					<?php 
@@ -118,7 +120,9 @@
 
 			<!-- <div class="site-header-container"> -->
 			<div class="site-branding">
+
 				<?php the_custom_logo(); ?>
+
 				<!-- <div class="site-title-description"> -->
 					<?php if ( is_front_page() && is_home() ) : ?>
 						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
@@ -128,6 +132,22 @@
 				<!--</div> .site-title-description -->
 			</div><!-- .site-branding -->
 			<!--</div> .site-header-container -->
+
+			<div class="position-right">
+				<button class="menu-toggle" aria-label="<?php esc_attr_e( 'Open menu', 'wprig' ); ?>" aria-controls="primary-menu" aria-expanded="false"
+					<?php if ( wprig_is_amp() ) : ?>
+						on="tap:AMP.setState( { siteNavigationMenu: { expanded: ! siteNavigationMenu.expanded } } )"
+						[aria-expanded]="siteNavigationMenu.expanded ? 'true' : 'false'"
+					<?php endif; ?>
+				>
+					<?php esc_html_e( 'Menu', 'wprig' ); ?>
+				</button>
+
+				<div class="search-box">
+					<i id="search-toggle" class="fa fa-search search-toggle"></i>
+					<a href="#search-container" class="screen-reader-text"><?php esc_html_e( 'Search this site', 'k2k' ); ?></a>
+				</div>
+			</div>
 
 			<nav id="site-navigation" class="main-navigation" aria-label="<?php esc_attr_e( 'Main menu', 'wprig' ); ?>"
 				<?php if ( wprig_is_amp() ) : ?>
@@ -144,15 +164,6 @@
 					</amp-state>
 				<?php endif; ?>
 
-				<button class="menu-toggle" aria-label="<?php esc_attr_e( 'Open menu', 'wprig' ); ?>" aria-controls="primary-menu" aria-expanded="false"
-					<?php if ( wprig_is_amp() ) : ?>
-						on="tap:AMP.setState( { siteNavigationMenu: { expanded: ! siteNavigationMenu.expanded } } )"
-						[aria-expanded]="siteNavigationMenu.expanded ? 'true' : 'false'"
-					<?php endif; ?>
-				>
-					<?php esc_html_e( 'Menu', 'wprig' ); ?>
-				</button>
-
 				<div class="primary-menu-container">
 					<?php
 					wp_nav_menu(
@@ -165,13 +176,6 @@
 					?>
 				</div>
 			</nav><!-- #site-navigation -->
-
-			<div class="position-right">
-				<div class="search-box">
-					<i id="search-toggle" class="fa fa-search search-toggle"></i>
-					<a href="#search-container" class="screen-reader-text"><?php esc_html_e( 'Search this site', 'k2k' ); ?></a>
-				</div>
-			</div>
 		</header><!-- #masthead -->
 	</section><!-- .header-section -->
 

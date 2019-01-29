@@ -416,7 +416,7 @@ function wprig_styles() {
 	// Add custom fonts, used in the main stylesheet.
 	wp_enqueue_style( 'wprig-fonts', wprig_fonts_url(), array(), null );
 	wp_enqueue_style( 'wprig-noto-sans-kr', 'https://fonts.googleapis.com/earlyaccess/notosanskr.css', array(), '20180810' );
-	wp_enqueue_style( 'wprig-fa', 'https://use.fontawesome.com/releases/v5.2.0/css/all.css' );
+	wp_enqueue_style( 'wprig-fa', 'https://use.fontawesome.com/releases/v5.7.0/css/all.css', array(), '20190129' );
 
 	// Enqueue main stylesheet.
 	wp_enqueue_style( 'wprig-base-style', get_stylesheet_uri(), array(), '20180514' );

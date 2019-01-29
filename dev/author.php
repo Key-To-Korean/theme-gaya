@@ -18,7 +18,7 @@ get_header(); ?>
 	wprig_index_header();
 	?>
 
-	<div class="author-page-section">
+	<div class="author-page-section page-section">
 		<ul class="author-links">
 			<?php 
 			/* author email, website, SNS section */ 
