@@ -26,6 +26,8 @@
 
 <body <?php body_class(); ?>>
 
+	<?php $header_img_class = has_header_image() ? 'has-header-img' : ''; ?>
+
 		<div class="site-search-overlay gradient-overlay">
 				<i class="fa fa-times close-search"></i>
 				<?php get_search_form(); ?>
@@ -54,7 +56,7 @@
 
 		<?php if ( is_active_sidebar( 'widget-ad-header' ) ) : ?>
 			<!-- Above Header Ad -->
-			<div class="adsense adsense-widget above-header">
+			<div class="adsense adsense-widget above-header <?php echo $header_img_class; ?>">
 				<?php
 					/* Print styles for adsense widgets */
 					wp_print_styles( array( 'wprig-adsense' ) ); // Note: If this was already done it will be skipped.
@@ -71,7 +73,7 @@
 		</div><!-- #site-search-container -->
 		
 		<!-- Top "News Flash" type section -->
-		<div class="header-flash">
+		<div class="header-flash <?php echo $header_img_class; ?>">
 			<div class="header-contact">
 				<?php $wprig_description = get_bloginfo( 'description', 'display' ); ?>
 				<?php if ( $wprig_description || is_customize_preview() ) : ?>

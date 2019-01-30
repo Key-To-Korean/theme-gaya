@@ -296,6 +296,27 @@ function wprig_customize_register( $wp_customize ) {
 										'type'							=> 'checkbox',
 										'section'					 => 'theme_options'
 								));
+
+				/**
+         * Login Section options
+         */
+        // $wp_customize->add_section( 'login_options',
+        //         array(
+        //             'title'             => __( 'Login Options', 'marsxi' ),
+        //         ) );
+        
+        $wp_customize->add_setting( 'show_login_button',
+                array(
+                    'default'           => true,
+                    'sanitize_callback' => 'marsxi_sanitize_checkbox',
+                ) );
+        
+        $wp_customize->add_control( 'show_login_button',
+                array(
+                    'type'              => 'checkbox',
+                    'section'           => 'theme_options',
+                    'label'             => __( 'Show Login button in Top Menu?', 'marsxi' ),
+                ) );
 }
 add_action( 'customize_register', 'wprig_customize_register' );
 

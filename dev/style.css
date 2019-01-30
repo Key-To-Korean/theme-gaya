@@ -543,6 +543,7 @@ select,
 optgroup,
 textarea {
 	color: var(--global-font-color);
+	color: var(--gaya-grey);
 	font-family: var(--global-font-family);
 	font-size: var(--global-font-size)px;
 	font-size: calc(var(--global-font-size) / 16)rem;
@@ -1025,9 +1026,14 @@ a:hover, a:active {
 	border-bottom: 1px solid;
 }
 
+a.more-link {
+	border-bottom: 1px solid var(--gaya-grey3);
+}
+
 a.read-more {
 	text-decoration: none;
 	border: 0;
+	border-bottom: none;
 	font-size: 0.8rem;
 	margin-left: 1rem;
 	color: var(--gaya-black);
@@ -1126,9 +1132,191 @@ textarea {
 	width: 100%;
 }
 
+/*BUTTONS *
+-----------------------------------------------*/
+
+a {
+  color: var(--gaya-teal-a);
+  text-decoration: none;
+  outline: 0;
+}
+
+.entry-content a:hover,
+.entry-content a:focus,
+.entry-content a:active {
+  border-bottom: 2px solid var(--gaya-teal-a);
+}
+
+.btn,
+button,
+.more-link,
+.comment-reply-link,
+.comment-form .form-submit input
+input[type="submit"] {
+  display: inline-block;
+  background: var(--gaya-white);
+  color: var(--gaya-black);
+  font-size: 0.75rem;
+	text-transform: uppercase;
+	text-decoration: none;
+  font-weight: bold;
+  line-height: 1;
+  padding: 0.75rem 1.35rem 0.75rem 1.35rem;
+  border: 1px solid var(--gaya-grey4);
+  text-align: center;
+  transition: all 0.3s;
+  border-radius: 50px;
+  cursor: pointer;
+  /* box-shadow: 0 3px 0 @blue/1.2; */
+}
+
+.btn a,
+button a {
+	border-bottom: none;
+}
+
+.btn:hover, 
+.btn:focus,
+button:hover, 
+button:focus,
+.more-link:hover,
+.more-link:focus,
+.comment-reply-link:hover,
+.comment-reply-link:focus,
+.comment-form .form-submit input:hover,
+.comment-form .form-submit input:focus {
+	color: var(--gaya-teal-a);
+	border: 1px solid var(--gaya-teal-a);
+}
+
+.btn.alt {
+  background: var(--gaya-teal-a);
+  border-color: var(--gaya-teal-a);
+  color: var(--gaya-white);
+}
+
+.btn.alt:hover, 
+.btn.alt:focus {
+	background: var(--gaya-teal-dk);
+	border-color: var(--gaya-teal-dk);
+}
+
+.btn.pink {
+  background: var(--gaya-pink-a);
+  border-color: var(--gaya-pink-a);
+  color: var(--gaya-white);
+}
+
+.btn.pink:hover, 
+.btn.pink:focus {
+	background: var(--gaya-pink-dk);
+	border-color: var(--gaya-pink-dk);
+}
+
+.btn.amber {
+  background: var(--gaya-amber-a);
+  border-color: var(--gaya-amber-a);
+  color: var(--gaya-white);
+}
+
+.btn.amber:hover, 
+.btn.amber:focus {
+	background: var(--gaya-amber-dk);
+	border-color: var(--gaya-amber-dk);
+}
+
+.btn.blue {
+  background: var(--gaya-blue-a);
+  border-color: var(--gaya-blue-a);
+  color: var(--gaya-white);
+}
+
+.btn.blue:hover, 
+.btn.blue:focus {
+	background: var(--gaya-blue-dk);
+	border-color: var(--gaya-blue-dk);
+}
+
+.btn.purple {
+  background: var(--gaya-purple-a);
+  border-color: var(--gaya-purple-a);
+  color: var(--gaya-white);
+}
+
+.btn.purple:hover, 
+.btn.purple:focus {
+	background: var(--gaya-purple-dk);
+	border-color: var(--gaya-purple-dk);
+}
+
+.btn.grey {
+  background: var(--gaya-grey3);
+  border-color: var(--gaya-grey3);
+  color: var(--gaya-white);
+}
+
+.btn.grey:hover, 
+.btn.grey:focus {
+	background: var(--gaya-grey);
+	border-color: var(--gaya-grey);
+}
+
+.btn-border {
+  background: none;
+  border: 1px solid var(--gaya-teal-a);
+  color: var(--gaya-teal-a);
+}
+
+.btn-border:hover {
+	background: var(--gaya-teal-a);
+	border-color: var(--gaya-teal-a);
+	color: var(--gaya-white);
+}
+
+.btn-big {
+  font-size: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.btn-small {
+  font-size: .6rem;
+}
+
+.btn.disabled {
+  background: rgba(135,149,161,0.2);
+  border-color: transparent;
+  color: var(--gaya-grey3);
+  cursor: not-allowed;
+}
+
+input.btn,
+input[type="submit"] {
+  background: var(--gaya-teal-a);
+  border-color: var(--gaya-teal-a);
+  color: var(--gaya-white);
+}
+
+input.btn:hover,
+input.btn:focus,
+input.btn:active,
+input[type="submit"]:hover,
+input[type="submit"]:focus,
+input[type="submit"]:active {
+    background: var(--gaya-teal-dk);
+    border-color: var(--gaya-teal-dk);
+    color: var(--gaya-white);
+  }
+
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
+
+.adsense.has-header-img,
+.header-flash.has-header-img {
+	border: none;
+	color: white;
+}
 
 .header-flash {
 	position: relative;
@@ -1360,6 +1548,7 @@ textarea {
 	border-radius: 10px 0 0 10px;
 	box-shadow: var(--image-hover-shadow);
 	z-index: 9;
+	cursor: pointer;
 }
 
 .drawer-box.active {

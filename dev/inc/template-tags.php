@@ -217,14 +217,16 @@ function wprig_edit_post_link() {
 				__( 'Edit <span class="screen-reader-text">%s</span>', 'wprig' ),
 				array(
 					'span' => array(
-						'class' => array(),
+						'class' => array( 'btn' ),
 					),
 				)
 			),
 			get_the_title()
 		),
 		'<span class="edit-link">',
-		'</span>'
+		'</span>',
+		get_the_ID(),
+		'btn post-edit-link'
 	);
 }
 

@@ -154,7 +154,7 @@
 	text-align: right;
 }
 
-.comment-reply-link,
+/* .comment-reply-link,
 .comment-form .form-submit input {
 	display: inline-block;
 	padding: .5em 1.4em;
@@ -174,7 +174,7 @@
 .comment-form .form-submit input:focus {
 	border-color: black;
 	cursor: pointer;
-}
+} */
 
 .comment-content ol {
 	list-style-type: decimal;

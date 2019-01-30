@@ -127,7 +127,7 @@ jQuery( document ).ready( function( $ ) {
     });
 
     /* Open Drawer (Sidebar) */
-    $( '#drawer-toggle, .drawer-toggle, .dismiss-drawer' ).click( function() {
+    $( '#drawer-toggle, .drawer-toggle, .dismiss-drawer, .drawer-box' ).click( function() {
         $( '.drawer' ).toggleClass( 'active' );
 
         // $( '.site-main' ).toggleClass( 'drawer-open' ); .
