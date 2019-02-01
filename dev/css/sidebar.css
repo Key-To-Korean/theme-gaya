@@ -6,6 +6,7 @@
 	right: 4rem;
 	top: 4rem;
 	color: var(--gaya-grey4);
+	cursor: pointer;
 }
 
 .primary-sidebar {

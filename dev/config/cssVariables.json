@@ -51,10 +51,10 @@
 		"gradient-grey": "-webkit-gradient(linear,left top,left bottom,from(@grey-lighter),to(@grey)); background-image: linear-gradient(180deg,@grey-lighter,@grey);"
 	},
 	"queries": {
-		"narrow-menu-query": "screen and (max-width: 37.5em)",
-		"wide-menu-query": "screen and (min-width: 37.5em)",
-		"content-query": "screen and (min-width: 48em)",
-		"sidebar-query": "screen and (min-width: 60em)",
+		"phone-query": "screen and (max-width: 37.5em)",
+		"tablet-query": "screen and (min-width: 37.5em)",
+		"desktop-query": "screen and (min-width: 48em)",
+		"wide-query": "screen and (min-width: 60em)",
 		"widescreen-query": "screen and (min-width: 80em)"
 	},
 	"gradients": {

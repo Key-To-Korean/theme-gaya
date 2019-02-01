@@ -114,7 +114,8 @@ jQuery( document ).ready( function( $ ) {
 //            $( '.site' ).removeClass( 'blur' );
         } else {
             $( '.site-search-overlay' ).addClass( 'active' );
-            $( '.site' ).addClass( 'blur' );
+
+            // $( '.site' ).addClass( 'blur' );.
             $( '.site-search-overlay .search-field' ).focus();
         }
 
@@ -123,11 +124,15 @@ jQuery( document ).ready( function( $ ) {
     // Turn off site search when it's not in focus
     $( '.site-search-overlay .search-field' ).focusout( function() {
        $( '.site-search-overlay' ).removeClass( 'active' );
-       $( '.site' ).removeClass( 'blur' );
+
+    //    $( '.site' ).removeClass( 'blur' );
+    });
+    $( '.close-search' ).click( function() {
+        $( '.site-search-overlay' ).removeClass( 'active' );
     });
 
     /* Open Drawer (Sidebar) */
-    $( '#drawer-toggle, .drawer-toggle, .dismiss-drawer, .drawer-box' ).click( function() {
+    $( '.dismiss-drawer, .drawer-box' ).click( function() {
         $( '.drawer' ).toggleClass( 'active' );
 
         // $( '.site-main' ).toggleClass( 'drawer-open' ); .
@@ -191,6 +196,14 @@ jQuery( document ).ready( function( $ ) {
     /* Dismiss Adsense footer */
     $( '#dismiss-footer' ).click( function() {
         $( '.adsense.fixed-footer' ).addClass( 'dismissed' );
+    });
+
+
+    $( '.menu-toggle' ).click( function() {
+        $( '.main-navigation' ).toggleClass( 'toggled-on' );
+    });
+    $( '#dismiss-menu' ).click( function() {
+        $( '.main-navigation' ).removeClass( 'toggled-on' );
     });
 
 });

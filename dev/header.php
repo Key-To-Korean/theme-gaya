@@ -167,6 +167,7 @@
 				<?php endif; ?>
 
 				<div class="primary-menu-container">
+					<i id="dismiss-menu" class="fa fa-times"></i>
 					<?php
 					wp_nav_menu(
 						array(
