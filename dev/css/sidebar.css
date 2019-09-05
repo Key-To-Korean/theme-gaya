@@ -14,7 +14,9 @@
 	font-family: var(--highlight-font-family);
 }
 
-@media (--sidebar-query) {
+@media screen and (min-width: 60em) {
+
+	/* --sidebar-query */
 	.primary-sidebar {
 		padding: 0;
 	}

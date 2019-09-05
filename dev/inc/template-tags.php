@@ -71,21 +71,24 @@ function wprig_index_header() {
 		?>
 		<header class="page-header">
 			<?php
-				$first_name = get_the_author_meta( 'first_name' );
-				$last_name = get_the_author_meta( 'last_name' );
-				if ( empty( $first_name ) ) $first_name = get_the_author_meta( 'display_name' );
+			$first_name = get_the_author_meta( 'first_name' );
+			$last_name  = get_the_author_meta( 'last_name' );
+			if ( empty( $first_name ) ) {
+				$first_name = get_the_author_meta( 'display_name' );
+			}
 
-				if ( ! empty( $first_name ) ) {
-					echo '<h1 class="page-title">Author:<span>' . $first_name . ' ' . $last_name . '</span></h1>';
-				} else { ?>
-					<h1 class="page-title">
-						<?php
-						/* translators: %s: search query. */
-						printf( esc_html__( 'Author: %s', 'wprig' ), '<span>' . the_archive_title() . '</span>' );
-						?>
-					</h1>
+			if ( ! empty( $first_name ) ) {
+				echo '<h1 class="page-title">Author:<span>' . esc_attr( $first_name ) . ' ' . esc_attr( $last_name ) . '</span></h1>';
+			} else {
+				?>
+				<h1 class="page-title">
 					<?php
-				}
+					/* translators: %s: search query. */
+					printf( esc_html__( 'Author: %s', 'wprig' ), '<span>' . esc_attr( the_archive_title() ) . '</span>' );
+					?>
+				</h1>
+				<?php
+			}
 			?>
 		</header><!-- .page-header -->
 		<?php

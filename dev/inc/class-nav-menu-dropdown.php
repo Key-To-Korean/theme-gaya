@@ -13,11 +13,12 @@ class wprig_Nav_Menu_Dropdown extends Walker_Nav_Menu {
 	 *
 	 * @param  string $output Passed by reference. Used to append additional content.
 	 * @param  object $item   Menu item data object.
-	 * @param  int $depth     Depth of menu item. May be used for padding.
-	 * @param  array $args    Additional strings.
+	 * @param  int    $depth  Depth of menu item. May be used for padding.
+	 * @param  array  $args   Additional strings.
+	 * @param  int    $id     Post ID.
 	 * @return void
 	 */
-	function start_el(&$output, $item, $depth = 0, $args = Array(), $id = 0) {
+	function start_el( &$output, $item, $depth = 0, $args = Array(), $id = 0) {
 		$url = '#' !== $item->url ? $item->url : '';
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 

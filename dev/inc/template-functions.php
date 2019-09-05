@@ -200,7 +200,7 @@ add_filter( 'page_menu_link_attributes', 'wprig_add_nav_menu_aria_current', 10, 
 /**
  * Change how archive titles are displayed in the theme
  *
- * @param string $title Archive Title
+ * @param  string $title Archive Title.
  * @return string New Title markup
  */
 function wprig_archive_title( $title ) {

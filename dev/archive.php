@@ -38,21 +38,23 @@ get_header(); ?>
 			 */
 			get_template_part( 'template-parts/content', 'archive' );
 
-		$count++;
+			$count++;
 		endwhile;
 
 		echo '</ul>';
 
-		/* Finally a Posts Navigation */
+		/*
+			Finally a Posts Navigation
+		*/
 		// the_posts_navigation();
 		gaya_paging_nav();
 
-	else :
+		else :
 
-		get_template_part( 'template-parts/content', 'none' );
+			get_template_part( 'template-parts/content', 'none' );
 
 	endif;
-	?>
+		?>
 
 	</main><!-- #primary -->
 

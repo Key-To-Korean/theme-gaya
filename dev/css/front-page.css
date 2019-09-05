@@ -2,7 +2,9 @@
  * Custom styles for the front-page.php template.
  */
 
-@media (--sidebar-query) {
+@media screen and (min-width: 60em) {
+
+	/* --sidebar-query (doesn't exist) */
 	.site {
 		margin: 0;
 		display: grid;
@@ -22,7 +24,7 @@
 	}
 
 	.front-page-row .post-thumbnail {
-		background-image: url(/wp-content/themes/gaya/images/korean-pattern-lg.svg),var(--gradient-teal);
+		background-image: url(/wp-content/themes/gaya/images/korean-pattern-lg.svg), var(--gradient-teal);
 		background-size: cover;
 		background-position: center;
 		margin-bottom: 2rem;
@@ -41,8 +43,8 @@
 		border-radius: 25px;
 		padding: 10px 20px;
 		font-size: 0.7rem;
-		background: rgba(0,0,0,0.5);
-}
+		background: rgba(0, 0, 0, 0.5);
+	}
 
 	.front-page-row .entry-title {
 		margin-top: 0;
@@ -194,7 +196,7 @@ h1.featured-title {
 	left: 4rem;
 }
 
-.site-main > .featured-title {
+.site-main>.featured-title {
 	color: white;
 	z-index: 3;
 	position: absolute;
@@ -221,7 +223,7 @@ h1.featured-title {
 	height: 70vh;
 	margin: -4rem;
 	padding: 4rem;
-	background: rgba(0,0,0,0.5);
+	background: rgba(0, 0, 0, 0.5);
 	color: white;
 }
 
@@ -295,7 +297,7 @@ h1.featured-title {
 
 .featured .entry-meta span.entry-permalink {
 	background: var(--material-teal-a700);
-	border-color: var(--material-teal-a700)!important;
+	border-color: var(--material-teal-a700) !important;
 }
 
 .featured .entry-meta {

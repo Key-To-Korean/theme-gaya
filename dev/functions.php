@@ -49,10 +49,10 @@ function wprig_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'primary' => esc_html__( 'Primary', 'wprig' ),
+			'primary'    => esc_html__( 'Primary', 'wprig' ),
 			'quicklinks' => esc_html__( 'Quicklinks', 'wprig' ),
-			'social'  => esc_html__( 'Social', 'wprig' ),
-			'footer'  => esc_html__( 'Footer', 'wprig' ),
+			'social'     => esc_html__( 'Social', 'wprig' ),
+			'footer'     => esc_html__( 'Footer', 'wprig' ),
 		)
 	);
 
@@ -61,7 +61,8 @@ function wprig_setup() {
 		* to output valid HTML5.
 		*/
 	add_theme_support(
-		'html5', array(
+		'html5',
+		array(
 			'search-form',
 			'comment-form',
 			'comment-list',
@@ -74,22 +75,27 @@ function wprig_setup() {
 	 * Enable support for Post Formats.
 	 * See https://developer.wordpress.org/themes/functionality/post-formats/
 	 */
-	add_theme_support( 'post-formats', array(
-		'aside',    // style needed
-		'status',   // style needed
-		'quote',    // style needed
-		'link',     // style needed
-		'image',    // style needed
-		'gallery',  // style needed
-		'video',    // style needed
-		'audio',    // style needed
-		'chat',     // style needed	
-	) );
+	add_theme_support(
+		'post-formats',
+		array(
+			'aside',    // style needed.
+			'status',   // style needed.
+			'quote',    // style needed.
+			'link',     // style needed.
+			'image',    // style needed.
+			'gallery',  // style needed.
+			'video',    // style needed.
+			'audio',    // style needed.
+			'chat',     // style needed.
+		)
+	);
 
 	// Set up the WordPress core custom background feature.
 	add_theme_support(
-		'custom-background', apply_filters(
-			'wprig_custom_background_args', array(
+		'custom-background',
+		apply_filters(
+			'wprig_custom_background_args',
+			array(
 				'default-color' => 'ffffff',
 				'default-image' => '',
 			)
@@ -105,7 +111,8 @@ function wprig_setup() {
 	 * @link https://codex.wordpress.org/Theme_Logo
 	 */
 	add_theme_support(
-		'custom-logo', array(
+		'custom-logo',
+		array(
 			'height'      => 80,
 			'width'       => 80,
 			'flex-width'  => true,
@@ -125,53 +132,55 @@ function wprig_setup() {
 	 *
 	 * @link https://wordpress.org/gutenberg/handbook/extensibility/theme-support/
 	 */
-	add_theme_support( 'editor-color-palette', array(
+	add_theme_support(
+		'editor-color-palette',
 		array(
-			'name'  => __( 'Dusty orange', 'wprig' ),
-			'slug'  => 'dusty-orange',
-			'color' => '#ed8f5b',
-		),
-		array(
-			'name'  => __( 'Dusty red', 'wprig' ),
-			'slug'  => 'dusty-red',
-			'color' => '#e36d60',
-		),
-		array(
-			'name'  => __( 'Dusty wine', 'wprig' ),
-			'slug'  => 'dusty-wine',
-			'color' => '#9c4368',
-		),
-		array(
-			'name'  => __( 'Dark sunset', 'wprig' ),
-			'slug'  => 'dark-sunset',
-			'color' => '#33223b',
-		),
-		array(
-			'name'  => __( 'Almost black', 'wprig' ),
-			'slug'  => 'almost-black',
-			'color' => '#0a1c28',
-		),
-		array(
-			'name'  => __( 'Dusty water', 'wprig' ),
-			'slug'  => 'dusty-water',
-			'color' => '#41848f',
-		),
-		array(
-			'name'  => __( 'Dusty sky', 'wprig' ),
-			'slug'  => 'dusty-sky',
-			'color' => '#72a7a3',
-		),
-		array(
-			'name'  => __( 'Dusty daylight', 'wprig' ),
-			'slug'  => 'dusty-daylight',
-			'color' => '#97c0b7',
-		),
-		array(
-			'name'  => __( 'Dusty sun', 'wprig' ),
-			'slug'  => 'dusty-sun',
-			'color' => '#eee9d1',
-		),
-	) );
+			array(
+				'name'  => __( 'Dusty orange', 'wprig' ),
+				'slug'  => 'dusty-orange',
+				'color' => '#ed8f5b',
+			),
+			array(
+				'name'  => __( 'Dusty red', 'wprig' ),
+				'slug'  => 'dusty-red',
+				'color' => '#e36d60',
+			),
+			array(
+				'name'  => __( 'Dusty wine', 'wprig' ),
+				'slug'  => 'dusty-wine',
+				'color' => '#9c4368',
+			),
+			array(
+				'name'  => __( 'Dark sunset', 'wprig' ),
+				'slug'  => 'dark-sunset',
+				'color' => '#33223b',
+			),
+			array(
+				'name'  => __( 'Almost black', 'wprig' ),
+				'slug'  => 'almost-black',
+				'color' => '#0a1c28',
+			),
+			array(
+				'name'  => __( 'Dusty water', 'wprig' ),
+				'slug'  => 'dusty-water',
+				'color' => '#41848f',
+			),
+			array(
+				'name'  => __( 'Dusty sky', 'wprig' ),
+				'slug'  => 'dusty-sky',
+				'color' => '#72a7a3',
+			),
+			array(
+				'name'  => __( 'Dusty daylight', 'wprig' ),
+				'slug'  => 'dusty-daylight',
+				'color' => '#97c0b7',
+			),
+			array(
+				'name'  => __( 'Dusty sun', 'wprig' ),
+				'slug'  => 'dusty-sun',
+				'color' => '#eee9d1',
+			),
+		) );
 
 	/**
 	 * Optional: Disable custom colors in block color palettes.
@@ -414,7 +423,7 @@ add_action( 'widgets_init', 'wprig_widgets_init' );
  */
 function wprig_styles() {
 	// Add custom fonts, used in the main stylesheet.
-	wp_enqueue_style( 'wprig-fonts', wprig_fonts_url(), array(), null );
+	wp_enqueue_style( 'wprig-fonts', wprig_fonts_url(), array(), '20190905' );
 	wp_enqueue_style( 'wprig-noto-sans-kr', 'https://fonts.googleapis.com/earlyaccess/notosanskr.css', array(), '20180810' );
 	wp_enqueue_style( 'wprig-fa', 'https://use.fontawesome.com/releases/v5.7.0/css/all.css', array(), '20190129' );
 
@@ -429,9 +438,9 @@ function wprig_styles() {
 	wp_register_style( 'wprig-front-page', get_theme_file_uri( '/css/front-page.css' ), array(), '20180514' );
 	wp_register_style( 'wprig-adsense', get_theme_file_uri( '/css/adsense.css' ), array(), '20180822' );
 
-	// Enqueue Slick slider
-	wp_enqueue_style( 'wprig-slick-slider', get_template_directory_uri() . '/slick/slick.css' );
-	wp_enqueue_style( 'wprig-slick-theme', get_template_directory_uri() . '/slick/slick-theme.css' );
+	// Enqueue Slick slider.
+	wp_enqueue_style( 'wprig-slick-slider', get_template_directory_uri() . '/slick/slick.css', array(), '20190905' );
+	wp_enqueue_style( 'wprig-slick-theme', get_template_directory_uri() . '/slick/slick-theme.css', array(), '20190905' );
 }
 add_action( 'wp_enqueue_scripts', 'wprig_styles' );
 
