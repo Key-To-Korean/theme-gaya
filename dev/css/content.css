@@ -85,9 +85,9 @@
 }
 
 /* Hides the update date and time. */
-.updated:not(.published) {
-	/* display: none; */
-}
+/* .updated:not(.published) {
+	display: none;
+} */
 
 .post-thumbnail {
 	margin: 2rem 0;
@@ -422,17 +422,17 @@
 @media screen and (min-width: 48em) {
 	/* --content-query */
 
-	.wp-caption.alignright,
+	/* .wp-caption.alignright,
 	.wp-block-image.alignright {
-		/* margin-right: calc((100% - calc(var(--content-width) * 16)px) / 2);
-		margin-right: calc((100% - var(--content-width)rem) / 2); */
-	}
+		margin-right: calc((100% - calc(var(--content-width) * 16)px) / 2);
+		margin-right: calc((100% - var(--content-width)rem) / 2);
+	} */
 
-	.wp-caption.alignleft,
+	/* .wp-caption.alignleft,
 	.wp-block-image.alignleft {
-		/* margin-left: calc((100% - calc(var(--content-width) * 16)px) / 2);
-		margin-left: calc((100% - var(--content-width)rem) / 2); */
-	}
+		margin-left: calc((100% - calc(var(--content-width) * 16)px) / 2);
+		margin-left: calc((100% - var(--content-width)rem) / 2);
+	} */
 
 }
 

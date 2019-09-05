@@ -119,11 +119,11 @@
 		/* border: 1px solid hsl(0, 0%, 50%); */
 	}
 
-	.post:first-of-type {
-		/* grid-column: span 2;
+	/* .post:first-of-type {
+		grid-column: span 2;
 		margin: 0;
-		padding: 0; */
-	}
+		padding: 0;
+	} */
 
 	.post-thumbnail {
 		display: block;

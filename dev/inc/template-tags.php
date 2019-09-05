@@ -96,7 +96,7 @@ function wprig_index_header() {
 		?>
 		<header class="page-header">
 			<h1 class="page-title">
-				<?php _e( 'Category: ', 'wprig' ); ?>
+				<?php esc_attr_e( 'Category: ', 'wprig' ); ?>
 				<span><?php the_archive_title(); ?></span>
 			</h1>
 			<?php
@@ -108,7 +108,7 @@ function wprig_index_header() {
 		?>
 		<header class="page-header">
 			<h1 class="page-title">
-				<?php _e( 'Keyword: ', 'wprig' ); ?>
+				<?php esc_attr_e( 'Keyword: ', 'wprig' ); ?>
 				<span>#<?php the_archive_title(); ?></span>
 			</h1>
 			<?php
@@ -163,7 +163,7 @@ function wprig_post_categories() {
 		$categories_list = get_the_category_list( esc_html__( ' &bull; ', 'wprig' ) );
 		if ( $categories_list ) {
 			/* translators: 1: list of categories. */
-			echo '<span class="cat-links">' . $categories_list . ' </span>';
+			echo '<span class="cat-links">' . esc_html( $categories_list ) . ' </span>';
 		}
 	}
 }
@@ -177,10 +177,10 @@ function wprig_post_tags() {
 	// Only show tags on post types that have categories.
 	if ( 'post' === get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html_x( '', 'list item separator', 'wprig' ) );
+		$tags_list = get_the_tag_list( '' );
 		if ( $tags_list ) {
 			/* translators: 1: list of tags. */
-			echo '<span class="tags-links">' . $tags_list . ' </span>';
+			echo '<span class="tags-links">' . esc_html( $tags_list ) . ' </span>';
 		}
 	}
 }
@@ -272,7 +272,8 @@ function wprig_post_thumbnail() {
 				);
 			} else {
 				the_post_thumbnail(
-					'post-thumbnail', array(
+					'post-thumbnail',
+					array(
 						'alt' => the_title_attribute(
 							array(
 								'echo' => false,
@@ -334,17 +335,19 @@ function wprig_the_attachment_navigation() {
 
 /**
  * Get the Excerpt for Post Navigation
- * 
+ *
  * Needs to use setup_postdata(); for Posts without defined Excerpts
- * 
+ *
+ * @param int $post_id The ID of the Post.
+ *
  * @link https://developer.wordpress.org/reference/functions/get_the_excerpt/
  */
 function wprig_get_the_excerpt( $post_id = null ) {
-	if ( empty ( $post_id ) ) {
+	if ( empty( $post_id ) ) {
 		$excerpt = '';
 	} else {
-		setup_postdata( $post_id ); 
-		$excerpt = get_the_excerpt( $post_id ); 
+		setup_postdata( $post_id );
+		$excerpt = get_the_excerpt( $post_id );
 		wp_reset_postdata();
 	}
 	return $excerpt;
@@ -352,18 +355,20 @@ function wprig_get_the_excerpt( $post_id = null ) {
 
 /**
  * Create a Child Pages menu for a Parent Page.
- * @source 
+ *
+ * @source
  */
-function wprig_child_pages() { 
-	global $post; 
-	 
-	if ( is_page() && $post->post_parent )
+function wprig_child_pages() {
+	global $post;
+
+	if ( is_page() && $post->post_parent ) {
 		$childpages = wp_list_pages( 'sort_column=menu_order&title_li=&child_of=' . $post->post_parent . '&echo=0' );
-	else
+	} else {
 		$childpages = wp_list_pages( 'sort_column=menu_order&title_li=&child_of=' . $post->ID . '&echo=0' );
-	 
+	}
+
 	if ( $childpages ) {
-		echo '<ul class="child-page-menu">' . $childpages . '</ul>';
+		echo '<ul class="child-page-menu">' . esc_html( $childpages ) . '</ul>';
 	}
 }
 
@@ -372,22 +377,27 @@ function wprig_child_pages() {
  */
 function wprig_archive_thumbnails() {
 	/* Grab AN img URL to set as the background of the section */
-	if ( has_post_thumbnail() )
+	if ( has_post_thumbnail() ) {
 		$img_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
-	elseif ( '' !== wprig_get_the_first_image_url( 'large-thumb' ) )
+	} elseif ( '' !== wprig_get_the_first_image_url( 'large-thumb' ) ) {
 		$img_url = wprig_get_the_first_image_url( 'large-thumb' );
-	// elseif ( has_header_image() )
-	// 	$img_url = get_header_image();
-	else
+
+		/*
+		Header Image
+		elseif ( has_header_image() )
+		$img_url = get_header_image();
+		*/
+	} else {
 		$img_url = wprig_placeholder_image_url();
+	}
 	?>
 
-	<div class="post-thumbnail" style="background-image: url( <?php echo $img_url; ?> ), -webkit-gradient(linear,left top,left bottom,from(#00bfa5),to(#00897b)), linear-gradient(180deg,#00bfa5,#00897b);">
+	<div class="post-thumbnail" style="background-image: url( <?php echo esc_attr( $img_url ); ?> ), -webkit-gradient(linear,left top,left bottom,from(#00bfa5),to(#00897b)), linear-gradient(180deg,#00bfa5,#00897b);">
 		<a class="post-thumbnail-link" href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
 		<?php wprig_edit_post_link(); ?>
 		</a>
 	</div>
-	<?
+	<?php
 }
 
 /**

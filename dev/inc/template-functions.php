@@ -150,12 +150,12 @@ add_action( 'wp_head', 'wprig_add_body_style' );
 function wprig_add_primary_menu_dropdown_symbol( $item_output, $item, $depth, $args ) {
 
 	// Only for our primary menu location.
-	if ( empty( $args->theme_location ) || 'primary' != $args->theme_location ) {
+	if ( empty( $args->theme_location ) || 'primary' !== $args->theme_location ) {
 		return $item_output;
 	}
 
 	// Add the dropdown for items that have children.
-	if ( ! empty( $item->classes ) && in_array( 'menu-item-has-children', $item->classes ) ) {
+	if ( ! empty( $item->classes ) && in_array( 'menu-item-has-children', $item->classes, true ) ) {
 		return $item_output . '<span class="dropdown"><i class="dropdown-symbol"></i></span>';
 	}
 
@@ -185,9 +185,9 @@ function wprig_add_nav_menu_aria_current( $atts, $item ) {
 		if ( $item->current ) {
 			$atts['aria-current'] = 'page';
 		}
-	} else if ( ! empty( $item->ID ) ) {
+	} elseif ( ! empty( $item->ID ) ) {
 		global $post;
-		if ( ! empty( $post->ID ) && $post->ID == $item->ID ) {
+		if ( ! empty( $post->ID ) && $post->ID === $item->ID ) {
 			$atts['aria-current'] = 'page';
 		}
 	}

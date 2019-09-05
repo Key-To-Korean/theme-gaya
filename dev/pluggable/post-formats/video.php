@@ -1,4 +1,10 @@
 <?php
+/**
+ * Post Format: Video
+ *
+ * @package wprig
+ */
+
 	/**
 	 * Video
 	 *
@@ -13,12 +19,12 @@
 function wprig_video_backdrop( $content ) {
 	if ( 'video' === get_post_format() && is_singular() ) {
 		$vid_start = strpos( $content, '<iframe>' );
-		$vid_end = strpos( $content, '</iframe>' ) + 9;
+		$vid_end   = strpos( $content, '</iframe>' ) + 9;
 
 		if ( $vid_end > 9 ) { // Be sure that the end of the video is after the beginning.
 			$before_video = substr( $content, 0, $vid_start );
-			$video = substr( $content, $vid_start, $vid_end - $vid_start );
-			$after_video = substr( $content, $vid_end );
+			$video        = substr( $content, $vid_start, $vid_end - $vid_start );
+			$after_video  = substr( $content, $vid_end );
 
 			$content = $before_video . '<div class="entry-meta video-backdrop">' . $video . '</div>' . $after_video;
 		}
