@@ -392,7 +392,7 @@ function wprig_archive_thumbnails() {
 	}
 	?>
 
-	<div class="post-thumbnail" style="background-image: url( <?php echo esc_attr( $img_url ); ?> ), -webkit-gradient(linear,left top,left bottom,from(#00bfa5),to(#00897b)), linear-gradient(180deg,#00bfa5,#00897b);">
+	<div class="post-thumbnail" style="background-image: url( <?php echo esc_url( $img_url ); ?> ), -webkit-gradient(linear,left top,left bottom,from(#00bfa5),to(#00897b)), linear-gradient(180deg,#00bfa5,#00897b);">
 		<a class="post-thumbnail-link" href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
 		<?php wprig_edit_post_link(); ?>
 		</a>

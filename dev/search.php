@@ -18,21 +18,21 @@ get_header(); ?>
 		wprig_index_header();
 
 		/* Check if the search query has a category by the same name. */
-		$search_query = get_search_query();
+		$search_query         = get_search_query();
 		$search_query_as_slug = str_replace( ' ', '-', get_search_query() );
-		
+
 		if ( has_category( $search_query ) ) {
 			?>
-			<h2 class="category-title">Category: <?php echo $search_query; echo ' (' . get_term_by( 'name', $search_query, 'category' )->term_id . ')'; ?></h2>
+			<h2 class="category-title">Category: <?php echo esc_attr( $search_query ) . ' (' . esc_html( get_term_by( 'name', $search_query, 'category' )->term_id . ')' ); ?></h2>
 			<!-- image -->
 			<p class="category-description"><?php echo category_description( get_term_by( 'name', $search_query, 'category' )->term_id ); ?></p>
 			<?php
 		} elseif ( has_category( $search_query_as_slug ) ) {
 			?>
-			<h2 class="category-title">Category: <?php echo $search_query_as_slug; echo ' (' . get_term_by( 'slug', $search_query_as_slug, 'category' )->term_id . ')'; ?></h2>
+			<h2 class="category-title">Category: <?php echo esc_html( $search_query_as_slug ) . ' (' . esc_html( get_term_by( 'slug', $search_query_as_slug, 'category' )->term_id . ')' ); ?></h2>
 			<!-- image -->
 			<p class="category-description"><?php echo category_description( get_term_by( 'slug', $search_query_as_slug, 'category' )->term_id ); ?></p>
-			
+
 			<?php
 		}
 
@@ -57,20 +57,20 @@ get_header(); ?>
 			 */
 			get_template_part( 'template-parts/content', 'archive' );
 
-		$count++;
+			$count++;
 		endwhile;
 
 		echo '</ul>';
 
-		// the_posts_navigation();
+		/* the_posts_navigation(); */
 		wprig_paging_nav();
 
-	else :
+		else :
 
-		get_template_part( 'template-parts/content', 'none' );
+			get_template_part( 'template-parts/content', 'none' );
 
-	endif;
-	?>
+		endif;
+		?>
 
 	</main><!-- #primary -->
 

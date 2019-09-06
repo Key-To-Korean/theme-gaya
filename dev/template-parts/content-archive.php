@@ -21,7 +21,7 @@
 
 	<!-- <div class="entry-content"> -->
 		<?php
-		// wprig_fancy_excerpt();
+		/* wprig_fancy_excerpt(); */
 		?>
 	<!-- </div>.entry-content -->
 

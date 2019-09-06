@@ -9,7 +9,7 @@
 
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	
+
 	<?php wprig_archive_thumbnails(); ?>
 
 	<header class="entry-header">

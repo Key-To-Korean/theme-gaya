@@ -41,16 +41,18 @@ get_header(); ?>
 			 */
 			get_template_part( 'template-parts/content', 'archive' );
 
-		$count++;
+			$count++;
 		endwhile;
 
 		echo '</ul>';
 
 		/* Subcategory Loops */
-		$categories = get_the_category();
-		$this_cat_ID = $categories[0]->cat_ID;
-		$term_children = get_term_children( $this_cat_ID, 'category' );
+		$categories    = get_the_category();
+		$this_cat_id   = $categories[0]->cat_ID;
+		$term_children = get_term_children( $this_cat_id, 'category' );
 
+		/*
+		Old code
 		// $sub_cat_IDs = array();
 
 		// foreach( $term_children as $cat ) {
@@ -60,78 +62,86 @@ get_header(); ?>
 		// 		$sub_cat_IDs.push( $sub_cat_ID );
 		// 	// }
 		// }
+		*/
 
-		if (! empty ( $term_children ) ) { 
-
+		if ( ! empty( $term_children ) ) {
+			/*
+			Debugging code
 			// var_dump($term_children);
 
 			// $trimmed_cat = array_map( function($cat) { return substr($cat, 0, strpos($cat, '(')); }, $this_category );
 			// var_dump($trimmed_cat);
-			
-			foreach( $term_children as $child ) :
-				$term = get_term_by( 'id', $child, 'category' );
+			*/
 
-				// WP_Query arguments
+			foreach ( $term_children as $child ) :
+				$a_term = get_term_by( 'id', $child, 'category' );
+
+				// WP_Query arguments.
 				$args = array(
-					'post_status'            => array( 'publish' ),
-					'posts_per_page'         => '4',
-					'ignore_sticky_posts'    => false,
-					'category_name'					=> $term->name
+					'post_status'         => array( 'publish' ),
+					'posts_per_page'      => '4',
+					'ignore_sticky_posts' => false,
+					'category_name'       => $a_term->name,
 				);
 
-				// The Query
+				// The Query.
 				$query = new WP_Query( $args );
 
-				// The Loop
+				// The Loop.
 				if ( $query->have_posts() ) {
 					echo '<section class="page-section">';
-					echo '<h3 class="category-title">' . $term->name . '</h3>';
+					echo '<h3 class="category-title">' . esc_attr( $term->name ) . '</h3>';
 					echo '<ul class="category-posts-grid archive-posts-grid">';
 
 					while ( $query->have_posts() ) {
 						$query->the_post();
-						// do something
-						// echo '<li>';
+						// do something.
+						// echo '<li>';.
 						get_template_part( 'template-parts/content', 'archive' );
-						// echo '</li>';
+						// echo '</li>';.
 					}
 
 					echo '</ul>';
 					echo '</section>';
 				} else {
-					// no posts found
+					// no posts found.
+					esc_attr_e( 'No posts found.', 'wprig' );
 				}
 
-				// Restore original Post Data
+				// Restore original Post Data.
 				wp_reset_postdata();
 
 			endforeach;
-			?> 
+			?>
 			<hr />
 			<section class="page-section">
 				<h3 class="category-title all-categories">All Categories</h3>
 				<ul class="blog-categories">
-					<?php 
+					<?php
 					$categories = get_category( get_query_var( 'cat' ) );
-						// use $categories->parent and '&child_of' . $categories->parent . if you want only SUB categories
-						$categories = wp_list_categories( 'orderby=id&depth=1&show_count=0
-							&title_li=&use_desc_for_title=1' .
-							"&echo=0");
-					echo $categories; ?>
+						// use $categories->parent and '&child_of' . $categories->parent . if you want only SUB categories.
+						$categories = wp_list_categories(
+							'orderby=id&depth=1&show_count=0' .
+							'&title_li=&use_desc_for_title=1' .
+							'&echo=0'
+						);
+					echo esc_html( $categories );
+					?>
 				</ul>
 			</section>
 			<hr />
-		<?php } 
+			<?php
+		}
 
-		// the_posts_navigation();
+		/* the_posts_navigation(); */
 		wprig_paging_nav();
 
-	else :
+		else :
 
-		get_template_part( 'template-parts/content', 'none' );
+			get_template_part( 'template-parts/content', 'none' );
 
-	endif;
-	?>
+		endif;
+		?>
 
 	</main><!-- #primary -->
 

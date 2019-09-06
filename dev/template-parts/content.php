@@ -32,28 +32,29 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php 
+	<?php
 	/* Ad Above Post */
 	if ( is_singular() && is_active_sidebar( 'widget-ad-pre-post' ) ) :
 		/* Print styles for adsense widgets */
 		wp_print_styles( array( 'wprig-adsense' ) ); // Note: If this was already done it will be skipped.
 		dynamic_sidebar( 'widget-ad-pre-post' );
-	endif;	
+	endif;
 	?>
 
-	<?php 
+	<?php
 	if ( 'post' === get_post_type() && is_singular() ) :
-	?>
-	<div class="entry-meta">
-		<?php
-			wprig_posted_by();
-			wprig_posted_on();
-			wprig_reading_time();
-			wprig_comments_link();
-			wprig_edit_post_link();
 		?>
-	</div><!-- .entry-meta -->
-	<?php endif;
+		<div class="entry-meta">
+			<?php
+				wprig_posted_by();
+				wprig_posted_on();
+				wprig_reading_time();
+				wprig_comments_link();
+				wprig_edit_post_link();
+			?>
+		</div><!-- .entry-meta -->
+		<?php
+	endif;
 	?>
 
 	<div class="entry-content">
@@ -99,38 +100,48 @@
 
 		<?php
 		/* Above After Post */
-		if ( is_active_sidebar( 'widget-ad-post-post' ) ) : 
+		if ( is_active_sidebar( 'widget-ad-post-post' ) ) :
 			/* Print styles for adsense widgets */
 			wp_print_styles( array( 'wprig-adsense' ) ); // Note: If this was already done it will be skipped.
-			dynamic_sidebar( 'widget-ad-post-post' ); 
+			dynamic_sidebar( 'widget-ad-post-post' );
 		endif;
 		?>
-		
-	<?php endif; 
-		if ( function_exists( 'wprig_jp_related_posts' ) ) {
-			wprig_jp_related_posts();
-		}
+
+		<?php
+	endif;
+
+	if ( function_exists( 'wprig_jp_related_posts' ) ) {
+		wprig_jp_related_posts();
+	}
 	?>
 </article><!-- #post-<?php the_ID(); ?> -->
 
 <?php
-if ( is_singular() ) : ?>
+if ( is_singular() ) :
+	?>
 	<div class="post-navigation-container">
 	<!-- <h3 class="section-title"></h3> -->
 	<?php
-		// the_post_navigation(
+
+		/*
+		Old code.
+		the_post_navigation(
 		// 	array(
 		// 		'prev_text' => '<div class="post-navigation-sub"><span>' . esc_html__( 'Older', 'wprig' ) . '</span></div>%title',
 		// 		'next_text' => '<div class="post-navigation-sub"><span>' . esc_html__( 'Newer', 'wprig' ) . '</span></div>%title',
 		// 	)
 		// );
-		?>
+		*/
+	?>
 
 		<!-- <h3 class="section-title">Up Next</h3> -->
 		<?php
 		// Previous/next post navigation.
-    $next_post = get_next_post();
-    $prev_post = get_previous_post();
+		$next_post = get_next_post();
+		$prev_post = get_previous_post();
+
+		/*
+		Old code.
 		// the_post_navigation(
 		// 	array(
 		// 		'prev_text' => '<div class="post-navigation-sub">' .
@@ -145,13 +156,14 @@ if ( is_singular() ) : ?>
 		// 						get_the_post_thumbnail( $next_post->ID, 'medium' ) .
 		// 						'<h4 class="post-title">%title</h4>' .
 		// 						'<p class="post-excerpt">' . wprig_get_the_excerpt( $next_post->ID ) . '</p>' .
-		// 						'<small>' . esc_html__( 'Presently', 'wprig' ) . '</small>' . 
+		// 						'<small>' . esc_html__( 'Presently', 'wprig' ) . '</small>' .
 		// 					'</div>',
 		// 	)
 		// );
+		*/
 
 		wprig_post_nav();
-	?>
+		?>
 	</div>
 
 	<?php

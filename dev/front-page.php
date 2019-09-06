@@ -21,34 +21,35 @@ wp_print_styles( array( 'gaya-content', 'gaya-front-page' ) ); // Note: If this 
 
 	<?php
 	// Only show Featured Posts on the FIRST page.
-	$stickies = get_option( 'sticky_posts' );
-	$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+	$stickies    = get_option( 'sticky_posts' );
+	$is_it_paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
-	if ( 1 == $paged ) {
+	if ( 1 === $is_it_paged ) {
 		/* Load a Stickies Slider - if we have any Stickies */
 		gaya_featured_posts( $stickies );
 	}
 
 	/* New WP_Query for the front page - deals with pagination */
 	$query = array(
-		'post__not_in' => $stickies,
+		'post__not_in'   => $stickies,
 		'posts_per_page' => 30,
-		// 'page' => $paged,
-		'paged' => $paged,
+		// 'page'          => $paged,
+		'paged'          => $is_it_paged,
 	);
+
 	$query_object = new WP_Query( $query );
 
 	if ( $query_object->have_posts() ) :
 
 		/* Setup our rows */
-		$count = 1;
-		$new_rows = array( 1, 14, 2, 12, 18, 23, 4, 6, 9, 15, 20, 25, 28 );
+		$count         = 1;
+		$new_rows      = array( 1, 14, 2, 12, 18, 23, 4, 6, 9, 15, 20, 25, 28 );
 		$new_rows_ends = array( 1, 14, 3, 13, 19, 24, 5, 8, 11, 17, 22, 27, 30 );
 
 		while ( $query_object->have_posts() ) :
 			$query_object->the_post();
 
-			if ( in_array( $count, $new_rows ) ) {
+			if ( in_array( $count, $new_rows, true ) ) {
 				$output = '<div class="front-page-row';
 				switch ( $count ) {
 					case 1:
@@ -157,23 +158,23 @@ wp_print_styles( array( 'gaya-content', 'gaya-front-page' ) ); // Note: If this 
 					echo '</div><!-- .one-per-row -->';
 			}
 
-			if ( in_array( $count, $new_rows_ends ) ) {
+			if ( in_array( $count, $new_rows_ends, true ) ) {
 				echo '</div><!-- .front-page-row -->';
 			}
 
 			$count++;
 		endwhile; // End of the loop.
 
-		// the_posts_navigation(); ?
+		/* the_posts_navigation(); */
 		gaya_paging_nav();
 
-		wp_reset_query();
+		wp_reset_postdata();
 
-	else :
-		get_template_part( 'template-parts/content', 'none' );
+		else :
+			get_template_part( 'template-parts/content', 'none' );
 
-	endif;
-	?>
+		endif;
+		?>
 
 	</main><!-- #primary -->
 

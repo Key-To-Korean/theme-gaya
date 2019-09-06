@@ -180,7 +180,8 @@ function wprig_setup() {
 				'slug'  => 'dusty-sun',
 				'color' => '#eee9d1',
 			),
-		) );
+		)
+	);
 
 	/**
 	 * Optional: Disable custom colors in block color palettes.
@@ -195,32 +196,35 @@ function wprig_setup() {
 	 *
 	 * @link https://wordpress.org/gutenberg/handbook/extensibility/theme-support/
 	 */
-	add_theme_support( 'editor-font-sizes', array(
+	add_theme_support(
+		'editor-font-sizes',
 		array(
-			'name'      => __( 'small', 'wprig' ),
-			'shortName' => __( 'S', 'wprig' ),
-			'size'      => 16,
-			'slug'      => 'small',
-		),
-		array(
-			'name'      => __( 'regular', 'wprig' ),
-			'shortName' => __( 'M', 'wprig' ),
-			'size'      => 20,
-			'slug'      => 'regular',
-		),
-		array(
-			'name'      => __( 'large', 'wprig' ),
-			'shortName' => __( 'L', 'wprig' ),
-			'size'      => 36,
-			'slug'      => 'large',
-		),
-		array(
-			'name'      => __( 'larger', 'wprig' ),
-			'shortName' => __( 'XL', 'wprig' ),
-			'size'      => 48,
-			'slug'      => 'larger',
-		),
-	) );
+			array(
+				'name'      => __( 'small', 'wprig' ),
+				'shortName' => __( 'S', 'wprig' ),
+				'size'      => 16,
+				'slug'      => 'small',
+			),
+			array(
+				'name'      => __( 'regular', 'wprig' ),
+				'shortName' => __( 'M', 'wprig' ),
+				'size'      => 20,
+				'slug'      => 'regular',
+			),
+			array(
+				'name'      => __( 'large', 'wprig' ),
+				'shortName' => __( 'L', 'wprig' ),
+				'size'      => 36,
+				'slug'      => 'large',
+			),
+			array(
+				'name'      => __( 'larger', 'wprig' ),
+				'shortName' => __( 'XL', 'wprig' ),
+				'size'      => 48,
+				'slug'      => 'larger',
+			),
+		)
+	);
 
 	/**
 	 * Optional: Add AMP support.
@@ -230,9 +234,12 @@ function wprig_setup() {
 	 *
 	 * @link https://wordpress.org/plugins/amp/
 	 */
-	add_theme_support( 'amp', array(
-		'comments_live_list' => true,
-	) );
+	add_theme_support(
+		'amp',
+		array(
+			'comments_live_list' => true,
+		)
+	);
 
 }
 add_action( 'after_setup_theme', 'wprig_setup' );
@@ -267,7 +274,6 @@ function wprig_fonts_url() {
 	 * Translator: If Satisfy does not support characters in your language, translate this to 'off'.
 	 */
 	$satisfy = esc_html_x( 'on', 'Satisfy font: on or off', 'wprig' );
-	
 
 	$font_families = array();
 
@@ -283,11 +289,10 @@ function wprig_fonts_url() {
 		$font_families[] = 'Satisfy';
 	}
 
-
-	if ( in_array( 'on', array( $noto_sans, $nanum_gothic, $satisfy ) ) ) {
+	if ( in_array( 'on', array( $noto_sans, $nanum_gothic, $satisfy ), true ) ) {
 		$query_args = array(
-			'family' => urlencode( implode( '|', $font_families ) ),
-			'subset' => urlencode( 'latin,latin-ext,korean' ),
+			'family' => rawurlencode( implode( '|', $font_families ) ),
+			'subset' => rawurlencode( 'latin,latin-ext,korean' ),
 		);
 
 		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
@@ -323,7 +328,7 @@ add_filter( 'wp_resource_hints', 'wprig_resource_hints', 10, 2 );
  */
 function wprig_gutenberg_styles() {
 	// Add custom fonts, used in the main stylesheet.
-	wp_enqueue_style( 'wprig-fonts', wprig_fonts_url(), array(), null );
+	wp_enqueue_style( 'wprig-fonts', wprig_fonts_url(), array(), '20190906' );
 
 	// Enqueue main stylesheet.
 	wp_enqueue_style( 'wprig-base-style', get_theme_file_uri( '/css/editor-styles.css' ), array(), '20180514' );
@@ -336,85 +341,101 @@ add_action( 'enqueue_block_editor_assets', 'wprig_gutenberg_styles' );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function wprig_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'wprig' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'wprig' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Sidebar', 'wprig' ),
+			'id'            => 'sidebar-1',
+			'description'   => esc_html__( 'Add widgets here.', 'wprig' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
 
-	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Widgets Top', 'wprig' ),
-		'description'   => esc_html__( 'Widgets appearing in the top of the footer of the site.', 'wprig' ),
-		'id'            => 'sidebar-footer-1',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer Widgets Top', 'wprig' ),
+			'description'   => esc_html__( 'Widgets appearing in the top of the footer of the site.', 'wprig' ),
+			'id'            => 'sidebar-footer-1',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
 
-	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Widgets Bottom', 'wprig' ),
-		'description'   => esc_html__( 'Widgets appearing in the bottom of the footer of the site.', 'wprig' ),
-		'id'            => 'sidebar-footer-2',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer Widgets Bottom', 'wprig' ),
+			'description'   => esc_html__( 'Widgets appearing in the bottom of the footer of the site.', 'wprig' ),
+			'id'            => 'sidebar-footer-2',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
 
-	register_sidebar( array(
-		'name'          => esc_html__( 'Ad Above Header', 'wprig' ),
-		'description'   => esc_html__( 'Space for an ad above the header.', 'wprig' ),
-		'id'            => 'widget-ad-header',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s widget-over-header">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h3 class="section-title">',
-		'after_title'   => '</h3>',
-	) );
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Ad Above Header', 'wprig' ),
+			'description'   => esc_html__( 'Space for an ad above the header.', 'wprig' ),
+			'id'            => 'widget-ad-header',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s widget-over-header">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h3 class="section-title">',
+			'after_title'   => '</h3>',
+		)
+	);
 
-	register_sidebar( array(
-		'name'          => esc_html__( 'Ad Above Post', 'wprig' ),
-		'description'   => esc_html__( 'Space for an ad above the Post or Page content.', 'wprig' ),
-		'id'            => 'widget-ad-pre-post',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s widget-pre-post">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h3 class="section-title">',
-		'after_title'   => '</h3>',
-	) );
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Ad Above Post', 'wprig' ),
+			'description'   => esc_html__( 'Space for an ad above the Post or Page content.', 'wprig' ),
+			'id'            => 'widget-ad-pre-post',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s widget-pre-post">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h3 class="section-title">',
+			'after_title'   => '</h3>',
+		)
+	);
 
-	register_sidebar( array(
-		'name'          => esc_html__( 'Ad After Post', 'wprig' ),
-		'description'   => esc_html__( 'Space for an ad after the Post or Page content.', 'wprig' ),
-		'id'            => 'widget-ad-post-post',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s widget-post-post">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h3 class="section-title">',
-		'after_title'   => '</h3>',
-	) );
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Ad After Post', 'wprig' ),
+			'description'   => esc_html__( 'Space for an ad after the Post or Page content.', 'wprig' ),
+			'id'            => 'widget-ad-post-post',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s widget-post-post">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h3 class="section-title">',
+			'after_title'   => '</h3>',
+		)
+	);
 
-	register_sidebar( array(
-		'name'          => esc_html__( 'Ad Post Bottom', 'wprig' ),
-		'description'   => esc_html__( 'Space for an ad at the bottom of the Post or Page.', 'wprig' ),
-		'id'            => 'widget-ad-post-bottom',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s widget-post-bottom">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h3 class="section-title">',
-		'after_title'   => '</h3>',
-	) );
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Ad Post Bottom', 'wprig' ),
+			'description'   => esc_html__( 'Space for an ad at the bottom of the Post or Page.', 'wprig' ),
+			'id'            => 'widget-ad-post-bottom',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s widget-post-bottom">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h3 class="section-title">',
+			'after_title'   => '</h3>',
+		)
+	);
 
-	register_sidebar( array(
-		'name'          => esc_html__( 'Ad Fixed Footer', 'wprig' ),
-		'description'   => esc_html__( 'Space for an an in a fixed (disappearing) footer at the bottom of the Post or Page.', 'wprig' ),
-		'id'            => 'widget-ad-fixed-footer',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s widget-fixed-bottom">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h3 class="section-title">',
-		'after_title'   => '</h3>',
-	) );
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Ad Fixed Footer', 'wprig' ),
+			'description'   => esc_html__( 'Space for an an in a fixed (disappearing) footer at the bottom of the Post or Page.', 'wprig' ),
+			'id'            => 'widget-ad-fixed-footer',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s widget-fixed-bottom">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h3 class="section-title">',
+			'after_title'   => '</h3>',
+		)
+	);
 }
 add_action( 'widgets_init', 'wprig_widgets_init' );
 
@@ -461,10 +482,15 @@ function wprig_scripts() {
 	// Enqueue the navigation script.
 	wp_enqueue_script( 'wprig-navigation', get_theme_file_uri( '/js/navigation.js' ), array(), '20180514', false );
 	wp_script_add_data( 'wprig-navigation', 'async', true );
-	wp_localize_script( 'wprig-navigation', 'wprigScreenReaderText', array(
-		'expand'   => __( 'Expand child menu', 'wprig' ),
-		'collapse' => __( 'Collapse child menu', 'wprig' ),
-	));
+
+	wp_localize_script(
+		'wprig-navigation',
+		'wprigScreenReaderText',
+		array(
+			'expand'   => __( 'Expand child menu', 'wprig' ),
+			'collapse' => __( 'Collapse child menu', 'wprig' ),
+		)
+	);
 
 	// Enqueue skip-link-focus script.
 	wp_enqueue_script( 'wprig-skip-link-focus-fix', get_theme_file_uri( '/js/skip-link-focus-fix.js' ), array(), '20180514', false );
@@ -482,19 +508,20 @@ function wprig_scripts() {
 add_action( 'wp_enqueue_scripts', 'wprig_scripts' );
 
 /**
- * Remove Jetpack Sharedaddy Sharing and Jetpack Likes from post excerpts 
+ * Remove Jetpack Sharedaddy Sharing and Jetpack Likes from post excerpts
  */
 function remove_sharedaddy_excerpt_sharing() {
-	 remove_filter( 'the_excerpt', 'sharing_display', 19 );
-	 if ( class_exists( 'Jetpack_Likes' ) ) {
+	remove_filter( 'the_excerpt', 'sharing_display', 19 );
+	if ( class_exists( 'Jetpack_Likes' ) ) {
 			remove_filter( 'the_excerpt', array( Jetpack_Likes::init(), 'post_likes' ), 30, 1 );
-		}
+	}
 }
 add_action( 'init', 'remove_sharedaddy_excerpt_sharing', 20 );
 add_action( 'loop_start', 'remove_sharedaddy_excerpt_sharing' );
 
 /**
- * Add Custom Logo to Login Screen 
+ * Add Custom Logo to Login Screen
+ *
  * @source https://developer.wordpress.org/reference/functions/the_custom_logo/
  */
 function wprig_filter_login_head() {
@@ -504,10 +531,10 @@ function wprig_filter_login_head() {
 		<style type="text/css">
 			.login h1 a {
 				background-image: url(<?php echo esc_url( $image[0] ); ?>);
-				-webkit-background-size: <?php echo absint( $image[1] )?>px;
-				background-size: <?php echo absint( $image[1] ) ?>px;
-				height: <?php echo absint( $image[2] ) ?>px;
-				width: <?php echo absint( $image[1] ) ?>px;
+				-webkit-background-size: <?php echo absint( $image[1] ); ?>px;
+				background-size: <?php echo absint( $image[1] ); ?>px;
+				height: <?php echo absint( $image[2] ); ?>px;
+				width: <?php echo absint( $image[1] ); ?>px;
 			}
 		</style>
 		<?php
@@ -618,10 +645,11 @@ require get_template_directory() . '/pluggable/related-posts.php';
 /**
  * Optional: Adds Link Section and Links Widget back into WordPress
  */
-add_filter( 'pre_option_link_manager_enabled', '__return_true' ); 
+add_filter( 'pre_option_link_manager_enabled', '__return_true' );
 
 /**
  * DEV ONLY!!
+ *
  * @TODO remove function & file before production
  */
 require get_template_directory() . '/inc/developer-functions.php';

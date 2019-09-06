@@ -46,7 +46,7 @@ get_header(); ?>
 		/*
 			Finally a Posts Navigation
 		*/
-		// the_posts_navigation();
+		/* the_posts_navigation(); */
 		gaya_paging_nav();
 
 		else :

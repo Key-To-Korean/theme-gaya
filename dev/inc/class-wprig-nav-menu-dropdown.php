@@ -8,7 +8,7 @@
 /**
  * Nav Menu Dropdown
  */
-class Nav_Menu_Dropdown extends Walker_Nav_Menu {
+class Wprig_Nav_Menu_Dropdown extends Walker_Nav_Menu {
 	/**
 	 * Start Level
 	 *

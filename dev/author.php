@@ -20,22 +20,22 @@ get_header(); ?>
 
 	<div class="author-page-section page-section">
 		<ul class="author-links">
-			<?php 
-			/* author email, website, SNS section */ 
+			<?php
+			/* author email, website, SNS section */
 			$author_site = get_the_author_meta( 'url' );
-			if ( ! empty ( $author_site ) ) {
-				echo '<li>' . 
-					'<a class="author-site" href="' . esc_url( $author_site ) . '" target="_blank" rel="nofollow">' . 
-					'<i class="fa fa-home"></i>' . 
-					'<span class="screen-reader-text">' . esc_html__( 'Website', 'wprig' ) . '</span>' . 
-					'</a></li>'; 
+			if ( ! empty( $author_site ) ) {
+				echo '<li>' .
+					'<a class="author-site" href="' . esc_url( $author_site ) . '" target="_blank" rel="nofollow">' .
+					'<i class="fa fa-home"></i>' .
+					'<span class="screen-reader-text">' . esc_html__( 'Website', 'wprig' ) . '</span>' .
+					'</a></li>';
 			}
 			?>
 		</ul>
 		<div class="author-description">
-			<?php echo wpautop( get_the_author_meta( 'description' ) ); ?>
+			<?php echo esc_html( wpautop( get_the_author_meta( 'description' ) ) ); ?>
 		</div>
-	
+
 
 		<h3 class="section-title">Published Articles</h3>
 			<?php
@@ -62,19 +62,19 @@ get_header(); ?>
 					*/
 					get_template_part( 'template-parts/content', 'archive' );
 
-				$count++;
+					$count++;
 				endwhile;
 
-				echo '</ul>';
+					echo '</ul>';
 
-				gaya_paging_nav();
+					gaya_paging_nav();
 
-			else :
+				else :
 
-				get_template_part( 'template-parts/content', 'none' );
+					get_template_part( 'template-parts/content', 'none' );
 
-			endif;
-			?>
+				endif;
+				?>
 		</div>
 
 	</main><!-- #primary -->

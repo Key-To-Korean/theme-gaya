@@ -36,13 +36,15 @@
 		<?php if ( has_nav_menu( 'social' ) ) : ?>
 			<nav class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Social Links Menu', 'k2k' ); ?>">
 				<?php
-					wp_nav_menu( array(
-									'theme_location' => 'social',
-									'menu_class'		 => 'social-links-menu',
-									'depth'					=> 1,
-									'link_before'		=> '<span class="screen-reader-text">',
-									'link_after'		 => '</span>' . wprig_get_svg( array( 'icon' => 'chain' ) ),
-					) );
+					wp_nav_menu(
+						array(
+							'theme_location' => 'social',
+							'menu_class'     => 'social-links-menu',
+							'depth'          => 1,
+							'link_before'    => '<span class="screen-reader-text">',
+							'link_after'     => '</span>' . wprig_get_svg( array( 'icon' => 'chain' ) ),
+						)
+					);
 				?>
 			</nav><!-- .social-navigation -->
 		<?php endif; ?>
@@ -51,12 +53,12 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'wprig' ); ?></a>
 
 	<section class="header-section full-bleed <?php echo has_header_image() ? 'has-header-image' : ''; ?>"
-		<?php echo has_header_image() ? 'style="background-image: url(' . get_header_image() . '); background-position: center; background-size: cover;"' : ''; ?>
+		<?php echo has_header_image() ? 'style="background-image: url(' . esc_url( get_header_image() ) . '); background-position: center; background-size: cover;"' : ''; ?>
 	>
 
 		<?php if ( is_active_sidebar( 'widget-ad-header' ) ) : ?>
 			<!-- Above Header Ad -->
-			<div class="adsense adsense-widget above-header <?php echo $header_img_class; ?>">
+			<div class="adsense adsense-widget above-header <?php echo esc_attr( $header_img_class ); ?>">
 				<?php
 					/* Print styles for adsense widgets */
 					wp_print_styles( array( 'wprig-adsense' ) ); // Note: If this was already done it will be skipped.
@@ -71,52 +73,53 @@
 				<?php get_search_form(); ?>
 			</div><!-- .site-search -->
 		</div><!-- #site-search-container -->
-		
+
 		<!-- Top "News Flash" type section -->
-		<div class="header-flash <?php echo $header_img_class; ?>">
+		<div class="header-flash <?php echo esc_attr( $header_img_class ); ?>">
 			<div class="header-contact">
 				<?php $wprig_description = get_bloginfo( 'description', 'display' ); ?>
 				<?php if ( $wprig_description || is_customize_preview() ) : ?>
 					<p class="site-description"><?php echo $wprig_description; /* WPCS: xss ok. */ ?></p>
 				<?php endif; ?>
 
-				<?php 
+				<?php
 					$header_text1 = get_theme_mod( 'header_text1' );
 					$header_text2 = get_theme_mod( 'header_text2' );
 					$header_text3 = get_theme_mod( 'header_text3' );
-					
-					if ( $header_text1 || $header_text2 || $header_text3 ) : ?> 
+
+				if ( $header_text1 || $header_text2 || $header_text3 ) :
+					?>
 					<ul class="header-info">
-						<?php 
-							echo $header_text1 ? "<li class='header-text-one'>$header_text1</li>" : ''; 
-							echo $header_text2 ? "<li class='header-text-two'>$header_text2</li>" : '';
-							echo $header_text3 ? "<li class='header-text-three'>$header_text3</li>" : '';
+						<?php
+							echo esc_html( $header_text1 ? "<li class='header-text-one'>$header_text1</li>" : '' );
+							echo esc_html( $header_text2 ? "<li class='header-text-two'>$header_text2</li>" : '' );
+							echo esc_html( $header_text3 ? "<li class='header-text-three'>$header_text3</li>" : '' );
 						?>
 					</ul>
-					<?php 
-					endif; 
+					<?php
+					endif;
 				?>
-				
+
 				<div class="position-right">
-					<?php 
-					include_once( get_template_directory() . '/inc/class-nav-menu-dropdown.php' );
+					<?php
+					require_once get_template_directory() . '/inc/class-nav-menu-dropdown.php';
 
 					if ( has_nav_menu( 'quicklinks' ) ) :
 						wp_nav_menu(
 							array(
 								'theme_location' => 'quicklinks',
-								'menu_id'				=> 'quicklinks-menu',
-								'walker'         => new wprig_Nav_Menu_Dropdown(),
-        				'items_wrap'     => '<div class="mobile-menu"><form><select onchange="if (this.value) window.location.href=this.value">%3$s</select></form></div>',
+								'menu_id'        => 'quicklinks-menu',
+								'walker'         => new Wprig_Nav_Menu_Dropdown(),
+								'items_wrap'     => '<div class="mobile-menu"><form><select onchange="if (this.value) window.location.href=this.value">%3$s</select></form></div>',
 							)
 						);
 					endif;
 					?>
 				</div>
-								
+
 			</div><!-- .header-contact -->
 		</div><!-- .header-flash -->
-		
+
 		<!-- Logo, Site Branding, Menu container -->
 		<header id="masthead" class="site-header">
 
@@ -172,8 +175,8 @@
 					wp_nav_menu(
 						array(
 							'theme_location' => 'primary',
-							'menu_id'				=> 'primary-menu',
-							'container'			=> 'ul',
+							'menu_id'        => 'primary-menu',
+							'container'      => 'ul',
 						)
 					);
 					?>
