@@ -406,3 +406,56 @@ function wprig_archive_thumbnails() {
 function wprig_placeholder_image_url() {
 	return '/wp-content/themes/gaya/images/korean-pattern-lg.svg';
 }
+
+/**
+ * Header Flash Section
+ */
+function wprig_header_flash() {
+	?>
+	<!-- Top "News Flash" type section -->
+	<div class="header-flash <?php echo esc_attr( $header_img_class ); ?>">
+		<div class="header-contact">
+			<?php $wprig_description = get_bloginfo( 'description', 'display' ); ?>
+			<?php if ( $wprig_description || is_customize_preview() ) : ?>
+				<p class="site-description"><?php echo $wprig_description; /* WPCS: xss ok. */ ?></p>
+			<?php endif; ?>
+
+			<?php
+				$header_text1 = get_theme_mod( 'header_text1' );
+				$header_text2 = get_theme_mod( 'header_text2' );
+				$header_text3 = get_theme_mod( 'header_text3' );
+
+			if ( $header_text1 || $header_text2 || $header_text3 ) :
+				?>
+				<ul class="header-info">
+					<?php
+						echo wp_kses_post( $header_text1 ? "<li class='header-text-one'>$header_text1</li>" : '' );
+						echo wp_kses_post( $header_text2 ? "<li class='header-text-two'>$header_text2</li>" : '' );
+						echo wp_kses_post( $header_text3 ? "<li class='header-text-three'>$header_text3</li>" : '' );
+					?>
+				</ul>
+				<?php
+				endif;
+			?>
+
+			<div class="position-right">
+				<?php
+				require_once get_template_directory() . '/inc/class-nav-menu-dropdown.php';
+
+				if ( has_nav_menu( 'quicklinks' ) ) :
+					wp_nav_menu(
+						array(
+							'theme_location' => 'quicklinks',
+							'menu_id'        => 'quicklinks-menu',
+							'walker'         => new Wprig_Nav_Menu_Dropdown(),
+							'items_wrap'     => '<div class="mobile-menu"><form><select onchange="if (this.value) window.location.href=this.value">%3$s</select></form></div>',
+						)
+					);
+				endif;
+				?>
+			</div>
+
+		</div><!-- .header-contact -->
+	</div><!-- .header-flash -->
+	<?php
+}

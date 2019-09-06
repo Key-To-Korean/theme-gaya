@@ -271,7 +271,7 @@ if ( ! function_exists( 'wprig_paging_nav' ) ) :
 			?>
 		<nav class="navigation paging-navigation" role="navigation">
 			<h1 class="screen-reader-text"><?php esc_attr_e( 'Posts navigation', 'wprig' ); ?></h1>
-			<?php echo esc_html( $links ); ?>
+			<?php echo wp_kses_post( $links ); ?>
 		</nav><!-- .navigation -->
 			<?php
 		endif;

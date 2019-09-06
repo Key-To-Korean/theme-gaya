@@ -63,6 +63,8 @@ html {
 
 body {
 	margin: 0;
+	overflow-x: hidden;
+	/* Fix for something? that's off the right side... */
 }
 
 link {
@@ -468,6 +470,12 @@ template {
 	outline: 0;
 }
 
+/* WP Audio Shortcode */
+.mejs-container,
+.wp-audio-shortcode {
+	z-index: 1;
+}
+
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
@@ -530,7 +538,7 @@ template {
 
 .drawer.active {
 	right: 0;
-	/* box-shadow: var(--image-hover-shadow); */
+	box-shadow: var(--sidebar-shadow);
 }
 
 .site-main {
@@ -538,7 +546,7 @@ template {
 	padding: 4rem 4rem 0;
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (max-width: 37.5em) {
 
 	/* --table-query */
 	.site-main {
@@ -1284,6 +1292,31 @@ select {
 	border: 1px solid #ccc;
 }
 
+select {
+	display: flex;
+	position: relative;
+	height: 40px;
+	padding: .75rem 50px .75rem 1.25rem;
+	margin-right: 1rem;
+	-webkit-appearance: none;
+	line-height: 1;
+	align-items: center;
+	-webkit-box-align: center;
+	color: var(--gaya-grey);
+	background: var(--gaya-grey5);
+	cursor: pointer;
+	border-radius: 100px;
+	border: none;
+	overflow: visible !important;
+	font-size: 0.9rem;
+	max-width: 150px;
+}
+
+select:active,
+select:focus {
+	outline: none;
+}
+
 textarea {
 	width: 100%;
 }
@@ -1626,7 +1659,7 @@ input[type="submit"]:active {
 
 .custom-logo {
 	width: 80px;
-	margin-top: 8px;
+	/* margin-top: 8px; */
 }
 
 .custom-logo,
@@ -1639,6 +1672,7 @@ input[type="submit"]:active {
 .site-branding {
 	display: flex;
 	grid-column: span 6;
+	align-items: center;
 }
 
 .site-title-description {
@@ -1653,7 +1687,7 @@ input[type="submit"]:active {
 	font-family: var(--highlight-font-family);
 	font-size: 1.2rem;
 	font-weight: bold;
-	line-height: 6rem;
+	/* line-height: 6rem; */
 	color: var(--global-header-color);
 	text-transform: uppercase;
 }
@@ -1668,10 +1702,13 @@ input[type="submit"]:active {
 	font-family: var(--highlight-font-family);
 	font-size: 0.9rem;
 	text-align: left;
-	font-weight: inherit;
+	/* font-weight: inherit; */
 	/* line-height: 0.5; */
 	word-wrap: break-word;
 	color: var(--global-header-color);
+	font-weight: normal;
+	text-transform: capitalize;
+	display: block;
 }
 
 .search-toggle {
@@ -1701,8 +1738,9 @@ input[type="submit"]:active {
 	padding: 1rem 0.5rem;
 	height: 4rem;
 	background: var(--gaya-grey5);
-	border-radius: 10px 0 0 10px;
-	box-shadow: var(--image-hover-shadow);
+	background: var(--gaya-white);
+	border-radius: 50px 0 0 50px;
+	box-shadow: var(--sidebar-shadow);
 	z-index: 9;
 	cursor: pointer;
 }
@@ -1717,7 +1755,7 @@ input[type="submit"]:active {
 	cursor: pointer;
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (max-width: 37.5em) {
 
 	/* --tablet-query */
 	.header-contact {

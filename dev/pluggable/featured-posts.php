@@ -51,8 +51,19 @@ function wprig_featured_posts( $stickies ) {
 			}
 			?>
 
-			<article <?php '' === $img_url ? post_class( 'featured' ) : post_class( 'featured', 'placeholder' ); ?> id="post-<?php the_ID(); ?>"
-				<?php echo '' === $img_url ? 'style="background-image: url(' . esc_url( $img_url ) . ');"' : ''; ?>>
+			<!-- <article 
+			<?php
+
+			/*
+			'' === $img_url ? post_class( 'featured' ) : post_class( 'featured', 'placeholder' ); ?>
+			id="post-<?php the_ID(); ?>"
+			<?php echo '' === $img_url ? 'style="background-image: url(' . esc_url( $img_url ) . ');"' : '';
+			*/
+			?>
+			> -->
+			<article <?php post_class( 'featured' ); ?> id="post-<?php the_ID(); ?>"
+				<?php echo 'style="background-image: url(' . esc_url( $img_url ) . ');"'; ?>
+			>
 
 			<div class="featured-article">
 				<!-- <p class="featured-title">Featured</p> -->

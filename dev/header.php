@@ -74,51 +74,7 @@
 			</div><!-- .site-search -->
 		</div><!-- #site-search-container -->
 
-		<!-- Top "News Flash" type section -->
-		<div class="header-flash <?php echo esc_attr( $header_img_class ); ?>">
-			<div class="header-contact">
-				<?php $wprig_description = get_bloginfo( 'description', 'display' ); ?>
-				<?php if ( $wprig_description || is_customize_preview() ) : ?>
-					<p class="site-description"><?php echo $wprig_description; /* WPCS: xss ok. */ ?></p>
-				<?php endif; ?>
-
-				<?php
-					$header_text1 = get_theme_mod( 'header_text1' );
-					$header_text2 = get_theme_mod( 'header_text2' );
-					$header_text3 = get_theme_mod( 'header_text3' );
-
-				if ( $header_text1 || $header_text2 || $header_text3 ) :
-					?>
-					<ul class="header-info">
-						<?php
-							echo wp_kses_post( $header_text1 ? "<li class='header-text-one'>$header_text1</li>" : '' );
-							echo wp_kses_post( $header_text2 ? "<li class='header-text-two'>$header_text2</li>" : '' );
-							echo wp_kses_post( $header_text3 ? "<li class='header-text-three'>$header_text3</li>" : '' );
-						?>
-					</ul>
-					<?php
-					endif;
-				?>
-
-				<div class="position-right">
-					<?php
-					require_once get_template_directory() . '/inc/class-nav-menu-dropdown.php';
-
-					if ( has_nav_menu( 'quicklinks' ) ) :
-						wp_nav_menu(
-							array(
-								'theme_location' => 'quicklinks',
-								'menu_id'        => 'quicklinks-menu',
-								'walker'         => new Wprig_Nav_Menu_Dropdown(),
-								'items_wrap'     => '<div class="mobile-menu"><form><select onchange="if (this.value) window.location.href=this.value">%3$s</select></form></div>',
-							)
-						);
-					endif;
-					?>
-				</div>
-
-			</div><!-- .header-contact -->
-		</div><!-- .header-flash -->
+		<?php /* wprig_header_flash(); */ ?>
 
 		<!-- Logo, Site Branding, Menu container -->
 		<header id="masthead" class="site-header">
@@ -128,17 +84,45 @@
 
 				<?php the_custom_logo(); ?>
 
-				<!-- <div class="site-title-description"> -->
+				<?php $wprig_description = get_bloginfo( 'description', 'display' ); ?>
+
+				<div class="site-title-description">
 					<?php if ( is_front_page() && is_home() ) : ?>
-						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+						<h1 class="site-title">
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+							<?php if ( $wprig_description || is_customize_preview() ) : ?>
+								<span class="site-description"><?php echo $wprig_description; /* WPCS: xss ok. */ ?></span>
+							<?php endif; ?>
+						</h1>
 					<?php else : ?>
-						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+						<p class="site-title">
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+							<?php if ( $wprig_description || is_customize_preview() ) : ?>
+								<span class="site-description"><?php echo $wprig_description; /* WPCS: xss ok. */ ?></span>
+							<?php endif; ?>
+						</p>
 					<?php endif; ?>
-				<!--</div> .site-title-description -->
+
+				</div> <!--.site-title-description -->
 			</div><!-- .site-branding -->
 			<!--</div> .site-header-container -->
 
 			<div class="position-right">
+				<?php
+				require_once get_template_directory() . '/inc/class-nav-menu-dropdown.php';
+
+				if ( has_nav_menu( 'quicklinks' ) ) :
+					wp_nav_menu(
+						array(
+							'theme_location' => 'quicklinks',
+							'menu_id'        => 'quicklinks-menu',
+							'walker'         => new Wprig_Nav_Menu_Dropdown(),
+							'items_wrap'     => '<div class="mobile-menu"><form><select onchange="if (this.value) window.location.href=this.value">%3$s</select></form></div>',
+						)
+					);
+				endif;
+				?>
+
 				<button class="menu-toggle" aria-label="<?php esc_attr_e( 'Open menu', 'wprig' ); ?>" aria-controls="primary-menu" aria-expanded="false"
 					<?php if ( wprig_is_amp() ) : ?>
 						on="tap:AMP.setState( { siteNavigationMenu: { expanded: ! siteNavigationMenu.expanded } } )"
@@ -186,10 +170,10 @@
 	</section><!-- .header-section -->
 
 	<div class="drawer-box">
-		<i id="drawer-toggle" class="fa fa-cog drawer-toggle"></i>
+		<i id="drawer-toggle" class="fa fa-shapes drawer-toggle"></i>
 		<a href="#drawer-container" class="screen-reader-text"><?php esc_html_e( 'Open Sidebar', 'k2k' ); ?></a>
 	</div>
 	<div class="drawer">
-		<i id="dismiss-drawer" class="fa fa-times dismiss-drawer"></i>
+		<!-- <i id="dismiss-drawer" class="fa fa-times dismiss-drawer"></i> -->
 		<?php get_sidebar(); ?>
 	</div>
