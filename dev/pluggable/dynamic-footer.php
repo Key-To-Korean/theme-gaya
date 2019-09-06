@@ -23,7 +23,7 @@ function wprig_dynamic_copyright() {
 		}
 		$output = $copyright . ' ' . $blog_name . '.';
 	}
-	echo esc_html( $output );
+	echo wp_kses_post( $output );
 
 }
 
@@ -41,7 +41,7 @@ function wprig_footer_credits() {
 			/* translators: Theme credit */
 			esc_attr__( 'Theme: %2$s by %1$s.', 'wprig' ),
 			'<a href="http://www.aaronsnowberger.com" target="_blank" rel="nofollow">Aaron Snowberger</a>',
-			esc_html( ucwords( '<a href="https://github.com/jekkilekki/theme-wprig" target="_blank" rel="nofollow">wprig</a>' ) )
+			wp_kses_post( ucwords( '<a href="https://github.com/jekkilekki/theme-wprig" target="_blank" rel="nofollow">wprig</a>' ) )
 		);
 }
 add_action( 'wprig_child_footer', 'wprig_footer_credits' );

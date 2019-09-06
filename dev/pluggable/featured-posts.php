@@ -52,7 +52,7 @@ function wprig_featured_posts( $stickies ) {
 			?>
 
 			<article <?php '' === $img_url ? post_class( 'featured' ) : post_class( 'featured', 'placeholder' ); ?> id="post-<?php the_ID(); ?>"
-				<?php echo '' === $img_url ? 'style="background-image: url(' . esc_attr( $img_url ) . ');"' : ''; ?>>
+				<?php echo '' === $img_url ? 'style="background-image: url(' . esc_url( $img_url ) . ');"' : ''; ?>>
 
 			<div class="featured-article">
 				<!-- <p class="featured-title">Featured</p> -->
@@ -72,7 +72,7 @@ function wprig_featured_posts( $stickies ) {
 
 			<div class="entry-meta entry-meta-left">
 					<?php
-					echo '<span class="entry-permalink"><a href="' . esc_attr( get_permalink() ) . '" title="' . esc_attr__( 'Read the article ', 'wprig' ) . esc_attr( get_the_title() ) . '" rel="bookmark">Read Article <i class="fa fa-arrow-right"></i></a></span>';
+					echo '<span class="entry-permalink"><a href="' . esc_url( get_permalink() ) . '" title="' . esc_attr__( 'Read the article ', 'wprig' ) . esc_attr( get_the_title() ) . '" rel="bookmark">Read Article <i class="fa fa-arrow-right"></i></a></span>';
 					wprig_reading_time();
 					?>
 			</div><!-- .entry-meta -->

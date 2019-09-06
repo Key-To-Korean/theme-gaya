@@ -91,9 +91,9 @@
 					?>
 					<ul class="header-info">
 						<?php
-							echo esc_html( $header_text1 ? "<li class='header-text-one'>$header_text1</li>" : '' );
-							echo esc_html( $header_text2 ? "<li class='header-text-two'>$header_text2</li>" : '' );
-							echo esc_html( $header_text3 ? "<li class='header-text-three'>$header_text3</li>" : '' );
+							echo wp_kses_post( $header_text1 ? "<li class='header-text-one'>$header_text1</li>" : '' );
+							echo wp_kses_post( $header_text2 ? "<li class='header-text-two'>$header_text2</li>" : '' );
+							echo wp_kses_post( $header_text3 ? "<li class='header-text-three'>$header_text3</li>" : '' );
 						?>
 					</ul>
 					<?php

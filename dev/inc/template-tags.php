@@ -163,7 +163,7 @@ function wprig_post_categories() {
 		$categories_list = get_the_category_list( esc_html__( ' &bull; ', 'wprig' ) );
 		if ( $categories_list ) {
 			/* translators: 1: list of categories. */
-			echo '<span class="cat-links">' . esc_html( $categories_list ) . ' </span>';
+			echo '<span class="cat-links">' . wp_kses_post( $categories_list ) . ' </span>';
 		}
 	}
 }
@@ -180,7 +180,7 @@ function wprig_post_tags() {
 		$tags_list = get_the_tag_list( '' );
 		if ( $tags_list ) {
 			/* translators: 1: list of tags. */
-			echo '<span class="tags-links">' . esc_html( $tags_list ) . ' </span>';
+			echo '<span class="tags-links">' . wp_kses_post( $tags_list ) . ' </span>';
 		}
 	}
 }
