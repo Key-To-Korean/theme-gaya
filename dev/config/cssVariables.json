@@ -30,6 +30,7 @@
     "gaya-grey3": "#95A4B1",
     "gaya-grey4": "#A9BAC9",
     "gaya-grey5": "gainsboro",
+    "gaya-grey-disabled": "rgba(135, 149, 161, 0.2)",
     "gaya-grey-rgb": "135,149,161",
     "gaya-gold": "#CF8031",
     "gaya-teal": "",

@@ -176,7 +176,7 @@
 }
 
 /**
- * Featured Posts (Stickies)
+ * Featured Posts Slider (Stickies)
  */
 .featured-posts {
 	margin: -4rem -4rem 2rem;
@@ -336,4 +336,43 @@ h1.featured-title {
 .slick-next {
 	right: 25px;
 	z-index: 1;
+}
+
+/*
+ * Featured Posts Grid
+ */
+#featured-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	margin: 0rem auto 6rem;
+	width: 100%;
+	max-width: 75rem;
+	border-bottom: 2px solid;
+	border-bottom-color: var(--gaya-black);
+}
+
+#featured-grid .post-thumbnail {
+	height: 12rem;
+	margin-bottom: 2rem;
+	position: relative;
+	transition: all 0.3s;
+}
+
+#featured-grid .post-thumbnail:focus,
+#featured-grid .post-thumbnail:hover {
+	transform: scale(1.05);
+	box-shadow: var(--image-hover-shadow);
+}
+
+#featured-grid .post-thumbnail .post-edit-link {
+	padding: 10px 20px;
+	font-size: 0.7rem;
+}
+
+#featured-grid .entry-title {
+	margin-top: 0;
+}
+
+#featured-grid .entry-title a {
+	color: var(--gaya-black);
 }

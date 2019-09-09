@@ -26,7 +26,7 @@ wp_print_styles( array( 'gaya-content', 'gaya-front-page' ) ); // Note: If this 
 
 	if ( 1 === $is_it_paged ) {
 		/* Load a Stickies Slider - if we have any Stickies */
-		gaya_featured_posts( $stickies );
+		gaya_featured_posts_grid( $stickies );
 	}
 
 	/* New WP_Query for the front page - deals with pagination */

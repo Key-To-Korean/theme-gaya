@@ -12,7 +12,7 @@
  *
  * @source: http://blog.josemcastaneda.com/2013/05/10/creating-a-sticky-post-slider/
  */
-function wprig_featured_posts( $stickies ) {
+function wprig_featured_posts_slider( $stickies ) {
 
 	$count = count( $stickies );
 	if ( $count < 1 ) {

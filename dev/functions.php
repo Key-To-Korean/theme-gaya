@@ -623,9 +623,10 @@ require get_template_directory() . '/pluggable/dynamic-footer.php';
 require get_template_directory() . '/pluggable/breadcrumbs.php';
 
 /**
- * Pluggable: Featured Posts (Stickies on Front Page)
+ * Pluggable: Featured Posts Slider or Grid (Stickies on Front Page)
  */
-require get_template_directory() . '/pluggable/featured-posts.php';
+require get_template_directory() . '/pluggable/featured-posts-slider.php';
+require get_template_directory() . '/pluggable/featured-posts-grid.php';
 
 /**
  * Pluggable: Post Functions (Word Count, etc)

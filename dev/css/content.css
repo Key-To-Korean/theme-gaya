@@ -62,7 +62,7 @@
 	font-size: 80%;
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (max-width: 37.5em) {
 
 	/* --tablet-query */
 	.entry-meta,
@@ -188,7 +188,7 @@
 	max-width: var(--content-width)rem;
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (max-width: 37.5em) {
 	/* --tablet-query */
 	.page-content>*,
 	.entry-content>*,
