@@ -123,17 +123,17 @@ function wprig_index_header() {
  * Prints HTML with meta information for the current post-date/time.
  */
 function wprig_posted_on() {
-	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+	$time_string = 'Published: <time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="updated" datetime="%3$s">%4$s</time><br /><time class="entry-date published" datetime="%1$s">%2$s</time>';
+		$time_string = 'Updated: <time class="updated" datetime="%3$s">%4$s</time><br />Published: <time class="entry-date published" datetime="%1$s">%2$s</time>';
 	}
 
 	$time_string = sprintf(
 		$time_string,
 		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() ),
+		esc_html( get_the_date( 'M n, Y' ) ),
 		esc_attr( get_the_modified_date( 'c' ) ),
-		esc_html( get_the_modified_date() )
+		esc_html( get_the_modified_date( 'M n, Y' ) )
 	);
 
 	$posted_on = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
@@ -368,7 +368,7 @@ function wprig_child_pages() {
 	}
 
 	if ( $childpages ) {
-		echo '<ul class="child-page-menu">' . esc_html( $childpages ) . '</ul>';
+		echo '<ul class="child-page-menu">' . wp_kses_post( $childpages ) . '</ul>';
 	}
 }
 
@@ -404,7 +404,7 @@ function wprig_archive_thumbnails() {
  * Custom function to return a placeholder image URL
  */
 function wprig_placeholder_image_url() {
-	return '/wp-content/themes/gaya/images/korean-pattern-lg.svg';
+	return get_home_url() . '/wp-content/themes/gaya/images/korean-pattern-lg.svg';
 }
 
 /**

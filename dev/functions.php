@@ -543,6 +543,16 @@ function wprig_filter_login_head() {
 add_action( 'login_head', 'wprig_filter_login_head', 100 );
 
 /**
+ * Modify Read More Link Text
+ *
+ * @source https://codex.wordpress.org/Customizing_the_Read_More
+ */
+function wprig_modify_read_more_link() {
+	return '<a class="more-link" href="' . esc_url( get_permalink() ) . '">Continue&hellip;<span class="screen-reader-text">' . esc_attr( get_the_title() ) . '</span></a>';
+}
+add_filter( 'the_content_more_link', 'wprig_modify_read_more_link' );
+
+/**
  * Custom responsive image sizes.
  */
 require get_template_directory() . '/inc/image-sizes.php';

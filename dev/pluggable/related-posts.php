@@ -14,7 +14,7 @@ function wprig_jp_related_posts() {
 	// WP_Query arguments.
 	$args = array(
 		'post_status'         => array( 'publish' ),
-		'posts_per_page'      => '4',
+		'posts_per_page'      => '3',
 		'ignore_sticky_posts' => true,
 		'category_name'       => $categories[0]->name,
 	);
@@ -23,7 +23,7 @@ function wprig_jp_related_posts() {
 	$query = new WP_Query( $args );
 
 	// The Loop.
-	if ( $query->hav_posts() ) :
+	if ( $query->have_posts() ) :
 		?>
 		<div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
 			<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
@@ -36,12 +36,22 @@ function wprig_jp_related_posts() {
 				?>
 				<div class="jp-relatedposts-post jp-relatedposts-post<?php echo esc_attr( $count ); ?> jp-relatedposts-post-thumbs" data-post-id="<?php the_ID(); ?>" data-post-format="false">
 					<a class="jp-relatedposts-post-a" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" rel="nofollow" data-origin="<?php the_ID(); ?>" data-position="<?php echo esc_attr( $count ); ?>">
-						<?php the_thumbnail( 'medium' ); ?>
+						<?php
+						if ( has_post_thumbnail( get_the_ID() ) ) :
+							?>
+							<div class="post-thumbnail" style="background-image: url(<?php echo esc_url( the_post_thumbnail_url() ); ?>), -webkit-gradient(linear,left top,left bottom,from(#00bfa5),to(#00897b)), linear-gradient(180deg,#00bfa5,#00897b);"></div>
+							<?php
+						else :
+							?>
+							<div class="post-thumbnail" style="background-image: url(<?php echo esc_url( wprig_placeholder_image_url() ); ?>), -webkit-gradient(linear,left top,left bottom,from(#00bfa5),to(#00897b)), linear-gradient(180deg,#00bfa5,#00897b);"></div>
+							<?php
+						endif;
+						?>
 					</a>
 					<h4 class="jp-relatedposts-post-title"><?php the_title(); ?></h4>
-					<p class="jp-relatedposts-post-excerpt"><?php the_excerpt(); ?></p>
-					<p class="jp-relatedposts-post-date" style="display: block;"><?php wprig_posted_on(); ?></p>
-					<p class="jp-relatedposts-post-context"><?php wprig_post_categories(); ?></p>
+					<p class="jp-relatedposts-post-excerpt"><?php echo wp_kses_post( get_the_excerpt() ); ?></p>
+					<!-- <p class="jp-relatedposts-post-date" style="display: block;"><?php /* wprig_posted_on(); */ ?></p> -->
+					<!-- <p class="jp-relatedposts-post-context"><?php /* wprig_post_categories(); */ ?></p> -->
 				</div>
 				<?php
 				$count++;
@@ -58,7 +68,7 @@ function wprig_jp_related_posts() {
 
 			<div class="jp-relatedposts-items jp-relatedposts-items-visual jp-relatedposts-grid">
 			<?php
-			for ( $count = 1; $count < 5; $count++ ) :
+			for ( $count = 1; $count < 4; $count++ ) :
 				?>
 				<div class="jp-relatedposts-post jp-relatedposts-post<?php echo esc_attr( $count ); ?> jp-relatedposts-post-thumbs" data-post-id="<?php esc_attr( $count ); ?>" data-post-format="false">
 					<a class="jp-relatedposts-post-a" href="<?php the_permalink(); ?>" title="Fake Jetpack Related Post <?php echo esc_attr( $count ); ?>" rel="nofollow" data-origin="<?php esc_attr( $count ); ?>" data-position="<?php esc_attr( $count ); ?>">

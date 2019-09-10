@@ -34,10 +34,12 @@ function wprig_author_box() {
 		$last_name  = get_the_author_meta( 'last_name', $post->post_author );
 		$full_name  = ! empty( $last_name ) ? $first_name . ' ' . $last_name : $first_name;
 
+		$author_details = '<h3 class="author-name">' . get_the_author() . '</h3>';
+
 		/*
 		 * Create the Author box
 		 */
-		$author_details = '<aside class="author_bio_section">';
+		$author_details .= '<aside class="author_bio_section">';
 
 		/*
 		Old version.
@@ -80,8 +82,8 @@ function wprig_author_box() {
 
 		$author_details .= '</section>';
 		$author_details .= '</div>';
-		$author_details .= '<p class="show-hide-author label">' . esc_html__( 'Hide', 'wprig' ) . '</p>';
 		$author_details .= '</aside>';
+		$author_details .= '<p class="show-hide-author label btn"><i class="fa fa-minus-circle"></i> ' . esc_html__( 'Hide', 'wprig' ) . '</p>';
 
 		echo wp_kses_post( $author_details );
 

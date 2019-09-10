@@ -1166,6 +1166,7 @@ a {
 
 a:visited {
 	color: #333;
+	color: var(--gaya-grey);
 }
 
 a:hover,
@@ -1189,8 +1190,21 @@ a:active {
 	border-bottom: 1px solid;
 }
 
+.entry-meta a.post-edit-link,
+.entry-content a.post-edit-link {
+	padding: 5px 20px;
+	font-size: 0.7rem;
+	border: 2px solid #dcdcdc;
+	line-height: 1.8;
+}
+
 a.more-link {
-	border-bottom: 1px solid var(--gaya-grey3);
+	border: 2px solid var(--gaya-grey5);
+	font-size: 0.7rem;
+	font-family: var(--highlight-font-family);
+	font-weight: bold;
+	padding: 5px 20px;
+	line-height: 1.8;
 }
 
 a.read-more {
@@ -1710,7 +1724,7 @@ input[type="submit"]:active {
 	word-wrap: break-word;
 	color: var(--global-header-color);
 	font-weight: normal;
-	text-transform: capitalize;
+	text-transform: initial;
 	display: block;
 }
 

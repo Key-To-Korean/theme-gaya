@@ -62,7 +62,12 @@
 	transform: translateX(-50%);
 }
 
-@media screen and (min-width: 37.5em) {
+.home .widget-post-post>div,
+.home .widget-pre-post>div {
+	grid-column: span 2;
+}
+
+@media screen and (max-width: 37.5em) {
 	/* --tablet-query */
 
 	.widget-pre-post h3,
@@ -70,8 +75,8 @@
 		display: none;
 	}
 
-	.widget-pre-post>div,
-	.widget-post-post>div {
+	:not(.home) .widget-pre-post>div,
+	:not(.home) .widget-post-post>div {
 		grid-column: span 2;
 	}
 }

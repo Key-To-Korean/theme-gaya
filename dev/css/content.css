@@ -115,9 +115,10 @@
 	text-decoration: none;
 	border: 1px solid white;
 	border-radius: 25px;
-	padding: 0px 20px;
-	font-size: 0.8rem;
+	padding: 10px 20px;
+	font-size: 0.6rem;
 	background: rgba(0, 0, 0, 0.5);
+	cursor: pointer;
 }
 
 .placeholder {
@@ -169,7 +170,17 @@
 	max-width: var(--content-width)rem;
 }
 
-.page-title,
+.page-title {
+	margin: 1.5em auto;
+	padding-right: 24px;
+	padding-right: 1.5rem;
+	padding-left: 24px;
+	padding-left: 1.5rem;
+	max-width: calc(var(--page-width) * 16)px;
+	/* Fallback for older browsers. */
+	max-width: var(--page-width)rem;
+}
+
 /* .entry-header, */
 .entry-footer,
 .author-box,
@@ -183,6 +194,7 @@
 	padding-right: 1.5rem;
 	padding-left: 24px;
 	padding-left: 1.5rem;
+	width: 100%;
 	max-width: calc(var(--content-width) * 16)px;
 	/* Fallback for older browsers. */
 	max-width: var(--content-width)rem;
@@ -274,7 +286,7 @@
 
 .tags-links a {
 	display: table;
-	padding: 2px 16px;
+	padding: 5px 20px;
 	font-weight: bolder;
 	text-transform: uppercase;
 	font-size: 0.7rem;
@@ -314,12 +326,34 @@
 	color: var(--global-header-color);
 }
 
+.author-box .vcard .fn {
+	text-transform: uppercase;
+	color: var(--gaya-teal);
+	letter-spacing: 1px;
+}
+
+.author-box .author-links {
+	margin-top: 0;
+}
+
 .author-box .author-name {
 	margin-top: 0;
+	text-transform: capitalize;
 }
 
 .author-box .author-description {
 	font-size: 0.8rem;
+	margin-bottom: 1.5rem;
+}
+
+.author-box .show-hide-author {
+	font-family: var(--highlight-font-family);
+	padding: 5px 20px;
+	border-width: 2px;
+	border-color: #dcdcdc;
+	line-height: 1.8;
+	font-size: 0.7rem;
+	font-weight: bold;
 }
 
 .post-navigation-container {
@@ -387,7 +421,8 @@
 	content: "\f023";
 	font-size: 4rem;
 	text-align: center;
-	font-family: FontAwesome;
+	font-family: "Font Awesome 5 Free", FontAwesome;
+	font-weight: 900;
 	top: 2rem;
 	left: 50%;
 	transform: translateX(-50%);
@@ -895,10 +930,30 @@ object {
 	margin-bottom: 2rem;
 }
 
+.jp-relatedposts .post-thumbnail {
+	height: 9rem;
+	margin-top: 0;
+	margin-bottom: 1rem;
+	background-size: cover;
+	background-position: center;
+	transition: all 0.3s;
+}
+
+.jp-relatedposts .post-thumbnail:hover,
+.jp-relatedposts .post-thumbnail:focus {
+	transform: scale(1.05);
+	box-shadow: var(--image-hover-shadow);
+}
+
 .jp-relatedposts-grid {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
 	grid-gap: 2rem;
+	width: 100%;
+}
+
+.jp-relatedposts-post-title {
+	margin-top: 0;
 }
 
 .jp-relatedposts-post-a div,
@@ -988,6 +1043,7 @@ ul.author-posts-grid {
 	font-size: 1rem;
 	line-height: 1.5;
 	font-weight: normal;
+	word-break: break-word;
 }
 
 .archive-posts-grid .entry-title a,
@@ -1020,6 +1076,7 @@ ul.author-posts-grid {
 .search-posts-grid .post-thumbnail:active,
 .search-posts-grid .post-thumbnail:focus {
 	box-shadow: var(--image-hover-shadow);
+	transform: scale(1.05);
 }
 
 .archive-posts-grid .entry-content,
