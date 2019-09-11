@@ -232,12 +232,23 @@ if ( ! function_exists( 'wprig_paging_nav' ) ) :
 	function wprig_paging_nav() {
 		global $wp_query, $wp_rewrite;
 
+		/* New WP_Query for the front page - deals with pagination */
+		$stickies = get_option( 'sticky_posts' );
+		$paged    = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
+
+		$index_query = array(
+			'post__not_in'   => $stickies,
+			'posts_per_page' => 30,
+			'paged'          => $paged,
+		);
+
+		$query_object = new WP_Query( $index_query );
+
 		// Don't print empty markup if there's only one page.
-		if ( $wp_query->max_num_pages < 2 ) {
+		if ( $query_object->max_num_pages < 2 ) {
 			return;
 		}
 
-		$paged        = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
 		$pagenum_link = html_entity_decode( get_pagenum_link() );
 		$query_args   = array();
 		$url_parts    = explode( '?', $pagenum_link );
@@ -257,7 +268,7 @@ if ( ! function_exists( 'wprig_paging_nav' ) ) :
 			array(
 				'base'      => $pagenum_link,
 				'format'    => $format,
-				'total'     => $wp_query->max_num_pages,
+				'total'     => $query_object->max_num_pages,
 				'current'   => $paged,
 				'mid_size'  => 2,
 				'add_args'  => array_map( 'urlencode', $query_args ),

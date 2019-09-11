@@ -10,7 +10,7 @@
  *
  * This code provides a basic Subscribe box - as Jetpack / WP would do.
  */
-class Wprig_Subscribe extends WP_Widget {
+class Better_Subscribe extends WP_Widget {
 
 	/**
 	 * Sets up a new Archives widget instance.
@@ -23,7 +23,7 @@ class Wprig_Subscribe extends WP_Widget {
 			'classname'   => 'widget_subscribe',
 			'description' => __( 'A basic (non-functional) Subscribe box.', 'wprig' ),
 		);
-		parent::__construct( 'wprig_subscribe', __( 'Better Subscribe', 'wprig' ), $widget_ops );
+		parent::__construct( 'better_subscribe', __( 'Better Subscribe', 'wprig' ), $widget_ops );
 
 	}
 
@@ -145,4 +145,4 @@ class Wprig_Subscribe extends WP_Widget {
 		// @codingStandardsIgnoreEnd
 	} // end form()
 }
-register_widget( 'wprig_subscribe' );
+register_widget( 'better_subscribe' );

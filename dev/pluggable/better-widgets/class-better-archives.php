@@ -13,7 +13,7 @@
  *
  * @source http://floatleft.com/notebook/wordpress-year-month-archives/
  */
-class Wprig_Archives extends WP_Widget {
+class Better_Archives extends WP_Widget {
 
 	/**
 	 * Sets up a new Archives widget instance.
@@ -26,7 +26,7 @@ class Wprig_Archives extends WP_Widget {
 			'classname'   => 'widget_archive',
 			'description' => __( 'A yearly, then monthly, archive of your site&#8217;s Posts.', 'wprig' ),
 		);
-		parent::__construct( 'wprig_archives', __( 'Better Archives', 'wprig' ), $widget_ops );
+		parent::__construct( 'better_archives', __( 'Better Archives', 'wprig' ), $widget_ops );
 
 	}
 
@@ -200,7 +200,7 @@ class Wprig_Archives extends WP_Widget {
 		// @codingStandardsIgnoreEnd
 	} // end form()
 }
-register_widget( 'wprig_archives' );
+register_widget( 'better_archives' );
 
 /*
 @TODO Add a Customizer Option for this

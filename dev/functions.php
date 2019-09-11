@@ -331,7 +331,7 @@ function wprig_gutenberg_styles() {
 	wp_enqueue_style( 'wprig-fonts', wprig_fonts_url(), array(), '20190906' );
 
 	// Enqueue main stylesheet.
-	wp_enqueue_style( 'wprig-base-style', get_theme_file_uri( '/css/editor-styles.css' ), array(), '20180514' );
+	wp_enqueue_style( 'wprig-base-style', get_theme_file_uri( '/css/editor-styles.css' ), array(), '20180514' . wp_rand( 1, 99 ) );
 }
 add_action( 'enqueue_block_editor_assets', 'wprig_gutenberg_styles' );
 
@@ -597,10 +597,10 @@ require get_template_directory() . '/pluggable/ad-placeholders.php';
 /**
  * Pluggable: Better Widgets
  */
-require get_template_directory() . '/pluggable/better-widgets/archives.php';
-require get_template_directory() . '/pluggable/better-widgets/recent-comments.php';
-require get_template_directory() . '/pluggable/better-widgets/recent-posts.php';
-require get_template_directory() . '/pluggable/better-widgets/subscribe.php';
+require get_template_directory() . '/pluggable/better-widgets/class-better-archives.php';
+require get_template_directory() . '/pluggable/better-widgets/class-better-recent-comments.php';
+require get_template_directory() . '/pluggable/better-widgets/class-better-recent-posts.php';
+require get_template_directory() . '/pluggable/better-widgets/class-better-subscribe.php';
 
 /**
  * Pluggable: Post Format Functions

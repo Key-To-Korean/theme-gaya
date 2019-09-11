@@ -13,7 +13,7 @@
  *
  * @source https://github.com/mor10/popper/blob/master/widgets/recent-posts.php
  */
-class Wprig_Recent_Posts extends WP_Widget {
+class Better_Recent_Posts extends WP_Widget {
 
 	/**
 	 * Sets up a new Recent Posts widget instance.
@@ -27,7 +27,7 @@ class Wprig_Recent_Posts extends WP_Widget {
 				'description' => __( 'Displays most recent posts with featured image and publishing date.', 'wprig' ),
 			);
 			parent::__construct(
-				'widget_wprig_recent_posts',
+				'better_recent_posts',
 				__( 'Better Recent Posts', 'wprig' ),
 				$widget_ops
 			);
@@ -45,18 +45,16 @@ class Wprig_Recent_Posts extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 		// Outputs the content of the widget.
-		$widget_title    = null;
-		$number_of_posts = null;
+		$args['widget_title']    = null;
+		$args['number_of_posts'] = null;
 
-		/*
-		Old code.
-		// $widget_title = esc_attr( apply_filters( 'widget_title', $instance[ 'widget_title' ] ) ) || esc_html__( 'Better Posts', 'wprig' );
-		// $number_of_posts = esc_attr( $instance[ 'number_of_posts' ] ) || 0;
-		*/
+		// Old code.
+		$args['widget_title']    = esc_attr( apply_filters( 'widget_title', $instance['widget_title'] ) ) || esc_html__( 'Better Posts', 'wprig' );
+		$args['number_of_posts'] = esc_attr( $instance['number_of_posts'] ) || 0;
 
 		echo esc_html( $args['before_widget'] );
 
-		if ( ! empty( $widget_title ) ) {
+		if ( ! empty( $args['widget_title'] ) ) {
 			echo esc_html( $args['before_title'] . $args['widget_title'] . $args['after_title'] );
 		} else {
 			echo esc_html( $args['before_title'] . __( 'Better Posts', 'wprig' ) . $args['after_title'] );
@@ -185,7 +183,7 @@ class Wprig_Recent_Posts extends WP_Widget {
 
 	} // end function form().
 }
-register_widget( 'wprig_recent_posts' );
+register_widget( 'better_recent_posts' );
 
 /*
 @TODO Add a Customizer Option for this

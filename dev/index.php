@@ -34,7 +34,7 @@ wp_print_styles( array( 'gaya-content', 'gaya-front-page' ) ); // Note: If this 
 		'post__not_in'   => $stickies,
 		'posts_per_page' => 30,
 		// 'page'          => $paged,
-		'paged'          => $paged,
+		'paged'          => $is_it_paged,
 	);
 
 	$query_object = new WP_Query( $query );
@@ -42,6 +42,7 @@ wp_print_styles( array( 'gaya-content', 'gaya-front-page' ) ); // Note: If this 
 	if ( $query_object->have_posts() ) :
 
 		/* Setup our rows */
+		$num_posts     = count( $query_object->posts );
 		$count         = 1;
 		$new_rows      = array( 1, 14, 2, 12, 18, 23, 4, 6, 9, 15, 20, 25, 28 );
 		$new_rows_ends = array( 1, 14, 3, 13, 19, 24, 5, 8, 11, 17, 22, 27, 30 );
@@ -158,7 +159,8 @@ wp_print_styles( array( 'gaya-content', 'gaya-front-page' ) ); // Note: If this 
 					echo '</div><!-- .one-per-row -->';
 			}
 
-			if ( in_array( $count, $new_rows_ends, true ) ) {
+			// Close off the div if this is the end of the row, or there are no more posts.
+			if ( in_array( $count, $new_rows_ends, true ) || $num_posts === $count ) {
 				echo '</div><!-- .front-page-row -->';
 			}
 

@@ -1338,6 +1338,336 @@ textarea {
 	width: 100%;
 }
 
+form {
+	margin-bottom: 1rem;
+	border-radius: 6px;
+}
+
+form ul {
+	margin: 0;
+	padding: 0;
+}
+
+form li {
+	list-style: none;
+}
+
+.field-wrapper {
+	display: block;
+	position: relative;
+	margin-bottom: 0.25em;
+	max-width: 400px;
+}
+
+::-webkit-input-placeholder {
+	color: #a9bac9;
+	font-weight: 100;
+}
+
+.form-option-boxes {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(20%, 1fr));
+	grid-gap: 1rem;
+	margin-bottom: 2rem;
+}
+
+.form-option-box {
+	border-radius: 0.5rem;
+	border: 2px solid #f5f5f5;
+	text-align: center;
+	box-shadow: 0 6px 15px 0 rgba(36, 37, 38, 0.08);
+	padding: 2rem 0.5rem;
+	position: relative;
+}
+
+.form-option-box:hover {
+	border-color: #a9bac9;
+	cursor: pointer;
+}
+
+.form-option-box.is-selected {
+	border-color: #00bfa5;
+}
+
+.check-wrap {
+	background: #00bfa5;
+	border-radius: 50%;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 24px;
+	height: 24px;
+	color: #ffffff;
+	text-align: center;
+	font-size: 0.9rem;
+}
+
+.form-option-note {
+	font-size: 0.6rem;
+	margin-top: -0.5rem;
+	display: inline-block;
+	color: #a9bac9;
+}
+
+.form-option-price {
+	color: #00bfa5;
+	font-size: 2.5rem;
+	margin: 0;
+}
+
+.form-option-price span {
+	font-size: 1.25rem;
+}
+
+label.float-label {
+	position: absolute;
+	top: 5px;
+	left: 0;
+	font-size: 0.7rem;
+	color: #8795a1;
+	transition: all ease-out 300ms;
+	opacity: 0;
+	font-weight: bold;
+}
+
+label.float-label.on {
+	color: #7b8792;
+}
+
+label.float-label.show {
+	top: 0px;
+	opacity: 1;
+}
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="file"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input,
+.faux-file {
+	display: inline-block;
+	vertical-align: middle;
+	min-width: 50px;
+	max-width: 550px;
+	transition: all ease-out 300ms;
+}
+
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="file"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input,
+.faux-file {
+	width: 100%;
+	border: 1px solid rgba(135, 149, 161, 0.4);
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	margin: 1rem 0 1rem 0;
+	padding: 0.35rem 0;
+	letter-spacing: 0.05rem;
+}
+
+textarea:hover,
+input[type="text"]:hover,
+input[type="password"]:hover,
+input[type="file"]:hover,
+input[type="datetime"]:hover,
+input[type="datetime-local"]:hover,
+input[type="date"]:hover,
+input[type="month"]:hover,
+input[type="time"]:hover,
+input[type="week"]:hover,
+input[type="number"]:hover,
+input[type="email"]:hover,
+input[type="url"]:hover,
+input[type="search"]:hover,
+input[type="tel"]:hover,
+input[type="color"]:hover,
+.uneditable-input:hover,
+.faux-file:hover {
+	border-color: #7b8792;
+}
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="file"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus,
+.faux-file:focus {
+	border-color: #00bfa5;
+	border-width: 2px;
+	outline: none;
+}
+
+input,
+textarea {
+	-webkit-appearance: none;
+	curser: pointer;
+	padding: 0.75rem;
+}
+
+textarea {
+	height: 150px;
+	border-radius: 6px;
+	border: 1px solid rgba(135, 149, 161, 0.4);
+}
+
+textarea:focus {
+	border-width: 1px;
+}
+
+input[type=submit] {
+	display: inline-block;
+	background: #ffffff;
+	color: #22292f;
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	font-weight: bold;
+	line-height: 1;
+	padding: 0.75rem 1.35rem 0.75rem 1.35rem;
+	border: 1px solid #a9bac9;
+	text-align: center;
+	transition: all ease-out 300ms;
+	border-radius: 50px;
+	background: #00bfa5;
+	color: #ffffff;
+	border-color: #00bfa5;
+	padding-left: 3rem;
+	padding-right: 3rem;
+	cursor: pointer;
+}
+
+input[type=submit]:hover,
+input[type=submit]:focus {
+	color: #00bfa5;
+	border: 1px solid #00bfa5;
+}
+
+/*RADIO/CHECKBOX*/
+input[type="radio"]+label,
+input[type="checkbox"]+label {
+	color: #22292f;
+	font-size: 1em;
+	curser: pointer;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+	position: absolute;
+	opacity: 0;
+	curser: pointer;
+	transition: all ease-out 300ms;
+}
+
+input[type="radio"]:hover,
+input[type="checkbox"]:hover,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus,
+input[type="radio"]:hover+label,
+input[type="checkbox"]:hover+label,
+input[type="radio"]:focus+label,
+input[type="checkbox"]:focus+label {
+	border-color: #00bfa5;
+	color: #8795a1;
+}
+
+input[type="radio"]:checked+label,
+input[type="checkbox"]:checked+label {
+	color: black;
+	position: relative;
+}
+
+input[type="radio"]+label::before {
+	content: '';
+	width: 1em;
+	height: 1em;
+	margin-right: 0.125em;
+	position: relative;
+	top: 0.2rem;
+	display: inline-block;
+	background-color: transparent;
+	border-radius: 2em;
+	border: 1px solid #8795a1;
+}
+
+input[type="checkbox"]+label::before {
+	content: '';
+	width: 15px;
+	height: 15px;
+	margin-right: 0.125em;
+	position: relative;
+	top: 0.2em;
+	display: inline-block;
+	background-color: transparent;
+	border: 1px solid #8795a1;
+	border-radius: 5px;
+}
+
+input[type="checkbox"]:checked+label::after {
+	content: '✔';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 4px;
+	width: 10px;
+	height: 10px;
+	color: #00bfa5;
+}
+
+input[type="radio"]:checked+label::before {
+	border-color: #8795a1;
+}
+
+input[type="radio"]:checked+label::after {
+	content: '';
+	width: 11px;
+	height: 11px;
+	position: absolute;
+	top: 7px;
+	left: 3px;
+	display: inline-block;
+	background-color: #00bfa5;
+	border-radius: 2em;
+}
+
 /*BUTTONS *
 -----------------------------------------------*/
 

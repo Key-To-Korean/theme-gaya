@@ -13,7 +13,7 @@
  *
  * @source https://github.com/mor10/popper/blob/master/widgets/recent-comments.php
  */
-class Wprig_Recent_Comments extends WP_Widget {
+class Better_Recent_Comments extends WP_Widget {
 
 	/**
 	 * Sets up a new Recent Comments widget instance.
@@ -26,7 +26,7 @@ class Wprig_Recent_Comments extends WP_Widget {
 			'classname'   => 'widget_recent_comments',
 			'description' => __( 'Displays recent comments with user avatar and excerpt.', 'wprig' ),
 		);
-		parent::__construct( 'widget_wprig_recent_comments', __( 'Better Recent Comments', 'wprig' ), $widget_ops );
+		parent::__construct( 'better_recent_comments', __( 'Better Recent Comments', 'wprig' ), $widget_ops );
 
 	} // end __construct()
 
@@ -169,7 +169,7 @@ class Wprig_Recent_Comments extends WP_Widget {
 
 	} // end function form().
 }
-register_widget( 'wprig_recent_comments' );
+register_widget( 'better_recent_comments' );
 
 /*
 @TODO Add a Customizer option for this
