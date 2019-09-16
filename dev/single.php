@@ -21,6 +21,7 @@ get_header(); ?>
 			* At some point, override functionality should be built in similar to the template part below.
 			*/
 			wp_print_styles( array( 'wprig-content' ) ); // Note: If this was already done it will be skipped.
+			wp_print_styles( array( 'wprig-post-formats' ) ); // Note: If this was already done it will be skipped.
 
 			get_template_part( 'template-parts/content', get_post_type() );
 

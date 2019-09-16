@@ -458,6 +458,7 @@ function wprig_styles() {
 	wp_register_style( 'wprig-widgets', get_theme_file_uri( '/css/widgets.css' ), array(), '20180514' . wp_rand( 0, 99 ) );
 	wp_register_style( 'wprig-front-page', get_theme_file_uri( '/css/front-page.css' ), array(), '20180514' . wp_rand( 0, 99 ) );
 	wp_register_style( 'wprig-adsense', get_theme_file_uri( '/css/adsense.css' ), array(), '20180822' . wp_rand( 0, 99 ) );
+	wp_register_style( 'wprig-post-formats', get_theme_file_uri( '/css/post-formats.css' ), array(), '20190916' . wp_rand( 0, 99 ) );
 
 	// Enqueue Slick slider.
 	wp_enqueue_style( 'wprig-slick-slider', get_template_directory_uri() . '/slick/slick.css', array(), '20190905' );

@@ -243,6 +243,9 @@
 		max-width: calc(var(--content-width) * 16)px;
 		/* Fallback for older browsers. */
 		max-width: var(--content-width)rem;
+		width: calc(var(--content-width) * 16)px;
+		/* Fallback for older browsers. */
+		width: var(--content-width)rem;
 		margin: 0 auto;
 	}
 
@@ -257,12 +260,14 @@
 
 .page-links {
 	clear: both;
-	margin: 0 0 1.5em;
+	margin: 0 auto;
+	font-size: 80%;
 }
 
 .page-links a {
 	padding: 0.25rem 0.5rem;
 	border: 1px solid gainsboro;
+	border-radius: 100px;
 }
 
 .cat-links {
@@ -276,6 +281,8 @@
 	text-decoration: none;
 	text-transform: uppercase;
 	color: var(--global-header-color);
+	display: inline-block;
+	line-height: 1.8;
 }
 
 .tags-links {
@@ -434,6 +441,14 @@
 	border-radius: 50%;
 }
 
+.post-password-required .tags-links a {
+	color: var(--gaya-grey5);
+}
+
+.post-password-required .post-edit-link {
+	background: transparent;
+}
+
 /*--------------------------------------------------------------
 ## Alignments
 --------------------------------------------------------------*/
@@ -527,20 +542,23 @@ img.aligncenter {
 
 .entry-content ul,
 .entry-content ol {
-	padding-right: 2.5em;
-	padding-left: 2.5em;
+	padding-right: 2rem;
+	padding-left: 2rem;
 }
 
 .entry-content ul ul,
-.entry-content ol ol {
+.entry-content ol ol,
+.entry-content ul ol,
+.entry-content ol ul {
 	margin-right: 0;
 	margin-left: 0;
-	padding-right: 1.5em;
-	padding-left: 1.5em;
+	padding-right: 1.5rem;
+	padding-left: 1.5rem;
 }
 
-.wp-block-video video {
-	max-width: var(--content-width)rem;
+.wp-block-video video,
+.wp-audio-shortcode {
+	max-width: var(--content-width)rem !important;
 }
 
 .alignwide {
@@ -769,8 +787,18 @@ object {
 	margin-right: auto;
 }
 
+.wp-caption a img[class*="wp-image-"] {
+	border: 1px dotted var(--gaya-black);
+}
+
+.wp-caption a img[class*="wp-image-"]:hover,
+.wp-caption a img[class*="wp-image-"]:focus {
+	border-color: var(--gaya-teal-dk);
+}
+
 .wp-caption .wp-caption-text {
-	margin: 5px 0;
+	margin: 5px auto;
+	max-width: var(--content-width)rem;
 }
 
 .wp-caption-text {
@@ -917,6 +945,7 @@ object {
 
 .gallery-caption {
 	font-size: 80%;
+	border-bottom: 0;
 }
 
 /**

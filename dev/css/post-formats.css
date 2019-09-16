@@ -1,0 +1,25 @@
+.format-chat p:nth-child(2n) {
+	padding-left: 2rem;
+}
+
+.format-quote blockquote {
+	position: relative;
+}
+
+.format-quote blockquote:before {
+	content: "\201C";
+	position: absolute;
+	top: -1rem;
+	font-size: 3rem;
+	color: gainsboro;
+	z-index: -1;
+	font-size: 10rem;
+	line-height: 1;
+	left: 0;
+	display: none;
+}
+
+.twitter-tweet {
+	margin-bottom: 2rem !important;
+	margin-top: 2rem !important;
+}

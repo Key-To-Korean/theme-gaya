@@ -759,6 +759,7 @@ span.small {
 	font-size: 2.75rem;
 	line-height: 1.4;
 	margin: 0;
+	-ms-word-wrap: break-word;
 	word-wrap: break-word;
 }
 
@@ -999,7 +1000,7 @@ ol {
 li>ul,
 li>ol {
 	margin-bottom: 0;
-	margin-left: 1.5em;
+	margin-left: 0;
 }
 
 dt {
@@ -1198,13 +1199,18 @@ a:active {
 	line-height: 1.8;
 }
 
-a.more-link {
+a.more-link,
+a.comment-edit-link {
 	border: 2px solid var(--gaya-grey5);
 	font-size: 0.7rem;
 	font-family: var(--highlight-font-family);
 	font-weight: bold;
 	padding: 5px 20px;
 	line-height: 1.8;
+	text-transform: uppercase;
+	border-radius: 50px;
+	color: var(--gaya-black);
+	font-style: normal;
 }
 
 a.read-more {
@@ -1460,7 +1466,7 @@ input[type="color"],
 .faux-file {
 	display: inline-block;
 	vertical-align: middle;
-	min-width: 50px;
+	/* min-width: 50px; */
 	max-width: 550px;
 	transition: all ease-out 300ms;
 }
@@ -1488,9 +1494,10 @@ input[type="color"],
 	border-top: none;
 	border-left: none;
 	border-right: none;
-	margin: 1rem 0 1rem 0;
+	margin: 0 0 1rem 0;
 	padding: 0.35rem 0;
 	letter-spacing: 0.05rem;
+	border-radius: 0;
 }
 
 textarea:hover,
@@ -1887,6 +1894,16 @@ input[type="submit"]:active {
 .site-header .position-right {
 	text-align: right;
 	grid-column: span 6;
+}
+
+.site-header form {
+	margin: 0;
+}
+
+.site-header select {
+	margin-top: -5px;
+	width: 150px;
+	text-overflow: ellipsis;
 }
 
 .header-contact .position-right {
@@ -2585,7 +2602,7 @@ input[type="submit"]:active {
 	border-bottom: 5px solid var(--gaya-grey4);
 }
 
-.main-navigation li li:hover:after {
+.main-navigation .sub-menu li:hover:after {
 	border-bottom: 0;
 }
 

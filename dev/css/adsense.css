@@ -49,7 +49,7 @@
 	border-bottom: 1px dotted black;
 	padding: 1rem 0;
 	grid-gap: 2rem;
-	margin-bottom: 0;
+	margin-bottom: 0 !important;
 }
 
 .widget-pre-post>div,
