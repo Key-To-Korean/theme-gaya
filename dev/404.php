@@ -7,7 +7,9 @@
  * @package wprig
  */
 
-get_header(); ?>
+get_header();
+wp_print_styles( array( 'wprig-content' ) ); // Note: If this was already done it will be skipped.
+?>
 
 	<main id="primary" class="site-main">
 
@@ -15,6 +17,8 @@ get_header(); ?>
 			<header class="page-header">
 				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'wprig' ); ?></h1>
 			</header><!-- .page-header -->
+
+			<?php wprig_index_header(); ?>
 
 			<div class="page-content">
 				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'wprig' ); ?></p>

@@ -11,6 +11,11 @@
 function wprig_jp_related_posts() {
 	$categories = get_the_category();
 
+	// Make sure we have categories.
+	if ( empty( $categories ) ) {
+		return;
+	}
+
 	// WP_Query arguments.
 	$args = array(
 		'post_status'         => array( 'publish' ),

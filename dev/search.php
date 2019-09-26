@@ -7,7 +7,15 @@
  * @package wprig
  */
 
-get_header(); ?>
+get_header();
+
+/*
+ * Include the component stylesheet for the content.
+ * This call runs only once on index and archive pages.
+ * At some point, override functionality should be built in similar to the template part below.
+ */
+wp_print_styles( array( 'wprig-content' ) ); // Note: If this was already done it will be skipped.
+?>
 
 	<main id="primary" class="site-main">
 
@@ -42,13 +50,6 @@ get_header(); ?>
 		$count = 0;
 		while ( have_posts() && $count < 8 ) :
 			the_post();
-
-			/*
-			 * Include the component stylesheet for the content.
-			 * This call runs only once on index and archive pages.
-			 * At some point, override functionality should be built in similar to the template part below.
-			 */
-			wp_print_styles( array( 'wprig-content' ) ); // Note: If this was already done it will be skipped.
 
 			/**
 			 * Run the loop for the search to output the results.

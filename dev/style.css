@@ -564,10 +564,10 @@ template {
 	/* --sidebar-query */
 	.has-sidebar .site {
 		/* margin: 0 4rem; */
-		display: grid;
+		/* display: grid;
 		grid-template-columns: 3fr 1fr;
 		grid-gap: 2rem;
-		justify-content: center;
+		justify-content: center; */
 	}
 
 	.header-flash,
@@ -910,10 +910,10 @@ address {
 }
 
 pre {
-	background: var(--global-header-color);
+	background: var(--gaya-black-blue);
 	color: #eee;
 	font-family: "Courier 10 Pitch", Courier, monospace;
-	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-family: "Source Code Pro", Menlo, Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	font-size: 15px;
 	font-size: 0.9375rem;
 	line-height: 1.6;
@@ -921,6 +921,18 @@ pre {
 	max-width: 100%;
 	overflow: auto;
 	padding: 1.6em;
+	tab-size: 2;
+	-moz-tab-size: 2;
+	-o-tab-size: 2;
+	overflow: hidden;
+	border-radius: 10px;
+	hyphens: none;
+	-ms-hyphens: none;
+	-webkit-hyphens: none;
+}
+
+pre[rel] {
+	padding-top: 20px;
 }
 
 code,
@@ -930,6 +942,7 @@ var {
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	font-size: 14px;
 	background: #efefef;
+	background: var(--gradient-teal);
 	padding: 2px 5px;
 }
 
@@ -1161,20 +1174,24 @@ th {
 # Links
 --------------------------------------------------------------*/
 a {
-	color: var(--material-teal-a700);
+	/* color: var(--material-teal-a700); */
 	/* Google Material Teal A700 */
+	color: var(--gaya-gold);
+	text-decoration: none;
+	outline: none;
 }
 
 a:visited {
 	color: #333;
-	color: var(--gaya-grey);
+	color: var(--gaya-grey4);
 }
 
 a:hover,
 a:focus,
 a:active {
-	color: var(--material-teal-a400);
+	/* color: var(--material-teal-a400); */
 	/* Google Material Teal A400 */
+	color: var(--gaya-amber-dk);
 }
 
 a:focus {
@@ -1678,11 +1695,11 @@ input[type="radio"]:checked+label::after {
 /*BUTTONS *
 -----------------------------------------------*/
 
-a {
+/* a {
 	color: var(--gaya-teal-a);
 	text-decoration: none;
 	outline: 0;
-}
+} */
 
 .entry-content a:hover,
 .entry-content a:focus,
@@ -1960,6 +1977,10 @@ input[type="submit"]:active {
 
 .site-header.fixed .main-navigation li {
 	line-height: 3.2rem !important;
+}
+
+.site-header.fixed .main-navigation ul ul li {
+	line-height: 1.8rem !important;
 }
 
 .site-header.fixed .search-toggle {

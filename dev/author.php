@@ -33,7 +33,7 @@ get_header(); ?>
 			?>
 		</ul>
 		<div class="author-description">
-			<?php echo esc_html( wpautop( get_the_author_meta( 'description' ) ) ); ?>
+			<?php echo wp_kses_post( wpautop( get_the_author_meta( 'description' ) ) ); ?>
 		</div>
 
 

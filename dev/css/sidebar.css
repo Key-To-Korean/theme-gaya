@@ -22,8 +22,19 @@
 	}
 }
 
-.footer-sidebar-1,
 .footer-top-sidebar {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-gap: 2rem;
+	/* margin: 0 -4rem; */
+	padding: 3rem 4rem;
+	/* background: var(--global-font-color); */
+	color: white;
+}
+
+.footer-sidebar-1 {
+	max-width: 90rem;
+	margin: 0 auto;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	grid-gap: 2rem;

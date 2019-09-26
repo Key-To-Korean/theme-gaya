@@ -132,55 +132,135 @@ function wprig_setup() {
 	 *
 	 * @link https://wordpress.org/gutenberg/handbook/extensibility/theme-support/
 	 */
+	$wprig_colors = array(
+		array(
+			'name'  => __( 'Dusty orange', 'wprig' ),
+			'slug'  => 'dusty-orange',
+			'color' => '#ed8f5b',
+		),
+		array(
+			'name'  => __( 'Dusty red', 'wprig' ),
+			'slug'  => 'dusty-red',
+			'color' => '#e36d60',
+		),
+		array(
+			'name'  => __( 'Dusty wine', 'wprig' ),
+			'slug'  => 'dusty-wine',
+			'color' => '#9c4368',
+		),
+		array(
+			'name'  => __( 'Dark sunset', 'wprig' ),
+			'slug'  => 'dark-sunset',
+			'color' => '#33223b',
+		),
+		array(
+			'name'  => __( 'Almost black', 'wprig' ),
+			'slug'  => 'almost-black',
+			'color' => '#0a1c28',
+		),
+		array(
+			'name'  => __( 'Dusty water', 'wprig' ),
+			'slug'  => 'dusty-water',
+			'color' => '#41848f',
+		),
+		array(
+			'name'  => __( 'Dusty sky', 'wprig' ),
+			'slug'  => 'dusty-sky',
+			'color' => '#72a7a3',
+		),
+		array(
+			'name'  => __( 'Dusty daylight', 'wprig' ),
+			'slug'  => 'dusty-daylight',
+			'color' => '#97c0b7',
+		),
+		array(
+			'name'  => __( 'Dusty sun', 'wprig' ),
+			'slug'  => 'dusty-sun',
+			'color' => '#eee9d1',
+		),
+	);
+
+	$k2k_colors = array(
+		array(
+			'name'  => __( 'Grey 1', 'wprig' ),
+			'slug'  => 'grey-1',
+			'color' => '#7B8792',
+		),
+		array(
+			'name'  => __( 'Grey 2', 'wprig' ),
+			'slug'  => 'grey-2',
+			'color' => '#8795A1',
+		),
+		array(
+			'name'  => __( 'Grey 3', 'wprig' ),
+			'slug'  => 'grey-3',
+			'color' => '#95A4B1',
+		),
+		array(
+			'name'  => __( 'Grey 4', 'wprig' ),
+			'slug'  => 'grey-4',
+			'color' => '#A9BAC9',
+		),
+		array(
+			'name'  => __( 'Gold', 'wprig' ),
+			'slug'  => 'gold',
+			'color' => '#CF8031',
+		),
+		array(
+			'name'  => __( 'Dark Teal', 'wprig' ),
+			'slug'  => 'dark-teal',
+			'color' => '#00897b',
+		),
+		array(
+			'name'  => __( 'Teal', 'wprig' ),
+			'slug'  => 'teal',
+			'color' => '#00bfa5',
+		),
+		array(
+			'name'  => __( 'Dark Amber', 'wprig' ),
+			'slug'  => 'dark-amber',
+			'color' => '#ff8f00',
+		),
+		array(
+			'name'  => __( 'Amber', 'wprig' ),
+			'slug'  => 'amber',
+			'color' => '#ffab00',
+		),
+		array(
+			'name'  => __( 'Dark Pink', 'wprig' ),
+			'slug'  => 'dark-pink',
+			'color' => '#e91e63',
+		),
+		array(
+			'name'  => __( 'Pink', 'wprig' ),
+			'slug'  => 'pink',
+			'color' => '#ff4081',
+		),
+		array(
+			'name'  => __( 'Dark Purple', 'wprig' ),
+			'slug'  => 'dark-purple',
+			'color' => '#9c27b0',
+		),
+		array(
+			'name'  => __( 'Purple', 'wprig' ),
+			'slug'  => 'purple',
+			'color' => '#e040fb',
+		),
+		array(
+			'name'  => __( 'Dark Blue', 'wprig' ),
+			'slug'  => 'dark-blue',
+			'color' => '#0277bd',
+		),
+		array(
+			'name'  => __( 'Blue', 'wprig' ),
+			'slug'  => 'blue',
+			'color' => '#00b0ff',
+		),
+	);
+
 	add_theme_support(
 		'editor-color-palette',
-		array(
-			array(
-				'name'  => __( 'Dusty orange', 'wprig' ),
-				'slug'  => 'dusty-orange',
-				'color' => '#ed8f5b',
-			),
-			array(
-				'name'  => __( 'Dusty red', 'wprig' ),
-				'slug'  => 'dusty-red',
-				'color' => '#e36d60',
-			),
-			array(
-				'name'  => __( 'Dusty wine', 'wprig' ),
-				'slug'  => 'dusty-wine',
-				'color' => '#9c4368',
-			),
-			array(
-				'name'  => __( 'Dark sunset', 'wprig' ),
-				'slug'  => 'dark-sunset',
-				'color' => '#33223b',
-			),
-			array(
-				'name'  => __( 'Almost black', 'wprig' ),
-				'slug'  => 'almost-black',
-				'color' => '#0a1c28',
-			),
-			array(
-				'name'  => __( 'Dusty water', 'wprig' ),
-				'slug'  => 'dusty-water',
-				'color' => '#41848f',
-			),
-			array(
-				'name'  => __( 'Dusty sky', 'wprig' ),
-				'slug'  => 'dusty-sky',
-				'color' => '#72a7a3',
-			),
-			array(
-				'name'  => __( 'Dusty daylight', 'wprig' ),
-				'slug'  => 'dusty-daylight',
-				'color' => '#97c0b7',
-			),
-			array(
-				'name'  => __( 'Dusty sun', 'wprig' ),
-				'slug'  => 'dusty-sun',
-				'color' => '#eee9d1',
-			),
-		)
+		$k2k_colors
 	);
 
 	/**
@@ -331,7 +411,7 @@ function wprig_gutenberg_styles() {
 	wp_enqueue_style( 'wprig-fonts', wprig_fonts_url(), array(), '20190906' );
 
 	// Enqueue main stylesheet.
-	wp_enqueue_style( 'wprig-base-style', get_theme_file_uri( '/css/editor-styles.css' ), array(), '20180514' . wp_rand( 1, 99 ) );
+	wp_enqueue_style( 'wprig-base-style', get_theme_file_uri( '/css/editor-styles.css' ), array(), filemtime( get_theme_file_uri( '/css/editor-styles.css' ) ) );
 }
 add_action( 'enqueue_block_editor_assets', 'wprig_gutenberg_styles' );
 
@@ -658,6 +738,25 @@ require get_template_directory() . '/pluggable/related-posts.php';
  * Optional: Adds Link Section and Links Widget back into WordPress
  */
 add_filter( 'pre_option_link_manager_enabled', '__return_true' );
+
+// Check if a "Grammar" Post Type exists.
+if ( post_type_exists( 'jkl-grammar' ) ) {
+
+	/**
+	 * Check for "Grammar" Post Type and add it to the main query if it exists.
+	 *
+	 * @param array $query The WP Posts Query.
+	 */
+	function wprig_add_grammar_to_main_query( $query ) {
+
+		if ( $query->is_home() && $query->is_main_query() ) {
+			$query->set( 'post_type', array( 'post', 'jkl-grammar' ) );
+		}
+
+	}
+	add_action( 'pre_get_posts', 'wprig_add_grammar_to_main_query' );
+
+}
 
 /**
  * DEV ONLY!!

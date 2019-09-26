@@ -120,47 +120,10 @@
 if ( is_singular() ) :
 	?>
 	<div class="post-navigation-container">
-	<!-- <h3 class="section-title"></h3> -->
-	<?php
-
-		/*
-		Old code.
-		the_post_navigation(
-		// 	array(
-		// 		'prev_text' => '<div class="post-navigation-sub"><span>' . esc_html__( 'Older', 'wprig' ) . '</span></div>%title',
-		// 		'next_text' => '<div class="post-navigation-sub"><span>' . esc_html__( 'Newer', 'wprig' ) . '</span></div>%title',
-		// 	)
-		// );
-		*/
-	?>
-
-		<!-- <h3 class="section-title">Up Next</h3> -->
 		<?php
 		// Previous/next post navigation.
 		$next_post = get_next_post();
 		$prev_post = get_previous_post();
-
-		/*
-		Old code.
-		// the_post_navigation(
-		// 	array(
-		// 		'prev_text' => '<div class="post-navigation-sub">' .
-		// 						'<span class="meta-nav screen-reader-text" aria-hidden="true">' . __( 'Older Post', 'wprig' ) . '</span> ' .
-		// 						get_the_post_thumbnail( $prev_post->ID, 'medium' ) .
-		// 						'<h4 class="post-title">%title</h4>' .
-		// 						'<p class="post-excerpt">' . wprig_get_the_excerpt( $prev_post->ID ) . '</p>' .
-		// 						'<small>' . esc_html__( 'Previously', 'wprig' ) . '</small>' .
-		// 					'</div>',
-		// 		'next_text' => '<div class="post-navigation-sub">' .
-		// 						'<span class="meta-nav screen-reader-text" aria-hidden="true">' . __( 'Newer Post', 'wprig' ) . '</span> ' .
-		// 						get_the_post_thumbnail( $next_post->ID, 'medium' ) .
-		// 						'<h4 class="post-title">%title</h4>' .
-		// 						'<p class="post-excerpt">' . wprig_get_the_excerpt( $next_post->ID ) . '</p>' .
-		// 						'<small>' . esc_html__( 'Presently', 'wprig' ) . '</small>' .
-		// 					'</div>',
-		// 	)
-		// );
-		*/
 
 		wprig_post_nav();
 		?>

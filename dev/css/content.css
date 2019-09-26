@@ -50,6 +50,7 @@
 
 .entry-header .post-cats {
 	margin-bottom: 0.5rem;
+	margin-top: -0.5rem;
 }
 
 .entry-header .entry-excerpt {
@@ -1025,8 +1026,12 @@ h3.category-title.all-categories {
 	margin-top: 2rem;
 }
 
+.archive-description {
+	margin-top: -0.5rem;
+}
+
 ul.archive-posts-grid {
-	margin: 0 auto;
+	margin: 2rem auto 4rem;
 	padding: 0;
 	list-style: none;
 	display: grid;
@@ -1086,8 +1091,9 @@ ul.author-posts-grid {
 .author-posts-grid .post-thumbnail,
 .search-posts-grid .post-thumbnail {
 	width: 100%;
-	height: 150px;
+	height: 200px;
 	margin-bottom: 1rem;
+	margin-top: 0;
 	background-image: var(--gradient-teal);
 	transition: all 0.5s;
 	background-position: center;

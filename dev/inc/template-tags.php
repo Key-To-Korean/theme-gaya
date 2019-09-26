@@ -56,6 +56,39 @@ function wprig_index_header() {
 			<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 		</header>
 		<?php
+	} elseif ( is_date() ) {
+			$year     = get_query_var('year');
+			$monthnum = get_query_var('monthnum');
+			$day      = get_query_var('day');
+
+			if ( is_day() ) {
+				?>
+				<header class="page-header">
+					<h1 class="page-title">
+						<?php esc_html_e( 'Published on this day:', 'wprig' ); ?>
+						<span><?php echo $GLOBALS['wp_locale']->get_month($monthnum) . ' ' . $day . ', ' . $year; ?></span>
+					</h1>
+				</header>
+				<?php
+			} elseif ( is_month() ) {
+				?>
+				<header class="page-header">
+					<h1 class="page-title">
+						<?php esc_html_e( 'Published in this month:', 'wprig' ); ?>
+						<span><?php echo $GLOBALS['wp_locale']->get_month($monthnum) . ' ' . $year; ?></span>
+					</h1>
+				</header>
+				<?php
+			} elseif ( is_year() ) {
+				?>
+				<header class="page-header">
+					<h1 class="page-title">
+						<?php esc_html_e( 'Published this year:', 'wprig' ); ?>
+						<span><?php echo $year; ?></span>
+					</h1>
+				</header>
+				<?php
+			}
 	} elseif ( is_search() ) {
 		?>
 		<header class="page-header">
@@ -115,6 +148,15 @@ function wprig_index_header() {
 				the_archive_description( '<div class="archive-description">', '</div>' );
 			?>
 		</header><!-- .page-header -->
+		<?php
+	} elseif ( is_404() ) {
+		?>
+		<header class="page-header">
+			<h1 class="page-title">
+				Whoops O_o
+				<span>Nothing found</span>
+			</h1>
+		</header>
 		<?php
 	}
 }

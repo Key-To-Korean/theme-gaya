@@ -90,7 +90,7 @@ get_header(); ?>
 				// The Loop.
 				if ( $query->have_posts() ) {
 					echo '<section class="page-section">';
-					echo '<h3 class="category-title">' . esc_attr( $a_term->name ) . '</h3>';
+					echo '<h3 class="category-title">' . esc_attr( ucwords( $a_term->name ) ) . '</h3>';
 					echo '<ul class="category-posts-grid archive-posts-grid">';
 
 					while ( $query->have_posts() ) {
@@ -129,7 +129,6 @@ get_header(); ?>
 					?>
 				</ul>
 			</section>
-			<hr />
 			<?php
 		}
 
