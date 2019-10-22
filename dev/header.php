@@ -169,6 +169,10 @@
 		</header><!-- #masthead -->
 	</section><!-- .header-section -->
 
+	<?php
+	if ( is_active_sidebar( 'sidebar-1' ) ) :
+		?>
+
 	<div class="drawer-box">
 		<i id="drawer-toggle" class="fa fa-shapes drawer-toggle"></i>
 		<a href="#drawer-container" class="screen-reader-text"><?php esc_html_e( 'Open Sidebar', 'k2k' ); ?></a>
@@ -177,3 +181,7 @@
 		<!-- <i id="dismiss-drawer" class="fa fa-times dismiss-drawer"></i> -->
 		<?php get_sidebar(); ?>
 	</div>
+
+		<?php
+	endif;
+	?>

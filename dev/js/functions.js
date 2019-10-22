@@ -188,8 +188,10 @@ jQuery( document ).ready( function( $ ) {
 	 * Fixed Top Menu
 	 */
 	let topMenuStart = $( '.site-header' ).offset().top;
+	let headerHeight = $( '.site-header' ).height();
+
 	$( window ).scroll( function() {
-		if ( $( this ).scrollTop() < topMenuStart ) {
+		if ( $( this ).scrollTop() < topMenuStart + headerHeight - 64 ) { // 64px is the height of the fixed menu bar.
 			$( '.site' ).removeClass( 'fixed-header' );
 			$( '.site-header' ).removeClass( 'fixed' );
 			$( '.site-header .logo' ).addClass( 'screen-reader-text' );
