@@ -1,8 +1,87 @@
 /**
  * Custom styles for the front-page.php template.
  */
+.entry-title {
+	margin-top: 0;
+}
 
-@media screen and (min-width: 60em) {
+.entry-title a {
+	color: var(--gaya-black);
+}
+
+.front-page-row {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-gap: 2rem;
+	margin: 0 auto 2rem;
+	max-width: 75rem;
+}
+
+.front-page-row .post-thumbnail {
+	height: 300px;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	margin-top: 0;
+}
+
+#featured-grid .post-thumbnail {
+	margin-top: 0;
+}
+
+.one-per-row {
+	grid-column: span 6;
+}
+
+.one-per-row .post-thumbnail {
+	height: 378px;
+}
+
+.two-per-row {
+	grid-column: span 3;
+}
+
+.two-per-row .post-thumbnail,
+.two-s-per-row .post-thumbnail {
+	height: 224px;
+}
+
+.three-per-row {
+	grid-column: span 3;
+}
+
+.three-per-row .post-thumbnail {
+	height: 224px;
+}
+
+@media screen and (min-width: 50rem) {
+	.one-per-row {
+		grid-column: span 6;
+	}
+
+	.one-per-row .post-thumbnail {
+		height: 464px;
+	}
+
+	.two-per-row {
+		grid-column: span 3;
+	}
+
+	.two-per-row .post-thumbnail,
+	.two-s-per-row .post-thumbnail {
+		height: 284px;
+	}
+
+	.three-per-row {
+		grid-column: span 2;
+	}
+
+	.three-per-row .post-thumbnail {
+		height: 214px;
+	}
+}
+
+@media screen and (min-width: 64rem) {
 
 	/* --sidebar-query (doesn't exist) */
 	.site {
@@ -353,6 +432,26 @@ h1.featured-title {
 	max-width: 75rem;
 	border-bottom: 2px solid;
 	border-bottom-color: var(--gaya-black);
+}
+
+@media screen and (max-width: 64rem) {
+	#featured-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	#featured-grid article:last-child {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 50rem) {
+	#featured-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	#featured-grid article:last-child {
+		display: block;
+	}
 }
 
 #featured-grid .post-thumbnail {

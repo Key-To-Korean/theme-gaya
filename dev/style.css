@@ -1972,6 +1972,12 @@ input[type="submit"]:active {
 	max-height: 4rem;
 }
 
+@media screen and (max-width: 50rem) {
+	.site-header.fixed {
+		padding: 0 1rem;
+	}
+}
+
 .site-header.fixed .site-title {
 	line-height: 4rem;
 	display: none;
@@ -2149,7 +2155,6 @@ input[type="submit"]:active {
 		display: block;
 	}
 
-	.site-description,
 	.header-contact .position-right {
 		text-align: center;
 		padding: 0.5rem 0;
@@ -2921,7 +2926,7 @@ SVG Fallbacks
 	bottom: -1.5rem;
 	right: 50%;
 	transform: translateX(50%);
-	z-index: 11;
+	z-index: 9;
 	transition: all 0.3s;
 
 	color: var(--gaya-black);
