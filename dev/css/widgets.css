@@ -549,6 +549,15 @@ li.archive-year>a {
 	border-bottom: 1px solid #efefef;
 }
 
+.widget_calendar tr:last-child {
+	border-bottom: none;
+}
+
+.widget_calendar tr:last-child td:first-child,
+.widget_calendar tr:last-child td:last-child {
+	border-radius: 10px;
+}
+
 .widget_calendar td {
 	padding: .5em;
 	font-size: .8em;

@@ -11,22 +11,35 @@ jQuery( document ).ready( function( $ ) {
 	 * Back to Top button
 	 * @TODO needs fix
 	 */
-	var offset = 800;
+	var offset = 600;
 	var speed = 500;
 	var duration = 500;
+
 	$( window ).scroll( function() {
+
 		if ( $( this ).scrollTop() < offset ) {
-			$( '.topbutton' ).removeClass( 'onscreen' );
+
+			// If we're within the offset distance of the top of the page.
 			$( '.post-navigation-container' ).removeClass( 'active' );
-		} else if ( $( this ).scrollTop() > $( this ).height - 200 ) {
+
+		} else if ( $( this ).scrollTop() > $( '#colophon' ).offset().top - window.innerHeight ) { // subtract the innerHeight of the window so when the top of the footer comes into the screen, it will wait until that touches the top of the page.
+
+			//If this around the page footer at the bottom of the page.
 			$( '.post-navigation-container' ).removeClass( 'active' );
+			$( '.topbutton' ).addClass( 'onscreen' );
+
 		} else if ( ( window.innerHeight + window.scrollY ) > document.body.offsetHeight ) {
 
 			// If this is the very bottom of the page.
 			$( '.post-navigation-container' ).removeClass( 'active' );
-		} else {
 			$( '.topbutton' ).addClass( 'onscreen' );
+
+		} else {
+
+			// In all other cases.
+			$( '.topbutton' ).removeClass( 'onscreen' );
 			$( '.post-navigation-container' ).addClass( 'active' );
+
 		}
 	});
 
