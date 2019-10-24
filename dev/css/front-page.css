@@ -18,7 +18,7 @@
 }
 
 .front-page-row .post-thumbnail {
-	height: 300px;
+	height: 10rem;
 	background-size: cover;
 	background-position: center;
 	position: relative;
@@ -33,25 +33,62 @@
 	grid-column: span 6;
 }
 
-.one-per-row .post-thumbnail {
-	height: 378px;
-}
-
 .two-per-row {
-	grid-column: span 3;
-}
-
-.two-per-row .post-thumbnail,
-.two-s-per-row .post-thumbnail {
-	height: 224px;
+	grid-column: span 6;
 }
 
 .three-per-row {
-	grid-column: span 3;
+	grid-column: span 6;
 }
 
+.one-per-row .post-thumbnail,
+.two-per-row .post-thumbnail,
+.two-s-per-row .post-thumbnail,
 .three-per-row .post-thumbnail {
-	height: 224px;
+	height: 12rem;
+}
+
+@media screen and (min-width: 22.5rem) {
+
+	.one-per-row .post-thumbnail,
+	.two-per-row .post-thumbnail,
+	.two-s-per-row .post-thumbnail,
+	.three-per-row .post-thumbnail {
+		height: 14.5rem;
+	}
+}
+
+@media screen and (min-width: 30rem) {
+	.one-per-row .post-thumbnail {
+		height: 17.5rem;
+	}
+
+	.two-per-row,
+	.three-per-row {
+		grid-column: span 3;
+	}
+
+	.two-per-row .post-thumbnail,
+	.two-s-per-row .post-thumbnail,
+	.three-per-row .post-thumbnail {
+		height: 10rem;
+	}
+}
+
+@media screen and (min-width: 37.5rem) {
+
+	.one-per-row .post-thumbnail {
+		height: 22.5rem;
+	}
+
+	.two-per-row .post-thumbnail,
+	.two-s-per-row .post-thumbnail {
+		height: 12.5rem;
+	}
+
+	.three-per-row .post-thumbnail {
+		height: 12.5rem;
+	}
 }
 
 @media screen and (min-width: 50rem) {
@@ -60,7 +97,7 @@
 	}
 
 	.one-per-row .post-thumbnail {
-		height: 464px;
+		height: 27.5rem;
 	}
 
 	.two-per-row {
@@ -69,7 +106,7 @@
 
 	.two-per-row .post-thumbnail,
 	.two-s-per-row .post-thumbnail {
-		height: 284px;
+		height: 17.5rem;
 	}
 
 	.three-per-row {
@@ -77,7 +114,7 @@
 	}
 
 	.three-per-row .post-thumbnail {
-		height: 214px;
+		height: 12.5rem;
 	}
 }
 
@@ -160,7 +197,7 @@
 	}
 
 	.one-per-row .post-thumbnail {
-		height: 514px;
+		height: 32.5rem;
 		grid-column: span 2;
 	}
 
@@ -183,7 +220,7 @@
 
 	.two-per-row .post-thumbnail,
 	.two-s-per-row .post-thumbnail {
-		height: 328px;
+		height: 20.5rem;
 	}
 
 	.three-per-row {
@@ -191,7 +228,7 @@
 	}
 
 	.three-per-row .post-thumbnail {
-		height: 284px;
+		height: 17.5rem;
 	}
 
 	.post {
@@ -455,12 +492,22 @@ h1.featured-title {
 }
 
 #featured-grid .post-thumbnail {
-	height: 12rem;
+	height: 12.5rem;
 	margin-bottom: 2rem;
 	position: relative;
 	transition: all 0.3s;
 	background-position: center;
 	background-size: cover;
+}
+
+@media screen and (max-width: 37.5rem) {
+	#featured-grid .post-thumbnail {
+		height: 10rem;
+	}
+
+	#featured-grid {
+		margin-bottom: 4rem;
+	}
 }
 
 #featured-grid .post-thumbnail:focus,
@@ -480,4 +527,37 @@ h1.featured-title {
 
 #featured-grid .entry-title a {
 	color: var(--gaya-black);
+}
+
+@media screen and (max-width: 30rem) {
+	#featured-grid {
+		grid-gap: 1rem;
+	}
+
+	#featured-grid .entry-content {
+		display: none;
+	}
+
+	#featured-grid .entry-title {
+		font-size: 1.2rem;
+	}
+
+	#featured-grid .post-thumbnail {
+		height: 8rem;
+		margin-bottom: 1.5rem;
+	}
+}
+
+@media screen and (max-width: 22.5rem) {
+	#featured-grid {
+		display: block;
+	}
+
+	#featured-grid article {
+		margin-bottom: 3rem;
+	}
+
+	#featured-grid .post-thumbnail {
+		height: 12rem;
+	}
 }

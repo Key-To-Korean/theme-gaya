@@ -16,10 +16,10 @@
 	<?php get_sidebar( 'footer-top' ); ?>
 	<?php get_sidebar( 'footer-bottom' ); ?>
 
-	<div class="site-info">
+	<div class="site-info <?php echo ( is_active_sidebar( 'sidebar-footer-1' ) || is_active_sidebar( 'sidebar-footer-2' ) ) ? 'with-widgets' : ''; ?>">
 		<div class="copyright">
 			<span class="copyright-dates"><?php wprig_dynamic_copyright(); ?></span>
-			<span class="copyright-message">All rights reserved.</span>
+			<span class="copyright-message"><?php esc_html_e( 'All rights reserved.', 'k2k' ); ?></span>
 		</div>
 		<div class="credits">
 			<?php wprig_footer_credits(); ?>

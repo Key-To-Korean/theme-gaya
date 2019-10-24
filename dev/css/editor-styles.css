@@ -19,7 +19,7 @@ body.gutenberg-editor-page .editor-writing-flow h5,
 body.gutenberg-editor-page .editor-writing-flow h6,
 body.gutenberg-editor-page .edit-post-visual-editor p {
 	font-family: var(--highlight-font-family);
-	color: #32373c;
+	color: var(--gaya-body);
 	clear: both;
 }
 

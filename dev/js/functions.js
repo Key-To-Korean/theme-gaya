@@ -11,12 +11,12 @@ jQuery( document ).ready( function( $ ) {
 	 * Back to Top button
 	 * @TODO needs fix
 	 */
-	var offset = 500;
+	var offset = 800;
 	var speed = 500;
 	var duration = 500;
 	$( window ).scroll( function() {
 		if ( $( this ).scrollTop() < offset ) {
-			$( '.topbutton' ).fadeOut( duration );
+			$( '.topbutton' ).removeClass( 'onscreen' );
 			$( '.post-navigation-container' ).removeClass( 'active' );
 		} else if ( $( this ).scrollTop() > $( this ).height - 200 ) {
 			$( '.post-navigation-container' ).removeClass( 'active' );
@@ -25,7 +25,7 @@ jQuery( document ).ready( function( $ ) {
 			// If this is the very bottom of the page.
 			$( '.post-navigation-container' ).removeClass( 'active' );
 		} else {
-			$( '.topbutton' ).fadeIn( duration );
+			$( '.topbutton' ).addClass( 'onscreen' );
 			$( '.post-navigation-container' ).addClass( 'active' );
 		}
 	});
