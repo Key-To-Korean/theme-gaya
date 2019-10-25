@@ -14,5 +14,6 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 
 <?php wp_print_styles( array( 'wprig-sidebar', 'wprig-widgets' ) ); ?>
 <aside id="secondary" class="primary-sidebar widget-area">
+	<i class="dismiss-drawer fa fa-times"></i>
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
 </aside><!-- #secondary -->

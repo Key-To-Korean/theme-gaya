@@ -536,6 +536,18 @@ template {
 	height: 100vh;
 }
 
+@media screen and (max-width: 50rem) {
+	.drawer {
+		padding: 6rem 2rem;
+	}
+}
+
+@media screen and (max-width: 37.5rem) {
+	.drawer {
+		padding: 6rem 1rem;
+	}
+}
+
 .drawer.active {
 	right: 0;
 	box-shadow: var(--sidebar-shadow);
@@ -951,6 +963,8 @@ var {
 	font-size: 14px;
 	background: #efefef;
 	background: var(--gradient-teal);
+	background-image: radial-gradient(circle at 1% 1%, rgba(0, 191, 165, 0.5), rgba(0, 137, 123, 0.3));
+	border-radius: 5px;
 	padding: 2px 5px;
 }
 
@@ -2924,6 +2938,12 @@ SVG Fallbacks
 	background-repeat: no-repeat;
 	background-position: 100% 100%;
 	background-size: auto;
+}
+
+@media screen and (max-width: 37.5rem) {
+	.site-footer {
+		padding: 0rem 2rem;
+	}
 }
 
 .site-info {

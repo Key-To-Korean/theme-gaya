@@ -21,6 +21,7 @@ jQuery( document ).ready( function( $ ) {
 
 			// If we're within the offset distance of the top of the page.
 			$( '.post-navigation-container' ).removeClass( 'active' );
+			$( '.topbutton' ).removeClass( 'onscreen' );
 
 		} else if ( $( this ).scrollTop() > $( '#colophon' ).offset().top - window.innerHeight ) {
 

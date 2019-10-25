@@ -174,7 +174,7 @@
 		?>
 
 	<div class="drawer-box">
-		<i id="drawer-toggle" class="fa fa-shapes drawer-toggle"></i>
+		<i id="drawer-toggle" class="fa fa-cog drawer-toggle"></i><!-- .fa-shapes OK too -->
 		<a href="#drawer-container" class="screen-reader-text"><?php esc_html_e( 'Open Sidebar', 'k2k' ); ?></a>
 	</div>
 	<div class="drawer">

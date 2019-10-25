@@ -576,6 +576,10 @@ function wprig_scripts() {
 	wp_enqueue_script( 'wprig-dismissable', get_theme_file_uri( '/js/dismissable.js' ), array(), filemtime( get_stylesheet_directory() . '/js/dismissable.js' ), true );
 	wp_script_add_data( 'wprig-dismissable', 'async', true );
 
+	// @TODO @DEBUG Find overflowing elements.
+	wp_enqueue_script( 'wprig-overflow', get_theme_file_uri( '/js/find-overflow.js' ), array(), filemtime( get_stylesheet_directory() . '/js/find-overflow.js' ), true );
+	wp_script_add_data( 'wprig-overflow', 'async', true );
+
 	wp_localize_script(
 		'wprig-navigation',
 		'wprigScreenReaderText',

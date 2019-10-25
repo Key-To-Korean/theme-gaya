@@ -509,6 +509,7 @@ li.archive-year>a {
 	margin: 1.25em 0 auto;
 	width: 100%;
 	background: #ffffff;
+	background: transparent;
 	color: var(--gaya-grey);
 	position: relative;
 	border-radius: 10px;
@@ -524,6 +525,11 @@ li.archive-year>a {
 	font-family: "Satisfy", cursive;
 	text-align: center;
 	line-height: 1.4;
+
+	font-family: "Noto Serif", serif;
+	font-style: italic;
+	font-size: 1.2rem;
+	margin-bottom: 0.5rem;
 }
 
 .widget_calendar thead {
@@ -563,6 +569,7 @@ li.archive-year>a {
 	font-size: .8em;
 	text-align: center;
 	background: #ffffff;
+	background: transparent;
 	/*border: 1px solid hsl(0, 0%, 80%);*/
 	color: #363a3c;
 	position: relative;

@@ -13,8 +13,19 @@
 
 <footer id="colophon" class="site-footer">
 
-	<?php get_sidebar( 'footer-top' ); ?>
-	<?php get_sidebar( 'footer-bottom' ); ?>
+	<?php
+	if ( is_active_sidebar( 'sidebar-footer-1' ) ) {
+		get_sidebar( 'footer-top' );
+	}
+
+	if ( is_active_sidebar( 'sidebar-footer-1' ) && is_active_sidebar( 'sidebar-footer-2' ) ) {
+		echo '<hr />';
+	}
+
+	if ( is_active_sidebar( 'sidebar-footer-2' ) ) {
+		get_sidebar( 'footer-bottom' );
+	}
+	?>
 
 	<div class="site-info <?php echo ( is_active_sidebar( 'sidebar-footer-1' ) || is_active_sidebar( 'sidebar-footer-2' ) ) ? 'with-widgets' : ''; ?>">
 		<div class="copyright">
