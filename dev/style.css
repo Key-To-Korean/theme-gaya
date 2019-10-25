@@ -1958,8 +1958,8 @@ input[type="submit"]:active {
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
 	grid-gap: 1rem;
-	margin: 0 -4rem;
-	padding: 0 4rem;
+	/* margin: 0 -4rem;
+	padding: 0 4rem; */
 	line-height: 1.5rem;
 	position: relative;
 }
@@ -1970,7 +1970,7 @@ input[type="submit"]:active {
 	background: var(--gaya-white);
 	width: 100%;
 	margin: 0;
-	padding: 0 4rem;
+	padding: 0 2rem;
 	top: 0;
 	left: 0;
 	border-bottom: 1px solid var(--border-main-color);
@@ -1981,6 +1981,16 @@ input[type="submit"]:active {
 @media screen and (max-width: 50rem) {
 	.site-header.fixed {
 		padding: 0 1rem;
+	}
+}
+
+.admin-bar .site-header.fixed {
+	top: 46px;
+}
+
+@media screen and (min-width: 783px) {
+	.admin-bar .site-header.fixed {
+		top: 32px;
 	}
 }
 
@@ -2968,6 +2978,48 @@ SVG Fallbacks
 	opacity: 1;
 	/* bottom: -1rem; */
 	box-shadow: var(--image-hover-shadow);
+}
+
+.site-notice {
+	font-family: var(--global-font-family);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding: 16px 2rem;
+	background-color: var(--gaya-gold);
+	color: var(--gaya-white);
+	text-align: center;
+	display: none;
+	/* Hide on page load, if we should show it, JS will display it. */
+}
+
+.admin-bar .site-notice {
+	top: 46px;
+}
+
+@media screen and (min-width: 783px) {
+	.admin-bar .site-notice {
+		top: 32px;
+	}
+}
+
+.site-notice p {
+	margin: 0;
+	padding: 0;
+	font-size: 1rem;
+}
+
+.site-notice-dismiss {
+	background: none;
+	border: 0;
+	color: var(--gaya-white);
+	font-size: 1rem;
+	position: absolute;
+	right: 1rem;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: pointer;
 }
 
 /*--------------------------------------------------------------

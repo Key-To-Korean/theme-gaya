@@ -22,9 +22,11 @@ jQuery( document ).ready( function( $ ) {
 			// If we're within the offset distance of the top of the page.
 			$( '.post-navigation-container' ).removeClass( 'active' );
 
-		} else if ( $( this ).scrollTop() > $( '#colophon' ).offset().top - window.innerHeight ) { // subtract the innerHeight of the window so when the top of the footer comes into the screen, it will wait until that touches the top of the page.
+		} else if ( $( this ).scrollTop() > $( '#colophon' ).offset().top - window.innerHeight ) {
 
-			//If this around the page footer at the bottom of the page.
+			// If this is around the page footer at the bottom of the page.
+			// - subtract the innerHeight of the window so when the top of the footer comes into the screen,
+			//   it will wait until that touches the top of the page.
 			$( '.post-navigation-container' ).removeClass( 'active' );
 			$( '.topbutton' ).addClass( 'onscreen' );
 

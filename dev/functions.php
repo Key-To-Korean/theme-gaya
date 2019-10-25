@@ -572,6 +572,10 @@ function wprig_scripts() {
 	wp_enqueue_script( 'wprig-navigation', get_theme_file_uri( '/js/navigation.js' ), array(), filemtime( get_stylesheet_directory() . '/js/navigation.js' ), false );
 	wp_script_add_data( 'wprig-navigation', 'async', true );
 
+	// Enqueue the dismissable script.
+	wp_enqueue_script( 'wprig-dismissable', get_theme_file_uri( '/js/dismissable.js' ), array(), filemtime( get_stylesheet_directory() . '/js/dismissable.js' ), true );
+	wp_script_add_data( 'wprig-dismissable', 'async', true );
+
 	wp_localize_script(
 		'wprig-navigation',
 		'wprigScreenReaderText',
@@ -640,6 +644,34 @@ function wprig_modify_read_more_link() {
 	return '<a class="more-link" href="' . esc_url( get_permalink() ) . '">Continue&hellip;<span class="screen-reader-text">' . esc_attr( get_the_title() ) . '</span></a>';
 }
 add_filter( 'the_content_more_link', 'wprig_modify_read_more_link' );
+
+/**
+ * Add Sitewide Notice.
+ */
+function wprig_site_notice() {
+
+	$text = get_theme_mod( 'site_notice_text' );
+
+	if ( is_admin() || empty( $text ) ) {
+		return;
+	}
+	?>
+
+	<div class="site-notice" data-id="<?php echo esc_attr( md5( $text ) ); ?>">
+		<p><?php echo esc_html( $text ); ?></p>
+		<button aria-label="<?php esc_html_e( 'Dismiss site notice', 'wprig' ); ?>" class="site-notice-dismiss">
+			<i class="fa fa-times"></i>
+		</button>
+	</div>
+
+	<?php
+}
+add_action( 'wp_footer', 'wprig_site_notice' );
+
+/**
+ * If active, add a custom class to the first footer widget.
+ */
+
 
 /**
  * Custom responsive image sizes.

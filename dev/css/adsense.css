@@ -109,32 +109,19 @@
 	height: 120px;
 	transition: all 0.1s;
 	z-index: 10;
+	display: none;
 }
 
 .adsense.fixed-footer #dismiss-footer {
-	margin: 0 1rem;
 	position: absolute;
-	right: 0;
+	padding-top: 0;
+	right: 1rem;
 	top: 1rem;
 	color: var(--gaya-grey4);
 	cursor: pointer;
 	z-index: 1;
-}
-
-@media screen and (min-width: 37.5em) {
-
-	/* --tablet-query */
-	.adsense.fixed-footer #dismiss-footer {
-		margin-right: 2rem;
-	}
-}
-
-@media screen and (min-width: 48em) {
-
-	/* --desktop-query */
-	.adsense.fixed-footer #dismiss-footer {
-		margin-right: 4rem;
-	}
+	border: 0;
+	font-size: 1rem;
 }
 
 .adsense.fixed-footer.dismissed {

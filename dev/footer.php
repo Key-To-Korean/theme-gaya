@@ -32,10 +32,15 @@
 
 </div><!-- #page -->
 
-<?php if ( is_active_sidebar( 'widget-ad-fixed-footer' ) ) : ?>
+<?php
+if ( is_active_sidebar( 'widget-ad-fixed-footer' ) ) :
+	$time_now = date( 'F j, Y' );
+	?>
 	<!-- Fixed Footer Ad -->
-	<div class="adsense adsense-widget fixed-footer">
-		<i id="dismiss-footer" class="fa fa-times"></i>
+	<div class="adsense adsense-widget fixed-footer" data-id="<?php echo esc_attr( md5( $time_now ) ); ?>">
+		<button id="dismiss-footer" aria-label="<?php esc_html_e( 'Dismiss footer', 'wprig' ); ?>">
+			<i class="fa fa-times"></i>
+		</button>
 		<?php
 			/* Print styles for adsense widgets */
 			wp_print_styles( array( 'wprig-adsense' ) ); // Note: If this was already done it will be skipped.

@@ -33,6 +33,34 @@ function wprig_customize_register( $wp_customize ) {
 	}
 
 	/**
+	 * Dismissable Site Notice.
+	 */
+	$wp_customize->add_section(
+		'wprig_site_notice',
+		array(
+			'title'    => __( 'Site Notice', 'wprig' ),
+			'priority' => 30,
+		)
+	);
+
+	$wp_customize->add_setting(
+		'site_notice_text',
+		array(
+			'default'           => '',
+			'sanitize_callback' => 'wp_kses_post',
+		)
+	);
+
+	$wp_customize->add_control(
+		'site_notice_text',
+		array(
+			'type'    => 'text',
+			'section' => 'wprig_site_notice',
+			'label'   => __( 'Site notice text', 'wprig' ),
+		)
+	);
+
+	/**
 	 * Theme options.
 	 */
 	$wp_customize->add_section(
