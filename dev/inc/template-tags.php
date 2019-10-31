@@ -165,17 +165,28 @@ function wprig_index_header() {
  * Prints HTML with meta information for the current post-date/time.
  */
 function wprig_posted_on() {
-	$time_string = 'Published: <time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+
+	// If updated.
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = 'Updated: <time class="updated" datetime="%3$s">%4$s</time><br />Published: <time class="entry-date published" datetime="%1$s">%2$s</time>';
+		$updated = 'Updated: <time class="updated" datetime="%1$s">%2$s</time>';
+
+		$updated = sprintf(
+			$updated,
+			esc_attr( get_the_modified_date( 'c' ) ),
+			esc_html( get_the_modified_date( 'M n, Y' ) )
+		);
+
+		$updated_on = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $updated . '</a>';
+
+		echo '<span class="updated-on">' . $updated_on . ' </span>'; // WPCS: XSS OK.
 	}
+
+	$time_string = 'Published: <time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
 	$time_string = sprintf(
 		$time_string,
 		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date( 'M n, Y' ) ),
-		esc_attr( get_the_modified_date( 'c' ) ),
-		esc_html( get_the_modified_date( 'M n, Y' ) )
+		esc_html( get_the_date( 'M n, Y' ) )
 	);
 
 	$posted_on = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
@@ -188,9 +199,9 @@ function wprig_posted_on() {
  * Prints HTML with meta information for the current author.
  */
 function wprig_posted_by() {
-	$byline = '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>';
+	$byline = '<a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a>';
 
-	echo '<span class="byline"> ' . $byline . ' </span>'; // WPCS: XSS OK.
+	echo '<span class="byline author vcard"> ' . $byline . ' </span>'; // WPCS: XSS OK.
 }
 
 /**

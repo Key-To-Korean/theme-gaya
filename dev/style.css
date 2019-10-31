@@ -744,6 +744,14 @@ h3.section-title,
 	margin-bottom: 0.5rem;
 }
 
+@media screen and (max-width: 48rem) {
+
+	h3.section-title,
+	.jp-relatedposts-headline {
+		grid-column: span 2;
+	}
+}
+
 h6.special {
 	font-size: 70%;
 	font-weight: normal;
@@ -2868,7 +2876,8 @@ SVG Fallbacks
 # Paging Navigation
 --------------------------------------------------------------*/
 
-.paging-navigation {
+.paging-navigation,
+.comment-navigation {
 	display: block;
 	width: 100%;
 	border-top: 2px solid black;
@@ -2879,20 +2888,24 @@ SVG Fallbacks
 	grid-column: span 2;
 }
 
-.paging-navigation ul {
+.paging-navigation ul,
+.comment-navigation ul {
 	margin: 0 auto;
 	padding: 0;
 	text-align: center;
 }
 
-.paging-navigation li {
+.paging-navigation li,
+.comment-navigation li {
 	display: inline-block;
 	width: 52px;
 	height: 50px;
 }
 
 .paging-navigation a,
-.paging-navigation span {
+.paging-navigation span,
+.comment-navigation a,
+.comment-navigation span {
 	color: var(--gaya-black);
 	background: transparent;
 	border: 1px solid rgba(var(--gaya-grey-rgb), 0.4);
@@ -2910,7 +2923,9 @@ SVG Fallbacks
 }
 
 .paging-navigation span.current,
-.paging-navigation .active {
+.paging-navigation .active,
+.comment-navigation span.current,
+.comment-navigation .active {
 	background: var(--gaya-teal-a);
 	border-color: var(--gaya-teal-a);
 	font-weight: bold;
@@ -2919,7 +2934,10 @@ SVG Fallbacks
 
 .paging-navigation a:hover,
 .paging-navigation a:focus,
-.paging-navigation a:active {
+.paging-navigation a:active,
+.comment-navigation a:hover,
+.comment-navigation a:focus,
+.comment-navigation a:active {
 	background: var(--gaya-grey3);
 	color: var(--gaya-white);
 }

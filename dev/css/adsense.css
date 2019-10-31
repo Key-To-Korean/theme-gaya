@@ -20,6 +20,11 @@
 	line-height: 90px;
 }
 
+.adsense:not(.above-header),
+.widget_ad_placeholder {
+	max-width: 100% !important;
+}
+
 .adsense.above-header {
 	margin: 0 -2rem;
 	padding: 1rem 0;
@@ -67,6 +72,27 @@
 	position: relative;
 	left: 50%;
 	transform: translateX(-50%);
+}
+
+@media screen and (max-width: 57rem) {
+
+	.widget-pre-post,
+	.widget-post-post {
+		display: block;
+	}
+
+	.widget-pre-post h3,
+	.widget-post-post h3 {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 67.5rem) {
+
+	.widget-pre-post>div,
+	.widget-post-post>div {
+		margin: 0 auto;
+	}
 }
 
 .home .widget-post-post>div,
@@ -117,11 +143,18 @@
 	padding-top: 0;
 	right: 1rem;
 	top: 1rem;
+	background: transparent;
 	color: var(--gaya-grey4);
 	cursor: pointer;
 	z-index: 1;
 	border: 0;
 	font-size: 1rem;
+}
+
+@media screen and (max-width: 37.5rem) {
+	.adsense.fixed-footer #dismiss-footer {
+		right: 0;
+	}
 }
 
 .adsense.fixed-footer.dismissed {

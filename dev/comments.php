@@ -46,7 +46,19 @@ if ( post_password_required() ) {
 			?>
 		</h2><!-- .comments-title -->
 
-		<?php the_comments_navigation(); ?>
+		<?php // the_comments_navigation();. ?>
+		<nav class="navigation comment-navigation">
+		<?php
+			paginate_comments_links(
+				array(
+					'screen_reader_text' => __( 'Comments Navigation', 'wprig' ),
+					'prev_text'          => __( '<i class="fa fa-chevron-left"></i>', 'wprig' ),
+					'next_text'          => __( '<i class="fa fa-chevron-right"></i>', 'wprig' ),
+					'type'               => 'list',
+				)
+			);
+		?>
+		</nav>
 
 		<?php if ( wprig_using_amp_live_list_comments() ) : ?>
 			<amp-live-list
@@ -73,8 +85,22 @@ if ( post_password_required() ) {
 			add_filter( 'navigation_markup_template', 'wprig_add_amp_live_list_pagination_attribute' );
 		}
 
-		the_comments_navigation();
+		// the_comments_navigation();.
+		?>
+		<nav class="navigation comment-navigation">
+		<?php
+			paginate_comments_links(
+				array(
+					'screen_reader_text' => __( 'Comments Navigation', 'wprig' ),
+					'prev_text'          => __( '<i class="fa fa-chevron-left"></i>', 'wprig' ),
+					'next_text'          => __( '<i class="fa fa-chevron-right"></i>', 'wprig' ),
+					'type'               => 'list',
+				)
+			);
+		?>
+		</nav>
 
+		<?php
 		if ( wprig_using_amp_live_list_comments() ) {
 			remove_filter( 'navigation_markup_template', 'wprig_add_amp_live_list_pagination_attribute' );
 		}
