@@ -461,6 +461,12 @@
 	font-size: 1.2rem;
 }
 
+@media screen and (max-width: 37.5rem) {
+	.post-navigation .post-title {
+		font-size: 1rem;
+	}
+}
+
 .post-navigation .post-excerpt {
 	font-size: 0.8rem;
 	opacity: 0.8;
@@ -475,6 +481,12 @@
 
 .post-navigation .nav-next {
 	padding-left: 1rem;
+}
+
+@media screen and (max-width: 37.5rem) {
+	.post-navigation-container {
+		padding: 0;
+	}
 }
 
 .post-password-required .entry-content {

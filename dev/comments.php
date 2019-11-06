@@ -47,18 +47,28 @@ if ( post_password_required() ) {
 		</h2><!-- .comments-title -->
 
 		<?php // the_comments_navigation();. ?>
-		<nav class="navigation comment-navigation">
-		<?php
-			paginate_comments_links(
-				array(
-					'screen_reader_text' => __( 'Comments Navigation', 'wprig' ),
-					'prev_text'          => __( '<i class="fa fa-chevron-left"></i>', 'wprig' ),
-					'next_text'          => __( '<i class="fa fa-chevron-right"></i>', 'wprig' ),
-					'type'               => 'list',
-				)
-			);
-		?>
-		</nav>
+		<section class="comment-nav-and-form">
+			<div class="comments-nav-small">
+				<nav class="navigation comment-navigation">
+				<?php
+					paginate_comments_links(
+						array(
+							'screen_reader_text' => __( 'Comments Navigation', 'wprig' ),
+							'prev_text'          => __( '<i class="fa fa-chevron-left"></i>', 'wprig' ),
+							'next_text'          => __( '<i class="fa fa-chevron-right"></i>', 'wprig' ),
+							'type'               => 'list',
+						)
+					);
+				?>
+				</nav>
+
+				<h3 class="comments-reply-button"><?php esc_html_e( 'Click to Quick Reply', 'wprig' ); ?></h3>
+			</div>
+
+			<div class="comments-form-small">
+				<?php comment_form( array( 'title_reply' => __( 'Reply', 'wprig' ) ) ); ?>
+			</div>
+		</section>
 
 		<?php if ( wprig_using_amp_live_list_comments() ) : ?>
 			<amp-live-list
@@ -69,16 +79,18 @@ if ( post_password_required() ) {
 			>
 		<?php endif; ?>
 
-		<ol class="comment-list" <?php echo wprig_using_amp_live_list_comments() ? 'items' : ''; ?>>
-			<?php
-				wp_list_comments(
-					array(
-						'style'      => 'ol',
-						'short_ping' => true,
-					)
-				);
-			?>
-		</ol><!-- .comment-list -->
+		<section class="view-comments">
+			<ol class="comment-list" <?php echo wprig_using_amp_live_list_comments() ? 'items' : ''; ?>>
+				<?php
+					wp_list_comments(
+						array(
+							'style'      => 'ol',
+							'short_ping' => true,
+						)
+					);
+				?>
+			</ol><!-- .comment-list -->
+		</section>
 
 		<?php
 		if ( wprig_using_amp_live_list_comments() ) {
@@ -87,18 +99,21 @@ if ( post_password_required() ) {
 
 		// the_comments_navigation();.
 		?>
-		<nav class="navigation comment-navigation">
-		<?php
-			paginate_comments_links(
-				array(
-					'screen_reader_text' => __( 'Comments Navigation', 'wprig' ),
-					'prev_text'          => __( '<i class="fa fa-chevron-left"></i>', 'wprig' ),
-					'next_text'          => __( '<i class="fa fa-chevron-right"></i>', 'wprig' ),
-					'type'               => 'list',
-				)
-			);
-		?>
-		</nav>
+		<section class="comment-nav-and-form-main">
+			<nav class="navigation comment-navigation">
+			<?php
+				paginate_comments_links(
+					array(
+						'screen_reader_text' => __( 'Comments Navigation', 'wprig' ),
+						'prev_text'          => __( '<i class="fa fa-chevron-left"></i>', 'wprig' ),
+						'next_text'          => __( '<i class="fa fa-chevron-right"></i>', 'wprig' ),
+						'type'               => 'list',
+					)
+				);
+			?>
+			</nav>
+			<?php comment_form(); ?>
+		</section>
 
 		<?php
 		if ( wprig_using_amp_live_list_comments() ) {
@@ -122,7 +137,9 @@ if ( post_password_required() ) {
 
 	endif; // Check for have_comments().
 
-	comment_form();
+	if ( comments_open() && empty( get_query_var( 'cpage' ) ) ) {
+		comment_form();
+	}
 	?>
 
 	</section>

@@ -8,8 +8,10 @@
 jQuery( document ).ready( function( $ ) {
 
 	/**
+	 * ====================================================================
 	 * Back to Top button
 	 * @TODO needs fix
+	 * ====================================================================
 	 */
 	var offset = 600;
 	var speed = 500;
@@ -46,6 +48,7 @@ jQuery( document ).ready( function( $ ) {
 		}
 	});
 
+	// Top Button Click Function.
 	$( '.topbutton' ).on( 'click', function() {
 		$( 'html, body' ).animate({
 			scrollTop: 0
@@ -53,7 +56,11 @@ jQuery( document ).ready( function( $ ) {
 		return false;
 	});
 
-	// Slick Slider
+	/**
+	 * ====================================================================
+	 * Slick Slider
+	 * ====================================================================
+	 */
 	$( document ).ready( function() {
 		$( '#featured-slider' ).slick({
 
@@ -117,7 +124,9 @@ jQuery( document ).ready( function( $ ) {
 	$( 'blockquote.has-image' ).wrap( '<figure class="blockquote-image" />' );
 
 	/*
+	 * ====================================================================
 	 * Turn on site search
+	 * ====================================================================
 	 */
 	$( '#site-search-button, .search-toggle' ).click( function() {
 		if ( $( '#secondary' ).hasClass( 'active' ) ) {
@@ -154,7 +163,11 @@ jQuery( document ).ready( function( $ ) {
 		$( '.site-search-overlay' ).removeClass( 'active' );
 	});
 
-	/* Open Drawer (Sidebar) */
+	/**
+	 * ====================================================================
+	 * Open Drawer (Sidebar)
+	 * ====================================================================
+	 */
 	$( '.dismiss-drawer, .drawer-box' ).click( function() {
 		$( '.drawer' ).toggleClass( 'active' );
 
@@ -162,15 +175,23 @@ jQuery( document ).ready( function( $ ) {
 		$( '.drawer-box' ).toggleClass( 'active' );
 	});
 
-	/*
+	/**
+	 * ====================================================================
 	 * Show / Hide Comments
+	 * ====================================================================
 	 */
 	$( '.view-comments' ).click( function() {
 		$( '.view-the-comments' ).toggleClass( 'active' );
 	});
 
-	/*
+	$( '.comments-reply-button' ).click( function() {
+		$( '.comments-form-small .comment-respond' ).toggleClass( 'open' );
+	});
+
+	/**
+	 * ====================================================================
 	 * Toggle Author box
+	 * ====================================================================
 	 */
 	$( '.show-hide-author' ).click( function() {
 		$( '.author_bio_section' ).toggle( 600, 'swing' );

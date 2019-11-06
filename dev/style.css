@@ -2430,7 +2430,7 @@ input[type="submit"]:active {
 		bottom: 0;
 		left: 0;
 		width: 100%;
-		height: 100%;
+		height: 0%;
 		opacity: 0;
 		z-index: -10;
 		transition: opacity 0.3s;
@@ -2824,6 +2824,30 @@ SVG Fallbacks
 	-ms-word-break: break-word;
 	word-break: break-word;
 	justify-content: center;
+}
+
+@media screen and (max-width: 37.5rem) {
+	.nav-links {
+		display: block;
+	}
+
+	.nav-links .nav-previous {
+		padding: 1rem 2rem;
+		width: 100% !important;
+	}
+
+	.nav-links .nav-next {
+		border-top: 1px solid rgba(0, 0, 0, 0.12);
+		padding: 1rem 2rem;
+	}
+}
+
+@media screen and (max-width: 22.5rem) {
+
+	.nav-links .nav-previous,
+	.nav-links .nav-next {
+		padding: 1rem;
+	}
 }
 
 .comment-navigation .nav-previous,

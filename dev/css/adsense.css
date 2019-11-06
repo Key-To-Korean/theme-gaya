@@ -98,6 +98,7 @@
 .home .widget-post-post>div,
 .home .widget-pre-post>div {
 	grid-column: span 2;
+	margin: 0;
 }
 
 @media screen and (max-width: 37.5em) {
