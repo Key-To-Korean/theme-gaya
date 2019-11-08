@@ -34,7 +34,7 @@
 		</div>
 
 		<?php if ( has_nav_menu( 'social' ) ) : ?>
-			<nav class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Social Links Menu', 'k2k' ); ?>">
+			<nav class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Social Links Menu', 'wprig' ); ?>">
 				<?php
 					wp_nav_menu(
 						array(
@@ -134,7 +134,7 @@
 
 				<div class="search-box">
 					<i id="search-toggle" class="fa fa-search search-toggle"></i>
-					<a href="#search-container" class="screen-reader-text"><?php esc_html_e( 'Search this site', 'k2k' ); ?></a>
+					<a href="#search-container" class="screen-reader-text"><?php esc_html_e( 'Search this site', 'wprig' ); ?></a>
 				</div>
 			</div>
 
@@ -175,7 +175,7 @@
 
 	<div class="drawer-box">
 		<i id="drawer-toggle" class="fa fa-cog drawer-toggle"></i><!-- .fa-shapes OK too -->
-		<a href="#drawer-container" class="screen-reader-text"><?php esc_html_e( 'Open Sidebar', 'k2k' ); ?></a>
+		<a href="#drawer-container" class="screen-reader-text"><?php esc_html_e( 'Open Sidebar', 'wprig' ); ?></a>
 	</div>
 	<div class="drawer">
 		<!-- <i id="dismiss-drawer" class="fa fa-times dismiss-drawer"></i> -->

@@ -60,6 +60,28 @@ function wprig_customize_register( $wp_customize ) {
 		)
 	);
 
+	$wp_customize->add_setting(
+		'site_notice_bg',
+		array(
+			'default'           => 'rgba(207, 128, 49, 1)', // wprig green.
+			'type'              => 'theme_mod',
+			'sanitize_callback' => 'wprig_sanitize_rgba_color',
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'site_notice_bg',
+			array(
+				'label'   => __( 'Site Notice background color', 'wprig' ),
+				// 'description' => __( 'Set the background color for the site notice.', 'wprig' ),
+				'section' => 'wprig_site_notice',
+			)
+		)
+	);
+
 	/**
 	 * Theme options.
 	 */
@@ -384,7 +406,7 @@ function wprig_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'login_options',
 		array(
-			'title' => __( 'Login Options', 'marsxi' ),
+			'title' => __( 'Login Options', 'wprig' ),
 		)
 	);
 	*/
@@ -393,7 +415,7 @@ function wprig_customize_register( $wp_customize ) {
 		'show_login_button',
 		array(
 			'default'           => true,
-			'sanitize_callback' => 'marsxi_sanitize_checkbox',
+			'sanitize_callback' => 'wprig_sanitize_checkbox',
 		)
 	);
 
@@ -402,7 +424,7 @@ function wprig_customize_register( $wp_customize ) {
 		array(
 			'type'    => 'checkbox',
 			'section' => 'theme_options',
-			'label'   => __( 'Show Login button in Top Menu?', 'marsxi' ),
+			'label'   => __( 'Show Login button in Top Menu?', 'wprig' ),
 		)
 	);
 }

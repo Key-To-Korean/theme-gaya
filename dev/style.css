@@ -935,6 +935,9 @@ q:after {
 address {
 	margin: 0 0 1.5em;
 	opacity: 0.8;
+	font-size: 90%;
+	font-family: 'Noto Serif', serif;
+	/* color: var(--gaya-grey2); */
 }
 
 pre {

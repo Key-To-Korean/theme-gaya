@@ -217,10 +217,10 @@
 
 .page-title {
 	margin: 1.5em auto;
-	padding-right: 24px;
+	/* padding-right: 24px;
 	padding-right: 1.5rem;
 	padding-left: 24px;
-	padding-left: 1.5rem;
+	padding-left: 1.5rem; */
 	max-width: calc(var(--page-width) * 16)px;
 	/* Fallback for older browsers. */
 	max-width: var(--page-width)rem;
@@ -1148,6 +1148,40 @@ ul.archive-posts-grid {
 	grid-template-columns: repeat(4, 1fr);
 	grid-gap: 2rem;
 	max-width: 75rem;
+}
+
+@media screen and (max-width: 64rem) {
+	ul.archive-posts-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media screen and (max-width: 50rem) {
+	ul.archive-posts-grid {
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 1rem;
+	}
+}
+
+@media screen and (max-width: 30rem) {
+	ul.archive-posts-grid {
+		display: block;
+	}
+
+	ul.archive-posts-grid .post-thumbnail {
+		height: 16rem;
+		margin-bottom: 1.5rem;
+	}
+}
+
+@media screen and (max-width: 22.5rem) {
+	ul.archive-posts-grid article {
+		margin-bottom: 3rem;
+	}
+
+	ul.archive-posts-grid .post-thumbnail {
+		height: 12rem;
+	}
 }
 
 /* Author Pages */

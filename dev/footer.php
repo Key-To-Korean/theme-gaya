@@ -27,15 +27,33 @@
 	}
 	?>
 
-	<div class="site-info <?php echo ( is_active_sidebar( 'sidebar-footer-1' ) || is_active_sidebar( 'sidebar-footer-2' ) ) ? 'with-widgets' : ''; ?>">
-		<div class="copyright">
-			<span class="copyright-dates"><?php wprig_dynamic_copyright(); ?></span>
-			<span class="copyright-message"><?php esc_html_e( 'All rights reserved.', 'k2k' ); ?></span>
-		</div>
-		<div class="credits">
-			<?php wprig_footer_credits(); ?>
-		</div>
-	</div><!-- .site-info -->
+	<?php
+	$show_copyright  = get_theme_mod( 'show_copyright', true );
+	$show_theme_info = get_theme_mod( 'show_theme_info', true );
+
+	if ( $show_copyright || $show_theme_info ) {
+		?>
+
+		<div class="site-info <?php echo ( is_active_sidebar( 'sidebar-footer-1' ) || is_active_sidebar( 'sidebar-footer-2' ) ) ? 'with-widgets' : ''; ?>">
+
+			<?php if ( $show_copyright ) : ?>
+				<div class="copyright">
+					<span class="copyright-dates"><?php wprig_dynamic_copyright(); ?></span>
+					<span class="copyright-message"><?php esc_html_e( 'All rights reserved.', 'wprig' ); ?></span>
+				</div>
+			<?php endif; ?>
+
+			<?php if ( $show_theme_info ) : ?>
+				<div class="credits">
+					<?php wprig_footer_credits(); ?>
+				</div>
+			<?php endif; ?>
+
+		</div><!-- .site-info -->
+
+		<?php
+	}
+	?>
 </footer><!-- #colophon -->
 
 <!-- <i class="fa fa-chevron-circle-up topbutton"></i> -->
