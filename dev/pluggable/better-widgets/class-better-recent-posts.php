@@ -52,12 +52,12 @@ class Better_Recent_Posts extends WP_Widget {
 		$args['widget_title']    = esc_attr( apply_filters( 'widget_title', $instance['widget_title'] ) ) || esc_html__( 'Better Posts', 'wprig' );
 		$args['number_of_posts'] = esc_attr( $instance['number_of_posts'] ) || 0;
 
-		echo esc_html( $args['before_widget'] );
+		echo wp_kses_post( $args['before_widget'] );
 
 		if ( ! empty( $args['widget_title'] ) ) {
-			echo esc_html( $args['before_title'] . $args['widget_title'] . $args['after_title'] );
+			echo wp_kses_post( $args['before_title'] . $args['widget_title'] . $args['after_title'] );
 		} else {
-			echo esc_html( $args['before_title'] . __( 'Better Posts', 'wprig' ) . $args['after_title'] );
+			echo wp_kses_post( $args['before_title'] . __( 'Better Posts', 'wprig' ) . $args['after_title'] );
 		}
 		?>
 
@@ -119,7 +119,7 @@ class Better_Recent_Posts extends WP_Widget {
 		</ul><!-- .wprig-recent-posts-list -->
 
 		<?php
-		echo esc_html( $args['after_widget'] );
+		echo wp_kses_post( $args['after_widget'] );
 
 	} // end function widget().
 
@@ -185,10 +185,11 @@ class Better_Recent_Posts extends WP_Widget {
 }
 register_widget( 'better_recent_posts' );
 
-/*
-@TODO Add a Customizer Option for this
+/**
  * Replace Recent Posts Widget with a Better Recent Posts Widget
  * (It includes thumbnails and publishing date)
+ *
+ * @TODO Add a Customizer Option for this
  *
  * @source https://github.com/mor10/popper/blob/master/widgets/recent-posts.php
  *

@@ -383,8 +383,8 @@ if ( ! function_exists( 'wprig_header_style' ) ) :
 		$inter_b           = get_theme_mod( 'grad2_color' );
 
 		// If no custom options for text are set, let's bail.
-		// get_header_textcolor() options: HEADER_TEXTCOLOR is default, hide text (returns 'blank') or any hex value.
-		if ( HEADER_TEXTCOLOR !== $header_text_color ) {
+		// get_header_textcolor() options: add_theme_support( 'custom-header' ) is default, hide text (returns 'blank') or any hex value.
+		if ( get_theme_support( 'custom-header', 'default-text-color' ) === $header_text_color ) {
 
 			// If we get this far, we have custom styles. Let's do this.
 			?>

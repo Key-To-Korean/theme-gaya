@@ -26,7 +26,7 @@ wp_print_styles( array( 'wprig-content' ) ); // Note: If this was already done i
 				<?php
 					get_search_form();
 
-					the_widget( 'wprig_recent_posts' );
+					the_widget( 'better_recent_posts' );
 				?>
 
 				<div class="widget widget_categories">
