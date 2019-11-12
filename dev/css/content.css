@@ -1138,6 +1138,7 @@ h3.category-title.all-categories {
 
 .archive-description {
 	margin-top: -0.5rem;
+	margin-bottom: 4rem;
 }
 
 ul.archive-posts-grid {
@@ -1307,8 +1308,18 @@ ul.search-posts-grid {
 /*--------------------------------------------------------------
 # Search & Archive Titles
 --------------------------------------------------------------*/
+section.not-found {
+	margin-bottom: 4rem;
+}
+
+.not-found-image {
+	max-width: 75rem;
+	margin: 0 auto 4rem;
+}
+
 .search .page-title,
-.archive .page-title {
+.archive .page-title,
+.error-404 .page-title {
 	text-transform: uppercase;
 	font-size: 0.7rem;
 	letter-spacing: 1px;
@@ -1317,7 +1328,8 @@ ul.search-posts-grid {
 }
 
 .search .page-title span,
-.archive .page-title span {
+.archive .page-title span,
+.error-404 .page-title span {
 	font-size: 2.5rem;
 	display: block;
 	font-weight: bold;

@@ -23,8 +23,8 @@ class Better_Archives extends WP_Widget {
 	public function __construct() {
 
 		$widget_ops = array(
-			'classname'   => 'widget_archive',
-			'description' => __( 'A yearly, then monthly, archive of your site&#8217;s Posts.', 'wprig' ),
+			'classname'    => 'widget_archive',
+			'description'  => __( 'A yearly, then monthly, archive of your site&#8217;s Posts.', 'wprig' ),
 		);
 		parent::__construct( 'better_archives', __( 'Better Archives', 'wprig' ), $widget_ops );
 
@@ -41,18 +41,20 @@ class Better_Archives extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 
+		$args['before_title'] = '<h2 class="widget-title">';
+
 		// $count = ! empty( $instance['count'] ) ? '1' : '0';
 		// $dropdown = ! empty( $instance['dropdown'] ) ? '1' : '0';
 
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? esc_html__( 'Archives', 'wprig' ) : $instance['title'], $instance, $this->id_base );
 
-		echo esc_html( $args['before_widget'] );
+		echo wp_kses_post( $args['before_widget'] );
 
 		if ( ! empty( $title ) ) {
-			echo esc_html( $args['before_title'] . $title . $args['after_title'] );
+			echo wp_kses_post( $args['before_title'] . $title . $args['after_title'] );
 		} else {
-			echo esc_html( $args['before_title'] . __( 'Better Archives', 'wprig' ) . $args['after_title'] );
+			echo wp_kses_post( $args['before_title'] . __( 'Better Archives', 'wprig' ) . $args['after_title'] );
 		}
 
 		/**
@@ -132,7 +134,7 @@ class Better_Archives extends WP_Widget {
 
 		endif;
 
-		echo esc_html( $args['after_widget'] );
+		echo wp_kses_post( $args['after_widget'] );
 
 	} // end widget()
 

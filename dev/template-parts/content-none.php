@@ -10,7 +10,7 @@
 ?>
 <section class="no-results not-found">
 	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Whoops O_o', 'wprig' ); ?><span>Nothing Found.</span></h1>
+		<h1 class="page-title"><?php esc_html_e( 'Whoops O_o', 'wprig' ); ?><span><?php esc_html_e( 'Nothing Found.', 'wprig' ); ?></span></h1>
 	</header><!-- .page-header -->
 
 	<div class="page-content">
@@ -38,7 +38,7 @@
 			<?php
 		elseif ( is_search() ) :
 			?>
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'wprig' ); ?></p>
+			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords. Or, explore some of our other content below.', 'wprig' ); ?></p>
 
 			<?php
 			get_search_form();
@@ -46,7 +46,7 @@
 		else :
 			?>
 
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'wprig' ); ?></p>
+			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help. Or, explore some of our other content below.', 'wprig' ); ?></p>
 			<?php
 				get_search_form();
 

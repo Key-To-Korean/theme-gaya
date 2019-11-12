@@ -42,30 +42,34 @@ class Better_Recent_Comments extends WP_Widget {
 	public function widget( $args, $instance ) {
 
 		// Outputs the content of the widget.
-		$widget_title       = null;
-		$number_of_comments = null;
+		$args['widget_title']       = null;
+		$args['number_of_comments'] = null;
 
-		$widget_title       = esc_attr( apply_filters( 'widget_title', $instance['widget_title'] ) );
-		$number_of_comments = esc_attr( $instance['number_of_comments'] );
+		$args['widget_title']       = ! empty( $args['widget_title'] )
+			? esc_attr( apply_filters( 'widget_title', $instance['widget_title'] ) )
+			: esc_html__( 'Recent Comments', 'wprig' );
+		$args['number_of_comments'] = ! empty( $args['number_of_comments'] )
+			? esc_attr( $instance['number_of_comments'] )
+			: 5;
 
-		echo esc_html( $args['before_widget'] );
+		echo wp_kses_post( $args['before_widget'] );
 
-		if ( ! empty( $widget_title ) ) {
-			echo esc_html( $args['before_title'] . $args['widget_title'] . $args['after_title'] );
+		if ( ! empty( $args['widget_title'] ) ) {
+			echo wp_kses_post( $args['before_title'] . $args['widget_title'] . $args['after_title'] );
 		} else {
-			echo esc_html( $args['before_title'] . esc_html__( 'Better Comments', 'wprig' ) . $args['after_title'] );
+			echo wp_kses_post( $args['before_title'] . esc_html__( 'Better Comments', 'wprig' ) . $args['after_title'] );
 		}
 		?>
 
 			<ul class="wprig-widget-list">
 				<?php
-				if ( 0 === $number_of_comments ) {
-					$number_of_comments = 6;
+				if ( 0 === $args['number_of_comments'] ) {
+					$args['number_of_comments'] = 6;
 				}
 
 				$args = array(
 					'orderby' => 'date',
-					'number'  => $number_of_comments,
+					'number'  => $args['number_of_comments'],
 					'status'  => 'approve',
 					'type'    => 'comment',
 				);
@@ -88,11 +92,11 @@ class Better_Recent_Comments extends WP_Widget {
 								<?php echo get_avatar( get_comment_author_email( $a_comment->comment_ID ), $size = '60' ); ?>
 							</div>
 							<div class="comment-meta">
-								<span class="comment-author-link"><?php comment_author_link(); ?></span> <?php esc_attr_e( 'said:', 'wprig' ); ?>
+								<span class="comment-author-link"><?php comment_author_link( $a_comment->comment_ID ); ?></span> <?php esc_attr_e( 'said:', 'wprig' ); ?>
 								<p class="excerpt rssSummary"><?php echo esc_attr( comment_excerpt( $a_comment->comment_ID ) ); ?></p>
 							</div>
 							<a href="<?php echo esc_attr( get_permalink( $a_comment->comment_post_ID ) ); ?>#comment-<?php echo esc_attr( $a_comment->comment_ID ); ?>">
-								<h4 class="title"><?php the_title_attribute( array( 'post' => $comment->comment_post_ID ) ); ?></h4>
+								<h4 class="title"><?php the_title_attribute( array( 'post' => $a_comment->comment_post_ID ) ); ?></h4>
 							</a>
 						</li>
 
@@ -105,7 +109,7 @@ class Better_Recent_Comments extends WP_Widget {
 			</ul><!-- .wprig-widget-list -->
 
 		<?php
-		echo esc_html( $args['after_widget'] );
+		echo ! empty( $args['after_widget'] ) ? wp_kses_post( $args['after_widget'] ) : '</aside>';
 
 	} // end function widget().
 

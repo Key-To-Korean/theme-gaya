@@ -153,8 +153,8 @@ function wprig_index_header() {
 		?>
 		<header class="page-header">
 			<h1 class="page-title">
-				Whoops O_o
-				<span>Nothing found</span>
+				<?php esc_html_e( 'Whoops O_o', 'wprig' ); ?>
+				<span><?php esc_html_e( 'Nothing found', 'wprig' ); ?></span>
 			</h1>
 		</header>
 		<?php
@@ -457,7 +457,13 @@ function wprig_archive_thumbnails() {
  * Custom function to return a placeholder image URL
  */
 function wprig_placeholder_image_url() {
-	return get_home_url() . '/wp-content/themes/gaya/images/korean-pattern-lg.svg';
+
+	$default_post_img = get_theme_mod( 'default_post_thumbnail' );
+
+	return ! empty( $default_post_img )
+		? $default_post_img
+		: get_home_url() . '/wp-content/themes/gaya/images/korean-pattern-lg.svg';
+
 }
 
 /**

@@ -23,8 +23,10 @@ class Better_Recent_Posts extends WP_Widget {
 	public function __construct() {
 
 			$widget_ops = array(
-				'classname'   => 'widget_recent_entries',
-				'description' => __( 'Displays most recent posts with featured image and publishing date.', 'wprig' ),
+				'classname'    => 'widget_recent_entries',
+				'description'  => __( 'Displays most recent posts with featured image and publishing date.', 'wprig' ),
+				'before_title' => '<h2 class="widget-title">',
+				'after_title'  => '</h2>',
 			);
 			parent::__construct(
 				'better_recent_posts',
@@ -47,32 +49,37 @@ class Better_Recent_Posts extends WP_Widget {
 		// Outputs the content of the widget.
 		$args['widget_title']    = null;
 		$args['number_of_posts'] = null;
+		$args['before_title']    = '<h2 class="widget-title">';
 
 		// Old code.
-		$args['widget_title']    = esc_attr( apply_filters( 'widget_title', $instance['widget_title'] ) ) || esc_html__( 'Better Posts', 'wprig' );
-		$args['number_of_posts'] = esc_attr( $instance['number_of_posts'] ) || 0;
+		$args['widget_title']    = ! empty( $args['widget_title'] )
+			? esc_attr( apply_filters( 'widget_title', $instance['widget_title'] ) )
+			: esc_html__( 'Recent Posts', 'wprig' );
+		$args['number_of_posts'] = ! empty( $args['number_of_posts'] )
+			? esc_attr( $instance['number_of_posts'] )
+			: 0;
 
 		echo wp_kses_post( $args['before_widget'] );
 
 		if ( ! empty( $args['widget_title'] ) ) {
 			echo wp_kses_post( $args['before_title'] . $args['widget_title'] . $args['after_title'] );
 		} else {
-			echo wp_kses_post( $args['before_title'] . __( 'Better Posts', 'wprig' ) . $args['after_title'] );
+			echo wp_kses_post( $args['before_title'] . __( 'Recent Posts', 'wprig' ) . $args['after_title'] );
 		}
 		?>
 
 		<ul class="wprig-widget-list">
 
 		<?php
-		if ( 0 === $number_of_posts ) {
-			$number_of_posts = 4;
+		if ( 0 === $args['number_of_posts'] ) {
+			$args['number_of_posts'] = 4;
 		}
 
 		$recent_posts = new WP_Query(
 			apply_filters(
 				'wprig_recent_posts_args',
 				array(
-					'posts_per_page'      => $number_of_posts,
+					'posts_per_page'      => $args['number_of_posts'],
 					'post_status'         => 'publish',
 					'ignore_sticky_posts' => true,
 				)
@@ -81,29 +88,26 @@ class Better_Recent_Posts extends WP_Widget {
 
 		if ( $recent_posts->have_posts() ) :
 			$count = 1;
-			while ( $recent_posts->have_posts() && $count <= $number_of_posts ) :
+			while ( $recent_posts->have_posts() && $count <= $args['number_of_posts'] ) :
 				$recent_posts->the_post();
 				?>
 
 			<li class="<?php echo 0 === $count % 2 ? 'even' : 'odd'; ?>">
 				<?php global $post; ?>
 
-					<?php if ( has_post_thumbnail() ) : ?>
-						<div class="post-icon" aria-hidden="true" style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
-						</div>
-					<?php endif; ?>
+				<?php wprig_archive_thumbnails(); ?>
 
 					<div class="entry-header">
 						<!-- <div class="cat-links"> -->
 							<?php // wprig_post_categories();. ?>
 						<!-- </div> -->
 						<a class="rsswidget" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-							<h4 class="title"><?php the_title(); ?></h4>
+							<h4 class="entry-title"><?php the_title(); ?></h4>
 						</a>
 					</div>
 
-					<div class="entry-meta">
-						<p class="entry-excerpt"><?php the_excerpt(); ?></p>
+					<div class="entry-content">
+						<p class="entry-excerpt"><?php echo wp_kses_post( get_the_excerpt() ); ?></p>
 						<span class="meta rss-date"><?php wprig_posted_on(); ?></span>
 					</div>
 

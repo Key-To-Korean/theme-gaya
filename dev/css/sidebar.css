@@ -53,7 +53,7 @@
 
 .footer-sidebar-1 img,
 .footer-top-sidebar img {
-	max-width: 25%;
+	/* max-width: 25%; */
 }
 
 .footer-sidebar-2,
@@ -72,5 +72,5 @@
 
 .footer-sidebar-2 img,
 .footer-bottom-sidebar img {
-	max-width: 20%;
+	/* max-width: 20%; */
 }

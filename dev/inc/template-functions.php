@@ -6,6 +6,15 @@
  */
 
 /**
+ * Function to escape an SQL table / row by name.
+ *
+ * @param string $name The SQL name to escape.
+ */
+function esc_sql_name( $name ) {
+	return str_replace( "`", "``", $name ); // phpcs:ignore
+}
+
+/**
  * Adds custom classes to the array of body classes.
  *
  * @param array $classes Classes for the body element.

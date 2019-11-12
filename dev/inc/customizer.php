@@ -601,3 +601,26 @@ function wprig_sanitize_html( $input ) {
 function wprig_sanitize_checkbox( $input ) {
 	return ( 1 === $input ) ? 1 : '';
 }
+
+/**
+ * Sanitize image uploads.
+ *
+ * @param blob   $file The file.
+ * @param Object $setting The settings.
+ */
+function wprig_sanitize_upload( $file, $setting ) {
+
+	// Allowed file types.
+	$mimes = array(
+		'jpg|jpeg|jpe' => 'image/jpeg',
+		'gif'          => 'image/gif',
+		'png'          => 'image/png',
+	);
+
+	// Check filetype from filename.
+	$file_ext = wp_check_filetype( $file, $mimes );
+
+	// If file has a valid mime type, return it, otherwise, return default.
+	return ( $file_ext['ext'] ? $file : $setting->default );
+
+}
