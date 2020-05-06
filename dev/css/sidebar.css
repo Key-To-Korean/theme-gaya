@@ -3,14 +3,14 @@
 --------------------------------------------------------------*/
 .dismiss-drawer {
 	position: absolute;
-	right: 4rem;
-	top: 4rem;
+	right: 3rem;
+	top: 5rem;
 	color: var(--gaya-grey4);
 	cursor: pointer;
 }
 
 .primary-sidebar {
-	padding: 1.5rem;
+	/* padding: 1.5rem; */
 	font-family: var(--highlight-font-family);
 }
 
@@ -42,6 +42,14 @@
 	padding: 3rem 4rem;
 	/* background: var(--global-font-color); */
 	color: white;
+}
+
+@media screen and (max-width: 60rem) {
+	.footer-top-sidebar,
+	.footer-sidebar-1 {
+		padding: 3rem 0;
+		max-width: 45rem;
+	}
 }
 
 .footer-sidebar-1 img,

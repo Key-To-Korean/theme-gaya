@@ -39,6 +39,15 @@
 	margin: 0 auto;
 }
 
+@media screen and (max-width: 60rem) {
+	.single .hentry,
+	.page .hentry,
+	.comments-area {
+		max-width: 100%;
+		display: block;
+	}
+}
+
 .page-section {
 	max-width: 75rem;
 	margin: 0 auto;
@@ -46,6 +55,16 @@
 
 .entry-header {
 	grid-column: span 2;
+}
+
+@media screen and (max-width: 60rem) {
+	.entry-header {
+		margin-bottom: 2rem;
+	}
+
+	.section-title.written-by {
+		display: none;
+	}
 }
 
 .entry-header .post-cats {
@@ -61,15 +80,6 @@
 .entry-footer {
 	font-family: var(--highlight-font-family);
 	font-size: 80%;
-}
-
-@media screen and (max-width: 37.5em) {
-
-	/* --tablet-query */
-	.entry-meta,
-	.entry-content {
-		grid-column: span 2;
-	}
 }
 
 .entry-meta span {
@@ -142,6 +152,17 @@
 
 .page .entry-content {
 	grid-column: 2;
+}
+
+@media screen and (max-width: 60rem) {
+
+	/* --tablet-query */
+	.entry-meta,
+	.entry-content {
+		grid-column: span 2;
+		max-width: 45rem;
+		margin: 2rem auto 0;
+	}
 }
 
 .child-page-menu {
@@ -347,6 +368,13 @@
 .author-box .author-name {
 	margin-top: 0;
 	text-transform: capitalize;
+}
+
+@media screen and (max-width: 60rem) {
+	.author-box {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
 }
 
 .author-box .author-description {
@@ -958,6 +986,18 @@ object {
 	grid-template-columns: 1fr 5fr;
 	grid-gap: 2rem;
 	margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 60rem) {
+	.jp-relatedposts {
+		display: block!important;
+		margin-bottom: 4rem;
+	}
+
+	.jp-relatedposts-headline {
+		max-width: 45rem;
+		margin: 2rem auto 1rem;
+	}
 }
 
 .jp-relatedposts .post-thumbnail {

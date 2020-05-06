@@ -93,7 +93,7 @@
 	</div><!-- .entry-content -->
 
 	<?php if ( is_singular() ) : ?>
-		<h3 class="section-title">Written by</h3>
+		<h3 class="section-title written-by">Written by</h3>
 		<div class="author-box">
 			<?php wprig_author_box(); ?>
 		</div>

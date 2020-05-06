@@ -16,10 +16,11 @@
 }
 
 .adsense.above-header {
-	margin: 0 -4rem;
+	/* margin: 0 -4rem; */
 	border-top: 0;
 	grid-column: span 2;
-	width: calc(100% + 8rem);
+	/* width: calc(100% + 8rem); */
+	width: 100%;
 }
 
 .adsense.above-header div,
@@ -60,6 +61,20 @@
 	position: relative;
 	left: 50%;
 	transform: translateX(-50%);
+}
+
+@media screen and (max-width: 60rem) {
+	.widget-pre-post h3,
+	.widget-post-post h3 {
+		display: none;
+	}
+
+	.widget-pre-post,
+	.widget-post-post,
+	.widget-pre-post>div,
+	.widget-post-post>div {
+		display: block;
+	}
 }
 
 .home .widget-post-post>div,

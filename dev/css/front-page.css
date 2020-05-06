@@ -343,7 +343,7 @@ h1.featured-title {
 /*
  * Featured Posts Grid
  */
-#featured-grid {
+ #featured-grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-gap: 2rem;
@@ -355,13 +355,43 @@ h1.featured-title {
 	border-bottom-color: var(--gaya-black);
 }
 
+@media screen and (max-width: 64rem) {
+	#featured-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	#featured-grid article:last-child {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 50rem) {
+	#featured-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	#featured-grid article:last-child {
+		display: block;
+	}
+}
+
 #featured-grid .post-thumbnail {
-	height: 12rem;
+	height: 10.5rem;
 	margin-bottom: 2rem;
 	position: relative;
 	transition: all 0.3s;
 	background-position: center;
 	background-size: cover;
+}
+
+@media screen and (max-width: 37.5rem) {
+	#featured-grid .post-thumbnail {
+		height: 10rem;
+	}
+
+	#featured-grid {
+		margin-bottom: 4rem;
+	}
 }
 
 #featured-grid .post-thumbnail:focus,
@@ -381,4 +411,37 @@ h1.featured-title {
 
 #featured-grid .entry-title a {
 	color: var(--gaya-black);
+}
+
+@media screen and (max-width: 30rem) {
+	#featured-grid {
+		grid-gap: 1rem;
+	}
+
+	#featured-grid .entry-content {
+		display: none;
+	}
+
+	#featured-grid .entry-title {
+		font-size: 1.2rem;
+	}
+
+	#featured-grid .post-thumbnail {
+		height: 8rem;
+		margin-bottom: 1.5rem;
+	}
+}
+
+@media screen and (max-width: 22.5rem) {
+	#featured-grid {
+		display: block;
+	}
+
+	#featured-grid article {
+		margin-bottom: 3rem;
+	}
+
+	#featured-grid .post-thumbnail {
+		height: 12rem;
+	}
 }

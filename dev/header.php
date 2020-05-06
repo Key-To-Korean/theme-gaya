@@ -174,6 +174,6 @@
 		<a href="#drawer-container" class="screen-reader-text"><?php esc_html_e( 'Open Sidebar', 'k2k' ); ?></a>
 	</div>
 	<div class="drawer">
-		<!-- <i id="dismiss-drawer" class="fa fa-times dismiss-drawer"></i> -->
+		<i id="dismiss-drawer" class="fa fa-times dismiss-drawer"></i>
 		<?php get_sidebar(); ?>
 	</div>

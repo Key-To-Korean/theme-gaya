@@ -4,3 +4,5 @@
  *
  * @package wprig
  */
+
+/* New comment. */

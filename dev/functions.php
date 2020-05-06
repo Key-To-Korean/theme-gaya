@@ -411,7 +411,7 @@ function wprig_gutenberg_styles() {
 	wp_enqueue_style( 'wprig-fonts', wprig_fonts_url(), array(), '20190906' );
 
 	// Enqueue main stylesheet.
-	wp_enqueue_style( 'wprig-base-style', get_theme_file_uri( '/css/editor-styles.css' ), array(), filemtime( get_theme_file_uri( '/css/editor-styles.css' ) ) );
+	wp_enqueue_style( 'wprig-base-style', get_theme_file_uri( '/css/editor-styles.css' ), array(), '20190927' . wp_rand( 0, 99 ) );
 }
 add_action( 'enqueue_block_editor_assets', 'wprig_gutenberg_styles' );
 

@@ -550,7 +550,7 @@ template {
 
 	/* --table-query */
 	.site-main {
-		padding: 2rem 2rem 0;
+		padding: 2rem 2.5rem 0;
 	}
 }
 
@@ -1875,6 +1875,8 @@ input[type="submit"]:active {
 .header-flash.has-header-img {
 	border: none;
 	color: white;
+	max-width: 100%;
+	margin: 0 auto;
 }
 
 .header-flash {
@@ -1951,6 +1953,7 @@ input[type="submit"]:active {
 	grid-template-columns: repeat(12, 1fr);
 	grid-gap: 1rem;
 	margin: 0 -4rem;
+	width: calc(100% + 8rem);
 	padding: 0 4rem;
 	line-height: 1.5rem;
 	position: relative;
@@ -2685,6 +2688,15 @@ input[type="submit"]:active {
 	background: var(--gaya-white);
 }
 
+@media screen and (max-width: 37.5em) {
+	.social-navigation li {
+		width: 32px;
+		height: 32px;
+		font-size: 0.9rem;
+		line-height: 2.1;
+	}
+}
+
 .social-navigation li a {
 	color: var(--global-header-color);
 }
@@ -2902,6 +2914,12 @@ SVG Fallbacks
 	background-repeat: no-repeat;
 	background-position: 100% 100%;
 	background-size: auto;
+}
+
+@media screen and (max-width: 37.5em) {
+	.site-footer {
+		padding: 0rem 2.5rem;
+	}
 }
 
 .site-info {
