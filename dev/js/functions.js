@@ -23,22 +23,38 @@ jQuery( document ).ready( function( $ ) {
 	 * Back to Top button
 	 * @TODO needs fix
 	 */
-	var offset = 500;
+	var offset = 600;
 	var speed = 500;
 	var duration = 500;
+
 	$( window ).scroll( function() {
+
 		if ( $( this ).scrollTop() < offset ) {
-			$( '.topbutton' ).fadeOut( duration );
+
+			// If we're within the offset distance of the top of the page.
 			$( '.post-navigation-container' ).removeClass( 'active' );
-		} else if ( $( this ).scrollTop() > $( this ).height - 200 ) {
+			$( '.topbutton' ).removeClass( 'onscreen' );
+
+		} else if ( $( this ).scrollTop() > $( '#colophon' ).offset().top - window.innerHeight ) {
+
+			// If this is around the page footer at the bottom of the page.
+			// - subtract the innerHeight of the window so when the top of the footer comes into the screen,
+			//   it will wait until that touches the top of the page.
 			$( '.post-navigation-container' ).removeClass( 'active' );
+			$( '.topbutton' ).addClass( 'onscreen' );
+
 		} else if ( ( window.innerHeight + window.scrollY ) > document.body.offsetHeight ) {
 
 			// If this is the very bottom of the page.
 			$( '.post-navigation-container' ).removeClass( 'active' );
+			$( '.topbutton' ).addClass( 'onscreen' );
+
 		} else {
-			$( '.topbutton' ).fadeIn( duration );
+
+			// In all other cases.
+			$( '.topbutton' ).removeClass( 'onscreen' );
 			$( '.post-navigation-container' ).addClass( 'active' );
+
 		}
 	});
 
@@ -200,8 +216,10 @@ jQuery( document ).ready( function( $ ) {
 	 * Fixed Top Menu
 	 */
 	let topMenuStart = $( '.site-header' ).offset().top;
+	let headerHeight = $( '.site-header' ).height();
+
 	$( window ).scroll( function() {
-		if ( $( this ).scrollTop() < topMenuStart ) {
+		if ( $( this ).scrollTop() < topMenuStart + headerHeight - 64 ) { // 64px is the height of the fixed menu bar.
 			$( '.site' ).removeClass( 'fixed-header' );
 			$( '.site-header' ).removeClass( 'fixed' );
 			$( '.site-header .logo' ).addClass( 'screen-reader-text' );

@@ -13,13 +13,24 @@
 
 <footer id="colophon" class="site-footer">
 
-	<?php get_sidebar( 'footer-top' ); ?>
-	<?php get_sidebar( 'footer-bottom' ); ?>
+	<?php
+	if ( is_active_sidebar( 'sidebar-footer-1' ) ) {
+		get_sidebar( 'footer-top' );
+	}
 
-	<div class="site-info">
+	if ( is_active_sidebar( 'sidebar-footer-1' ) && is_active_sidebar( 'sidebar-footer-2' ) ) {
+		echo '<hr />';
+	}
+
+	if ( is_active_sidebar( 'sidebar-footer-2' ) ) {
+		get_sidebar( 'footer-bottom' );
+	}
+	?>
+
+	<div class="site-info <?php echo ( is_active_sidebar( 'sidebar-footer-1' ) || is_active_sidebar( 'sidebar-footer-2' ) ) ? 'with-widgets' : ''; ?>">
 		<div class="copyright">
 			<span class="copyright-dates"><?php wprig_dynamic_copyright(); ?></span>
-			<span class="copyright-message">All rights reserved.</span>
+			<span class="copyright-message"><?php esc_html_e( 'All rights reserved.', 'k2k' ); ?></span>
 		</div>
 		<div class="credits">
 			<?php wprig_footer_credits(); ?>
@@ -32,10 +43,15 @@
 
 </div><!-- #page -->
 
-<?php if ( is_active_sidebar( 'widget-ad-fixed-footer' ) ) : ?>
+<?php
+if ( is_active_sidebar( 'widget-ad-fixed-footer' ) ) :
+	$time_now = date( 'F j, Y' );
+	?>
 	<!-- Fixed Footer Ad -->
-	<div class="adsense adsense-widget fixed-footer">
-		<i id="dismiss-footer" class="fa fa-times"></i>
+	<div class="adsense adsense-widget fixed-footer" data-id="<?php echo esc_attr( md5( $time_now ) ); ?>">
+		<button id="dismiss-footer" aria-label="<?php esc_html_e( 'Dismiss footer', 'wprig' ); ?>">
+			<i class="fa fa-times"></i>
+		</button>
 		<?php
 			/* Print styles for adsense widgets */
 			wp_print_styles( array( 'wprig-adsense' ) ); // Note: If this was already done it will be skipped.

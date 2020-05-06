@@ -347,6 +347,10 @@ function wprig_fonts_url() {
 	 */
 	$noto_sans = esc_html_x( 'on', 'Noto Sans font: on or off', 'wprig' );
 	/**
+	 * Translator: If Noto Sans does not support characters in your language, translate this to 'off'.
+	 */
+	$noto_serif = esc_html_x( 'on', 'Noto Serif font: on or off', 'wprig' );
+	/**
 	 * Translator: If Nanum Gothic does not support characters in your language, translate this to 'off'.
 	 */
 	$nanum_gothic = esc_html_x( 'on', 'Nanum Gothic font: on or off', 'wprig' );
@@ -361,6 +365,10 @@ function wprig_fonts_url() {
 		$font_families[] = 'Noto Sans:400,400i,700,700i';
 	}
 
+	if ( 'off' !== $noto_serif ) {
+		$font_families[] = 'Noto Serif:400,400i,700,700i';
+	}
+
 	if ( 'off' !== $nanum_gothic ) {
 		$font_families[] = 'Nanum Gothic:400,700,800';
 	}
@@ -369,7 +377,7 @@ function wprig_fonts_url() {
 		$font_families[] = 'Satisfy';
 	}
 
-	if ( in_array( 'on', array( $noto_sans, $nanum_gothic, $satisfy ), true ) ) {
+	if ( in_array( 'on', array( $noto_sans, $noto_serif, $nanum_gothic, $satisfy ), true ) ) {
 		$query_args = array(
 			'family' => rawurlencode( implode( '|', $font_families ) ),
 			'subset' => rawurlencode( 'latin,latin-ext,korean' ),
@@ -411,7 +419,7 @@ function wprig_gutenberg_styles() {
 	wp_enqueue_style( 'wprig-fonts', wprig_fonts_url(), array(), '20190906' );
 
 	// Enqueue main stylesheet.
-	wp_enqueue_style( 'wprig-base-style', get_theme_file_uri( '/css/editor-styles.css' ), array(), '20190927' . wp_rand( 0, 99 ) );
+	wp_enqueue_style( 'wprig-base-style', get_theme_file_uri( '/css/editor-styles.css' ), array(), filemtime( get_stylesheet_directory() . '/css/editor-styles.css' ) );
 }
 add_action( 'enqueue_block_editor_assets', 'wprig_gutenberg_styles' );
 
@@ -529,20 +537,20 @@ function wprig_styles() {
 	wp_enqueue_style( 'wprig-fa', 'https://use.fontawesome.com/releases/v5.7.0/css/all.css', array(), '20190129' );
 
 	// Enqueue main stylesheet.
-	wp_enqueue_style( 'wprig-base-style', get_stylesheet_uri(), array(), '20180514' );
+	wp_enqueue_style( 'wprig-base-style', get_stylesheet_uri(), array(), filemtime( get_stylesheet_directory() . '/style.css' ) );
 
 	// Register component styles that are printed as needed.
-	wp_register_style( 'wprig-comments', get_theme_file_uri( '/css/comments.css' ), array(), '20180514' . wp_rand( 0, 99 ) );
-	wp_register_style( 'wprig-content', get_theme_file_uri( '/css/content.css' ), array(), '20180514' . wp_rand( 0, 99 ) );
-	wp_register_style( 'wprig-sidebar', get_theme_file_uri( '/css/sidebar.css' ), array(), '20180514' . wp_rand( 0, 99 ) );
-	wp_register_style( 'wprig-widgets', get_theme_file_uri( '/css/widgets.css' ), array(), '20180514' . wp_rand( 0, 99 ) );
-	wp_register_style( 'wprig-front-page', get_theme_file_uri( '/css/front-page.css' ), array(), '20180514' . wp_rand( 0, 99 ) );
-	wp_register_style( 'wprig-adsense', get_theme_file_uri( '/css/adsense.css' ), array(), '20180822' . wp_rand( 0, 99 ) );
-	wp_register_style( 'wprig-post-formats', get_theme_file_uri( '/css/post-formats.css' ), array(), '20190916' . wp_rand( 0, 99 ) );
+	wp_register_style( 'wprig-comments', get_theme_file_uri( '/css/comments.css' ), array(), filemtime( get_stylesheet_directory() . '/css/comments.css' ) );
+	wp_register_style( 'wprig-content', get_theme_file_uri( '/css/content.css' ), array(), filemtime( get_stylesheet_directory() . '/css/content.css' ) );
+	wp_register_style( 'wprig-sidebar', get_theme_file_uri( '/css/sidebar.css' ), array(), filemtime( get_stylesheet_directory() . '/css/sidebar.css' ) );
+	wp_register_style( 'wprig-widgets', get_theme_file_uri( '/css/widgets.css' ), array(), filemtime( get_stylesheet_directory() . '/css/widgets.css' ) );
+	wp_register_style( 'wprig-front-page', get_theme_file_uri( '/css/front-page.css' ), array(), filemtime( get_stylesheet_directory() . '/css/front-page.css' ) );
+	wp_register_style( 'wprig-adsense', get_theme_file_uri( '/css/adsense.css' ), array(), filemtime( get_stylesheet_directory() . '/css/adsense.css' ) );
+	wp_register_style( 'wprig-post-formats', get_theme_file_uri( '/css/post-formats.css' ), array(), filemtime( get_stylesheet_directory() . '/css/post-formats.css' ) );
 
 	// Enqueue Slick slider.
-	wp_enqueue_style( 'wprig-slick-slider', get_template_directory_uri() . '/slick/slick.css', array(), '20190905' );
-	wp_enqueue_style( 'wprig-slick-theme', get_template_directory_uri() . '/slick/slick-theme.css', array(), '20190905' );
+	wp_enqueue_style( 'wprig-slick-slider', get_template_directory_uri() . '/slick/slick.css', array(), filemtime( get_stylesheet_directory() . '/slick/slick.css' ) );
+	wp_enqueue_style( 'wprig-slick-theme', get_template_directory_uri() . '/slick/slick-theme.css', array(), filemtime( get_stylesheet_directory() . '/slick/slick-theme.css' ) );
 }
 add_action( 'wp_enqueue_scripts', 'wprig_styles' );
 
@@ -557,12 +565,20 @@ function wprig_scripts() {
 	}
 
 	// Enqueue the main theme JS functions file.
-	wp_enqueue_script( 'wprig-functions', get_theme_file_uri( '/js/functions.js' ), array( 'jquery' ), '20180811', false );
+	wp_enqueue_script( 'wprig-functions', get_theme_file_uri( '/js/functions.js' ), array( 'jquery' ), filemtime( get_stylesheet_directory() . '/js/functions.js' ), false );
 	wp_script_add_data( 'wprig-functions', 'async', true );
 
 	// Enqueue the navigation script.
-	wp_enqueue_script( 'wprig-navigation', get_theme_file_uri( '/js/navigation.js' ), array(), '20180514', false );
+	wp_enqueue_script( 'wprig-navigation', get_theme_file_uri( '/js/navigation.js' ), array(), filemtime( get_stylesheet_directory() . '/js/navigation.js' ), false );
 	wp_script_add_data( 'wprig-navigation', 'async', true );
+
+	// Enqueue the dismissable script.
+	wp_enqueue_script( 'wprig-dismissable', get_theme_file_uri( '/js/dismissable.js' ), array(), filemtime( get_stylesheet_directory() . '/js/dismissable.js' ), true );
+	wp_script_add_data( 'wprig-dismissable', 'async', true );
+
+	// @TODO @DEBUG Find overflowing elements.
+	wp_enqueue_script( 'wprig-overflow', get_theme_file_uri( '/js/find-overflow.js' ), array(), filemtime( get_stylesheet_directory() . '/js/find-overflow.js' ), true );
+	wp_script_add_data( 'wprig-overflow', 'async', true );
 
 	wp_localize_script(
 		'wprig-navigation',
@@ -574,7 +590,7 @@ function wprig_scripts() {
 	);
 
 	// Enqueue skip-link-focus script.
-	wp_enqueue_script( 'wprig-skip-link-focus-fix', get_theme_file_uri( '/js/skip-link-focus-fix.js' ), array(), '20180514', false );
+	wp_enqueue_script( 'wprig-skip-link-focus-fix', get_theme_file_uri( '/js/skip-link-focus-fix.js' ), array(), filemtime( get_stylesheet_directory() . '/js/skip-link-focus-fix.js' ), false );
 	wp_script_add_data( 'wprig-skip-link-focus-fix', 'defer', true );
 
 	// Enqueue comment script on singular post/page views only.
@@ -583,7 +599,7 @@ function wprig_scripts() {
 	}
 
 	// Enqueue Slick Slider JS.
-	wp_enqueue_script( 'wprig-slick-js', get_template_directory_uri() . '/slick/slick.min.js', array( 'jquery' ), '20150212', true );
+	wp_enqueue_script( 'wprig-slick-js', get_template_directory_uri() . '/slick/slick.min.js', array( 'jquery' ), filemtime( get_stylesheet_directory() . '/slick/slick.min.js' ), true );
 
 }
 add_action( 'wp_enqueue_scripts', 'wprig_scripts' );
@@ -634,6 +650,34 @@ function wprig_modify_read_more_link() {
 add_filter( 'the_content_more_link', 'wprig_modify_read_more_link' );
 
 /**
+ * Add Sitewide Notice.
+ */
+function wprig_site_notice() {
+
+	$text = get_theme_mod( 'site_notice_text' );
+
+	if ( is_admin() || empty( $text ) ) {
+		return;
+	}
+	?>
+
+	<div class="site-notice" data-id="<?php echo esc_attr( md5( $text ) ); ?>">
+		<p><?php echo esc_html( $text ); ?></p>
+		<button aria-label="<?php esc_html_e( 'Dismiss site notice', 'wprig' ); ?>" class="site-notice-dismiss">
+			<i class="fa fa-times"></i>
+		</button>
+	</div>
+
+	<?php
+}
+add_action( 'wp_footer', 'wprig_site_notice' );
+
+/**
+ * If active, add a custom class to the first footer widget.
+ */
+
+
+/**
  * Custom responsive image sizes.
  */
 require get_template_directory() . '/inc/image-sizes.php';
@@ -678,6 +722,7 @@ require get_template_directory() . '/pluggable/ad-placeholders.php';
 /**
  * Pluggable: Better Widgets
  */
+require get_template_directory() . '/pluggable/better-widgets/class-ad-placeholder.php';
 require get_template_directory() . '/pluggable/better-widgets/class-better-archives.php';
 require get_template_directory() . '/pluggable/better-widgets/class-better-recent-comments.php';
 require get_template_directory() . '/pluggable/better-widgets/class-better-recent-posts.php';

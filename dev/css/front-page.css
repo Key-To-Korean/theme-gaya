@@ -1,8 +1,124 @@
 /**
  * Custom styles for the front-page.php template.
  */
+.entry-title {
+	margin-top: 0;
+}
 
-@media screen and (min-width: 60em) {
+.entry-title a {
+	color: var(--gaya-black);
+}
+
+.front-page-row {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-gap: 2rem;
+	margin: 0 auto 2rem;
+	max-width: 75rem;
+}
+
+.front-page-row .post-thumbnail {
+	height: 10rem;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	margin-top: 0;
+}
+
+#featured-grid .post-thumbnail {
+	margin-top: 0;
+}
+
+.one-per-row {
+	grid-column: span 6;
+}
+
+.two-per-row {
+	grid-column: span 6;
+}
+
+.three-per-row {
+	grid-column: span 6;
+}
+
+.one-per-row .post-thumbnail,
+.two-per-row .post-thumbnail,
+.two-s-per-row .post-thumbnail,
+.three-per-row .post-thumbnail {
+	height: 12rem;
+}
+
+@media screen and (min-width: 22.5rem) {
+
+	.one-per-row .post-thumbnail,
+	.two-per-row .post-thumbnail,
+	.two-s-per-row .post-thumbnail,
+	.three-per-row .post-thumbnail {
+		height: 14.5rem;
+	}
+}
+
+@media screen and (min-width: 30rem) {
+	.one-per-row .post-thumbnail {
+		height: 17.5rem;
+	}
+
+	.two-per-row,
+	.three-per-row {
+		grid-column: span 3;
+	}
+
+	.two-per-row .post-thumbnail,
+	.two-s-per-row .post-thumbnail,
+	.three-per-row .post-thumbnail {
+		height: 10rem;
+	}
+}
+
+@media screen and (min-width: 37.5rem) {
+
+	.one-per-row .post-thumbnail {
+		height: 22.5rem;
+	}
+
+	.two-per-row .post-thumbnail,
+	.two-s-per-row .post-thumbnail {
+		height: 12.5rem;
+	}
+
+	.three-per-row .post-thumbnail {
+		height: 12.5rem;
+	}
+}
+
+@media screen and (min-width: 50rem) {
+	.one-per-row {
+		grid-column: span 6;
+	}
+
+	.one-per-row .post-thumbnail {
+		height: 27.5rem;
+	}
+
+	.two-per-row {
+		grid-column: span 3;
+	}
+
+	.two-per-row .post-thumbnail,
+	.two-s-per-row .post-thumbnail {
+		height: 17.5rem;
+	}
+
+	.three-per-row {
+		grid-column: span 2;
+	}
+
+	.three-per-row .post-thumbnail {
+		height: 12.5rem;
+	}
+}
+
+@media screen and (min-width: 64rem) {
 
 	/* --sidebar-query (doesn't exist) */
 	.site {
@@ -81,7 +197,7 @@
 	}
 
 	.one-per-row .post-thumbnail {
-		height: 514px;
+		height: 32.5rem;
 		grid-column: span 2;
 	}
 
@@ -104,7 +220,7 @@
 
 	.two-per-row .post-thumbnail,
 	.two-s-per-row .post-thumbnail {
-		height: 328px;
+		height: 20.5rem;
 	}
 
 	.three-per-row {
@@ -112,7 +228,7 @@
 	}
 
 	.three-per-row .post-thumbnail {
-		height: 284px;
+		height: 14.5rem;
 	}
 
 	.post {

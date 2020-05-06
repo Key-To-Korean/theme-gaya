@@ -1,9 +1,6 @@
 {
   "variables": {
-    "background-color-light": "#f4f7f6",
-    "background-color-dark": "#32373c",
     "border-main-color": "#E0E3E3",
-    "placeholder-color": "#428bca",
     "global-font-color": "#555",
     "global-header-color": "#32373c",
     "global-font-family": "'Nanum Gothic', sans-serif",
@@ -23,7 +20,8 @@
     "sidebar-shadow": "0 0 14px rgba(0,0,0,.14)",
     "material-teal-a400": "#1de9b6",
     "material-teal-a700": "#00bfa5",
-    "gaya-black": "#000000",
+    "gaya-true-black": "#000000",
+    "gaya-black": "#32373c",
     "gaya-black-blue": "#001628",
     "gaya-white": "#ffffff",
     "gaya-grey0": "#606f7b",
@@ -35,7 +33,7 @@
     "gaya-grey-disabled": "rgba(135, 149, 161, 0.2)",
     "gaya-grey-rgb": "135,149,161",
     "gaya-gold": "#CF8031",
-    "gaya-teal": "",
+    "gaya-teal": "#00bfa5",
     "gaya-teal-dk": "#00897b",
     "gaya-teal-a": "#00bfa5",
     "gaya-amber-dk": "#ff8f00",
@@ -53,7 +51,8 @@
     "gradient-pink": "-webkit-gradient(linear,left top,left bottom,from(@pink),to(@pink-dark)); background-image: linear-gradient(180deg,@pink,@pink-dark);",
     "gradient-purple": "-webkit-gradient(linear,left top,left bottom,from(@purple),to(@purple-dark)); background-image: linear-gradient(180deg,@purple,@purple-dark);",
     "gradient-blue": "-webkit-gradient(linear,left top,left bottom,from(@blue),to(@blue-dark)); background-image: linear-gradient(180deg,@blue,@blue-dark);",
-    "gradient-grey": "-webkit-gradient(linear,left top,left bottom,from(@grey-lighter),to(@grey)); background-image: linear-gradient(180deg,@grey-lighter,@grey);"
+    "gradient-grey": "-webkit-gradient(linear,left top,left bottom,from(@grey-lighter),to(@grey)); background-image: linear-gradient(180deg,@grey-lighter,@grey);",
+    "gradient-teal-radius-alpha": "radial-gradient(circle at 1% 1%, rgba(0, 191, 165, 0.5), rgba(0, 137, 123, 0.3))"
   },
   "queries": {
     "phone-query": "screen and (max-width: 37.5em)",
@@ -69,5 +68,10 @@
     "gradient-purple": "background-image: -webkit-gradient(linear,left top,left bottom,from(@purple),to(@purple-dark)); background-image: linear-gradient(180deg,@purple,@purple-dark);",
     "gradient-blue": "background-image: -webkit-gradient(linear,left top,left bottom,from(@blue),to(@blue-dark)); background-image: linear-gradient(180deg,@blue,@blue-dark);",
     "gradient-grey": "background-image: -webkit-gradient(linear,left top,left bottom,from(@grey-lighter),to(@grey)); background-image: linear-gradient(180deg,@grey-lighter,@grey);"
+  },
+  "unused": {
+    "background-color-light": "#f4f7f6",
+    "background-color-dark": "#32373c",
+    "placeholder-color": "#428bca"
   }
 }
