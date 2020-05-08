@@ -7,18 +7,6 @@
  */
 jQuery( document ).ready( function( $ ) {
 
-	/* Find overflowing element */
-	var docWidth = document.documentElement.offsetWidth;
-
-	[].forEach.call(
-		document.querySelectorAll( '*' ),
-		function( el ) {
-			if ( el.offsetWidth > docWidth ) {
-				console.log( el );
-			}
-		}
-	);
-
 	/**
 	 * Back to Top button
 	 * @TODO needs fix
@@ -167,7 +155,8 @@ jQuery( document ).ready( function( $ ) {
 	});
 
 	/* Open Drawer (Sidebar) */
-	$( '.dismiss-drawer, .drawer-box' ).click( function() {
+	$( '.dismiss-drawer, .drawer-box, .site-modal' ).click( function() {
+		$( '.site-modal' ).toggleClass( 'active' );
 		$( '.drawer' ).toggleClass( 'active' );
 
 		// $( '.site-main' ).toggleClass( 'drawer-open' ); .
@@ -238,9 +227,19 @@ jQuery( document ).ready( function( $ ) {
 
 	$( '.menu-toggle' ).click( function() {
 		$( '.main-navigation' ).toggleClass( 'toggled-on' );
+		if ( $( '.main-navigation' ).hasClass( 'toggled-on' ) ) {
+			$( 'body' ).css( 'overflow', 'hidden' );
+		} else {
+			$( 'body' ).css( 'overflow', 'auto' );
+		}
 	});
 	$( '#dismiss-menu' ).click( function() {
 		$( '.main-navigation' ).removeClass( 'toggled-on' );
+		if ( $( '.main-navigation' ).hasClass( 'toggled-on' ) ) {
+			$( 'body' ).css( 'overflow', 'hidden' );
+		} else {
+			$( 'body' ).css( 'overflow', 'auto' );
+		}
 	});
 
 });

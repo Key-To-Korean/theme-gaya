@@ -362,7 +362,7 @@ function wprig_fonts_url() {
 	$font_families = array();
 
 	if ( 'off' !== $noto_sans ) {
-		$font_families[] = 'Noto Sans:400,400i,700,700i';
+		$font_families[] = 'Noto Sans:300,300i,400,400i,700,700i';
 	}
 
 	if ( 'off' !== $noto_serif ) {

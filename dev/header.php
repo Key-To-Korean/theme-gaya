@@ -33,6 +33,8 @@
 				<?php get_search_form(); ?>
 		</div>
 
+		<div class="site-modal site-overlay"></div>
+
 		<?php if ( has_nav_menu( 'social' ) ) : ?>
 			<nav class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Social Links Menu', 'k2k' ); ?>">
 				<?php
@@ -161,6 +163,7 @@
 							'theme_location' => 'primary',
 							'menu_id'        => 'primary-menu',
 							'container'      => 'ul',
+							'depth'          => 1,
 						)
 					);
 					?>
@@ -174,7 +177,7 @@
 		?>
 
 	<div class="drawer-box">
-		<i id="drawer-toggle" class="fa fa-cog drawer-toggle"></i><!-- .fa-shapes OK too -->
+		<i id="drawer-toggle" class="fa fa-ellipsis-v drawer-toggle"></i><!-- .fa-shapes OK too -->
 		<a href="#drawer-container" class="screen-reader-text"><?php esc_html_e( 'Open Sidebar', 'k2k' ); ?></a>
 	</div>
 	<div class="drawer">

@@ -66,7 +66,7 @@ function wprig_index_header() {
 			<header class="page-header">
 				<h1 class="page-title">
 					<?php esc_html_e( 'Published on this day:', 'wprig' ); ?>
-					<span><?php echo $GLOBALS[ 'wp_locale' ]->get_month( $monthnum ) . ' ' . $day . ', ' . $year; // WPCS: XSS OK. ?></span>
+					<span><?php echo $GLOBALS['wp_locale']->get_month( $monthnum ) . ' ' . $day . ', ' . $year; // WPCS: XSS OK. ?></span>
 				</h1>
 			</header>
 			<?php
@@ -75,7 +75,7 @@ function wprig_index_header() {
 			<header class="page-header">
 				<h1 class="page-title">
 					<?php esc_html_e( 'Published in this month:', 'wprig' ); ?>
-					<span><?php echo $GLOBALS[ 'wp_locale' ]->get_month( $monthnum ) . ' ' . $year; // WPCS: XSS OK. ?></span>
+					<span><?php echo $GLOBALS['wp_locale']->get_month( $monthnum ) . ' ' . $year; // WPCS: XSS OK. ?></span>
 				</h1>
 			</header>
 			<?php

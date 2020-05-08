@@ -92,13 +92,16 @@
 	/* --tablet-query */
 	.entry-meta,
 	.entry-content {
-		grid-column: span 2;
+		/* grid-column: span 2; */
+		display: block;
+		margin: 0 auto;
+		max-width: 45rem;
 	}
 
 	.entry-meta {
 		padding-bottom: 1rem;
 		border-bottom: 1px solid var(--gaya-grey5);
-		margin: 1rem 0 2rem !important;
+		margin: 1rem auto 2rem !important;
 	}
 
 	.entry-meta span {
@@ -382,6 +385,12 @@
 	border-radius: 24px;
 }
 
+.tags-links a:hover,
+.tags-links a:focus,
+.tags-links a:active {
+	border-color: var(--gaya-teal);
+}
+
 .tags-links a:before {
 	content: '#';
 }
@@ -413,11 +422,13 @@
 .author-box .vcard .fn {
 	text-transform: uppercase;
 	color: var(--gaya-teal);
+	color: var(--gaya-gold);
 	letter-spacing: 1px;
 }
 
 .author-box .author-links {
 	margin-top: 0;
+	margin-bottom: 1rem;
 }
 
 .author-box .author-name {
@@ -429,11 +440,14 @@
 	.author-box {
 		margin-top: 1rem;
 		margin-bottom: 1rem;
+		max-width: 45rem;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
 
 .author-box .author-description {
-	font-size: 0.8rem;
+	font-size: 0.9rem;
 	margin-bottom: 1.5rem;
 }
 
@@ -442,17 +456,30 @@
 	padding: 5px 20px;
 	margin-top: -0.5rem;
 	border-width: 2px;
-	border-color: #dcdcdc;
+	border-color: var(--gaya-grey5);
 	line-height: 1.8;
 	font-size: 0.7rem;
 	font-weight: bold;
+	color: var(--global-header-color);
+}
+
+.author-box .show-hide-author:hover,
+.author-box .show-hide-author:focus,
+.author-box .show-hide-author:active {
+	border-color: var(--gaya-teal);
+}
+
+.author-box .show-hide-author:hover a,
+.author-box .show-hide-author:focus a,
+.author-box .show-hide-author:active a {
+	color: var(--global-header-color);
 }
 
 .post-navigation-container {
 	position: fixed;
 	width: 100%;
 	margin: 0;
-	padding: 1rem 4rem;
+	padding: 1rem 2rem;
 	bottom: -10rem;
 	left: 0;
 	background: white;
@@ -1112,7 +1139,7 @@ object {
 .jp-relatedposts-post-excerpt,
 .jp-relatedposts-post-date,
 .jp-relatedposts-post-context {
-	font-size: 80%;
+	font-size: 0.9rem;
 	margin: 0;
 }
 

@@ -3,6 +3,7 @@
  */
 .entry-title {
 	margin-top: 0;
+	word-break: break-word;
 }
 
 .entry-title a {
