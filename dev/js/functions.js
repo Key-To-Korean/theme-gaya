@@ -133,25 +133,34 @@ jQuery( document ).ready( function( $ ) {
 		// @TODO: Needs some work to turn OFF search when button is clicked again
 		if ( $( '.site-search-overlay' ).hasClass( 'active' ) ) {
 			$( '.site-search-overlay' ).removeClass( 'active' );
+			$( 'body' ).css( 'overflow', 'scroll' );
 
 			//            $( '.site' ).removeClass( 'blur' );
 		} else {
 			$( '.site-search-overlay' ).addClass( 'active' );
+			$( 'body' ).css( 'overflow', 'hidden' );
 
 			// $( '.site' ).addClass( 'blur' );.
-			$( '.site-search-overlay .search-field' ).focus();
+			$( '.site-search-overlay .search-form-field' ).focus();
 		}
 
 	});
 
 	// Turn off site search when it's not in focus
-	$( '.site-search-overlay .search-field' ).focusout( function() {
-		$( '.site-search-overlay' ).removeClass( 'active' );
+	// $( '.site-search-overlay .search-form-field' ).focusout(
+	// 	function() {
 
-		//    $( '.site' ).removeClass( 'blur' );
-	});
+	// 		// Give a slight delay to allow clicking a link.
+	// 		setTimeout( function() {
+	// 			$( '.site-search-overlay' ).removeClass( 'active' );
+	// 			$( 'body' ).css( 'overflow', 'scroll' );
+
+	// 			//    $( '.site' ).removeClass( 'blur' );
+	// 		}, 100 );
+	// });
 	$( '.close-search' ).click( function() {
 		$( '.site-search-overlay' ).removeClass( 'active' );
+		$( 'body' ).css( 'overflow', 'scroll' );
 	});
 
 	/* Open Drawer (Sidebar) */

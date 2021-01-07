@@ -4,7 +4,7 @@
 .dismiss-drawer {
 	position: absolute;
 	right: 3rem;
-	top: 5rem;
+	top: 3rem;
 	color: var(--gaya-grey4);
 	cursor: pointer;
 }
@@ -21,7 +21,6 @@
 }
 
 @media screen and (min-width: 60rem) {
-
 	/* --sidebar-query */
 	.primary-sidebar {
 		padding: 0;

@@ -49,20 +49,27 @@ function wprig_author_box() {
 		// $author_details .= '</span></h3>';
 		*/
 
-		if ( ! empty( $full_name ) && ! is_author() ) { // Don't show this name on an author archive page.
-			$author_details .= '<h3 class="author-name">';
-			$author_details .= '<a class="fn" href="' . esc_url( $user_posts ) . '">' . $full_name . '</a>';
-			$author_details .= '</h3>';
-		}
+		/*
+		Don't have two author names.
+		// if ( ! empty( $full_name ) && ! is_author() ) { // Don't show this name on an author archive page.
+		// 	$author_details .= '<h3 class="author-name">';
+		// 	$author_details .= '<a class="fn" href="' . esc_url( $user_posts ) . '">' . $full_name . '</a>';
+		// 	$author_details .= '</h3>';
+		// }
+		*/
 
 		$author_details .= '<div class="author-box">';
 
-		/*
-		Old version.
-		// $author_details .= '<section class="author-avatar">';
-		// $author_details .= get_avatar( get_the_author_meta( 'ID' ), 120 );
-		// $author_details .= '</section>';
-		*/
+		$author_details .= '<section class="author-avatar">';
+		$author_details .= get_avatar(
+			get_the_author_meta( 'ID' ),
+			array(
+				'height' => 120,
+				'width'  => 360,
+			)
+		);
+		$author_details .= '</section>';
+
 		$author_details .= '<section class="author-info">';
 
 		if ( ! empty( $user_desc ) ) {

@@ -1,0 +1,739 @@
+# Copyright (C) 2021 Gaya
+# This file is distributed under the same license as the Gaya package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Gaya\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Aaron Snowberger\n"
+"Report-Msgid-Bugs-To: Gaya\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: 404.php:18
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:24
+msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+msgstr ""
+
+#: 404.php:33
+msgid "Most Used Categories"
+msgstr ""
+
+#. translators: %1$s: smiley
+#: 404.php:53
+msgid "Try looking in the monthly archives. %1$s"
+msgstr ""
+
+#: author.php:30, pluggable/author-box.php:84
+msgid "Website"
+msgstr ""
+
+#: category.php:108
+msgid "No posts found."
+msgstr ""
+
+#. translators: 1: title.
+#: comments.php:38
+msgid "One thought"
+msgstr ""
+
+#. translators: 1: comment count number
+#: comments.php:42
+msgctxt "comments title"
+msgid "%1$s thought"
+msgid_plural "%1$s thoughts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:54
+msgid "Comments Navigation"
+msgstr ""
+
+#: comments.php:55, pluggable/post-functions.php:275
+msgid "<i class=\"fa fa-chevron-left\"></i>"
+msgstr ""
+
+#: comments.php:56, pluggable/post-functions.php:276
+msgid "<i class=\"fa fa-chevron-right\"></i>"
+msgstr ""
+
+#: comments.php:114
+msgid "Load more"
+msgstr ""
+
+#: comments.php:133
+msgid "New comment(s)"
+msgstr ""
+
+#: comments.php:142
+msgid "Comments are closed."
+msgstr ""
+
+#: footer.php:52
+msgid "Dismiss footer"
+msgstr ""
+
+#: functions.php:52
+msgid "Primary"
+msgstr ""
+
+#: functions.php:53
+msgid "Quicklinks"
+msgstr ""
+
+#: functions.php:54
+msgid "Social"
+msgstr ""
+
+#: functions.php:55
+msgid "Footer"
+msgstr ""
+
+#: functions.php:137
+msgid "Dusty orange"
+msgstr ""
+
+#: functions.php:142
+msgid "Dusty red"
+msgstr ""
+
+#: functions.php:147
+msgid "Dusty wine"
+msgstr ""
+
+#: functions.php:152
+msgid "Dark sunset"
+msgstr ""
+
+#: functions.php:157
+msgid "Almost black"
+msgstr ""
+
+#: functions.php:162
+msgid "Dusty water"
+msgstr ""
+
+#: functions.php:167
+msgid "Dusty sky"
+msgstr ""
+
+#: functions.php:172
+msgid "Dusty daylight"
+msgstr ""
+
+#: functions.php:177
+msgid "Dusty sun"
+msgstr ""
+
+#: functions.php:185
+msgid "Grey 1"
+msgstr ""
+
+#: functions.php:190
+msgid "Grey 2"
+msgstr ""
+
+#: functions.php:195
+msgid "Grey 3"
+msgstr ""
+
+#: functions.php:200
+msgid "Grey 4"
+msgstr ""
+
+#: functions.php:205
+msgid "Gold"
+msgstr ""
+
+#: functions.php:210
+msgid "Dark Teal"
+msgstr ""
+
+#: functions.php:215
+msgid "Teal"
+msgstr ""
+
+#: functions.php:220
+msgid "Dark Amber"
+msgstr ""
+
+#: functions.php:225
+msgid "Amber"
+msgstr ""
+
+#: functions.php:230
+msgid "Dark Pink"
+msgstr ""
+
+#: functions.php:235
+msgid "Pink"
+msgstr ""
+
+#: functions.php:240
+msgid "Dark Purple"
+msgstr ""
+
+#: functions.php:245
+msgid "Purple"
+msgstr ""
+
+#: functions.php:250
+msgid "Dark Blue"
+msgstr ""
+
+#: functions.php:255
+msgid "Blue"
+msgstr ""
+
+#: functions.php:283
+msgid "small"
+msgstr ""
+
+#: functions.php:284
+msgid "S"
+msgstr ""
+
+#: functions.php:289
+msgid "regular"
+msgstr ""
+
+#: functions.php:290
+msgid "M"
+msgstr ""
+
+#: functions.php:295
+msgid "large"
+msgstr ""
+
+#: functions.php:296
+msgid "L"
+msgstr ""
+
+#: functions.php:301
+msgid "larger"
+msgstr ""
+
+#: functions.php:302
+msgid "XL"
+msgstr ""
+
+#: functions.php:348
+msgctxt "Noto Sans font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:352
+msgctxt "Noto Serif font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:356
+msgctxt "Nanum Gothic font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:360
+msgctxt "Nanum Mono font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:364
+msgctxt "Satisfy font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:442
+msgid "Sidebar"
+msgstr ""
+
+#: functions.php:444
+msgid "Add widgets here."
+msgstr ""
+
+#: functions.php:454
+msgid "Footer Widgets Top"
+msgstr ""
+
+#: functions.php:455
+msgid "Widgets appearing in the top of the footer of the site."
+msgstr ""
+
+#: functions.php:466
+msgid "Footer Widgets Bottom"
+msgstr ""
+
+#: functions.php:467
+msgid "Widgets appearing in the bottom of the footer of the site."
+msgstr ""
+
+#: functions.php:478
+msgid "Ad Above Header"
+msgstr ""
+
+#: functions.php:479
+msgid "Space for an ad above the header."
+msgstr ""
+
+#: functions.php:490
+msgid "Ad Above Post"
+msgstr ""
+
+#: functions.php:491
+msgid "Space for an ad above the Post or Page content."
+msgstr ""
+
+#: functions.php:502
+msgid "Ad After Post"
+msgstr ""
+
+#: functions.php:503
+msgid "Space for an ad after the Post or Page content."
+msgstr ""
+
+#: functions.php:514
+msgid "Ad Post Bottom"
+msgstr ""
+
+#: functions.php:515
+msgid "Space for an ad at the bottom of the Post or Page."
+msgstr ""
+
+#: functions.php:526
+msgid "Ad Fixed Footer"
+msgstr ""
+
+#: functions.php:527
+msgid "Space for an an in a fixed (disappearing) footer at the bottom of the Post or Page."
+msgstr ""
+
+#: functions.php:599
+msgid "Expand child menu"
+msgstr ""
+
+#: functions.php:600
+msgid "Collapse child menu"
+msgstr ""
+
+#: functions.php:678
+msgid "Dismiss site notice"
+msgstr ""
+
+#: header.php:55
+msgid "Skip to content"
+msgstr ""
+
+#: header.php:128
+msgid "Open menu"
+msgstr ""
+
+#: header.php:134
+msgid "Menu"
+msgstr ""
+
+#: header.php:143
+msgid "Main menu"
+msgstr ""
+
+#: inc/customizer.k2k.php:18, inc/customizer.php:102
+msgid "Header and Footer"
+msgstr ""
+
+#: inc/customizer.k2k.php:42, inc/customizer.php:173
+msgid "(Optional) Dark Logo"
+msgstr ""
+
+#: inc/customizer.k2k.php:43, inc/customizer.php:174
+msgid "Add a darker version of your logo that will look good on a light background."
+msgstr ""
+
+#: inc/customizer.k2k.php:65, inc/customizer.php:196
+msgid "Extended Blog Description"
+msgstr ""
+
+#: inc/customizer.k2k.php:66, inc/customizer.php:197
+msgid "You can put a descriptive paragraph here (HTML links are OK)."
+msgstr ""
+
+#: inc/customizer.k2k.php:87, inc/customizer.php:218
+msgid "Header Text 1"
+msgstr ""
+
+#: inc/customizer.k2k.php:88, inc/customizer.php:219
+msgid "A good place to put your address (or tagline/motto)."
+msgstr ""
+
+#: inc/customizer.k2k.php:108, inc/customizer.php:239
+msgid "Header Text 2"
+msgstr ""
+
+#: inc/customizer.k2k.php:109, inc/customizer.php:240
+msgid "A good place to put your phone number."
+msgstr ""
+
+#: inc/customizer.k2k.php:129, inc/customizer.php:260
+msgid "Header Text 3"
+msgstr ""
+
+#: inc/customizer.k2k.php:130, inc/customizer.php:261
+msgid "A good place to put your contact email (HTML links are OK)."
+msgstr ""
+
+#: inc/customizer.k2k.php:155, inc/customizer.php:288
+msgid "Interactive Color #1"
+msgstr ""
+
+#: inc/customizer.k2k.php:156, inc/customizer.php:289
+msgid "Set the first interactive color. This color controls the LEFT gradient, links, and sidebar borders."
+msgstr ""
+
+#: inc/customizer.k2k.php:182, inc/customizer.php:315
+msgid "Interactive Color #2"
+msgstr ""
+
+#: inc/customizer.k2k.php:183, inc/customizer.php:316
+msgid "Set the second interactive color. This color controls the RIGHT gradient, footer background, and search and sidebar buttons."
+msgstr ""
+
+#: inc/customizer.k2k.php:198, inc/customizer.php:69
+msgid "Theme Options"
+msgstr ""
+
+#: inc/customizer.k2k.php:200
+msgid "Change the default display options for the theme."
+msgstr ""
+
+#: inc/customizer.k2k.php:221
+msgid "Sidebar position"
+msgstr ""
+
+#: inc/customizer.k2k.php:223
+msgid "No sidebar (default)"
+msgstr ""
+
+#: inc/customizer.k2k.php:224
+msgid "Sidebar right"
+msgstr ""
+
+#: inc/customizer.k2k.php:225
+msgid "Sidebar left"
+msgstr ""
+
+#. translators: %s is the front page section name
+#: inc/customizer.k2k.php:256
+msgid "%s Page Content"
+msgstr ""
+
+#: inc/customizer.k2k.php:257
+msgid "Select pages to feature in each area from the dropdowns. Add an image to a section by setting a featured image in the page editor. Empty sections will not be displayed."
+msgstr ""
+
+#: inc/customizer.k2k.php:288, inc/customizer.php:336
+msgid "Display estimated reading time on posts"
+msgstr ""
+
+#: inc/customizer.k2k.php:308, inc/customizer.php:356
+msgid "Show theme info in Footer?"
+msgstr ""
+
+#: inc/customizer.k2k.php:328, inc/customizer.php:376
+msgid "Show copyright dates in Footer?"
+msgstr ""
+
+#: inc/customizer.php:41
+msgid "Site Notice"
+msgstr ""
+
+#: inc/customizer.php:59
+msgid "Site notice text"
+msgstr ""
+
+#: inc/customizer.php:87, inc/customizer.php:444
+msgid "Lazy-load images"
+msgstr ""
+
+#: inc/customizer.php:90
+msgid "Lazy-loading images means images are loaded only when they are in view. Improves performance, but can result in content jumping around on slower connections."
+msgstr ""
+
+#: inc/customizer.php:92
+msgid "Lazy-load on (default)"
+msgstr ""
+
+#: inc/customizer.php:93
+msgid "Lazy-load off"
+msgstr ""
+
+#: inc/customizer.php:103
+msgid "Site Images"
+msgstr ""
+
+#: inc/customizer.php:127
+msgid "Default Post Thumbnail"
+msgstr ""
+
+#: inc/customizer.php:128
+msgid "If set, this image will be set as the Featured Image for any Post without one (it will appear only on Category and Archive pages)."
+msgstr ""
+
+#: inc/customizer.php:150
+msgid "404 Error Image"
+msgstr ""
+
+#: inc/customizer.php:151
+msgid "This image will be displayed at the top of any 404 Error pages."
+msgstr ""
+
+#: inc/customizer.php:445
+msgid "Load images immediately"
+msgstr ""
+
+#: inc/icon-functions.php:39
+msgid "Please define default parameters in the form of an array."
+msgstr ""
+
+#: inc/icon-functions.php:44
+msgid "Please define an SVG icon filename."
+msgstr ""
+
+#: inc/template-tags.php:68
+msgid "Published on this day:"
+msgstr ""
+
+#: inc/template-tags.php:77
+msgid "Published in this month:"
+msgstr ""
+
+#: inc/template-tags.php:86
+msgid "Published this year:"
+msgstr ""
+
+#. translators: %s: search query.
+#: inc/template-tags.php:98
+msgid "Search Results for: %s"
+msgstr ""
+
+#. translators: %s: search query.
+#: inc/template-tags.php:120
+msgid "Author: %s"
+msgstr ""
+
+#: inc/template-tags.php:132
+msgid "Category: "
+msgstr ""
+
+#: inc/template-tags.php:144
+msgid "Keyword: "
+msgstr ""
+
+#. translators: used between list items, there is a space after the bullet point
+#: inc/template-tags.php:216
+msgid " &bull; "
+msgstr ""
+
+#. translators: %s: post title
+#: inc/template-tags.php:251
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: inc/template-tags.php:273
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr ""
+
+#. translators: %s: original post where attachment was added.
+#: inc/template-tags.php:354
+msgctxt "original post"
+msgid "in %s"
+msgstr ""
+
+#: inc/template-tags.php:370, pluggable/post-functions.php:162
+msgid "Post navigation"
+msgstr ""
+
+#: inc/template-tags.php:374
+msgid "Previous attachment:"
+msgstr ""
+
+#: inc/template-tags.php:380
+msgid "Next attachment:"
+msgstr ""
+
+#: page-templates/page-cat-index.php:3
+msgid "Category Index"
+msgstr ""
+
+#: pluggable/author-box.php:80
+msgid "Read more posts by "
+msgstr ""
+
+#: pluggable/author-box.php:93
+msgid "Hide"
+msgstr ""
+
+#: pluggable/breadcrumbs.php:29, pluggable/breadcrumbs.php:29
+msgid "Home"
+msgstr ""
+
+#: pluggable/breadcrumbs.php:31
+msgid "You are here:"
+msgstr ""
+
+#: pluggable/dynamic-footer.php:34
+msgid "http://wordpress.org/"
+msgstr ""
+
+#. translators: Copyright
+#: pluggable/dynamic-footer.php:36
+msgid "Proudly powered by %s"
+msgstr ""
+
+#. translators: Theme credit
+#: pluggable/dynamic-footer.php:42
+msgid "Theme: %2$s by %1$s."
+msgstr ""
+
+#: pluggable/featured-posts copy.php:86, pluggable/featured-posts-slider.php:86, pluggable/featured-posts.php:64
+msgid "Read the article "
+msgstr ""
+
+#: pluggable/post-functions.php:26
+msgid "All "
+msgstr ""
+
+#: pluggable/post-functions.php:183
+msgid "Previously"
+msgstr ""
+
+#: pluggable/post-functions.php:184
+msgid "Previous Post"
+msgstr ""
+
+#: pluggable/post-functions.php:208
+msgid "Next time"
+msgstr ""
+
+#: pluggable/post-functions.php:209
+msgid "Next Post"
+msgstr ""
+
+#: pluggable/post-functions.php:284
+msgid "Posts navigation"
+msgstr ""
+
+#: template-parts/content-none.php:13
+msgid "Whoops O_o"
+msgstr ""
+
+#. translators: 1: link to WP admin new post page.
+#: template-parts/content-none.php:26
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content-none.php:41
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: template-parts/content-none.php:49
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: template-parts/content-page.php:42, template-parts/content.php:111
+msgid "Pages:"
+msgstr ""
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: template-parts/content.php:98
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: pluggable/better-widgets/class-ad-placeholder.php:24
+msgid "A basic Ad Placeholder."
+msgstr ""
+
+#: pluggable/better-widgets/class-ad-placeholder.php:26
+msgid "Ad Placeholder"
+msgstr ""
+
+#: pluggable/better-widgets/class-ad-placeholder.php:45, pluggable/better-widgets/class-ad-placeholder.php:52
+msgid "Ad"
+msgstr ""
+
+#: pluggable/better-widgets/class-ad-placeholder.php:119, pluggable/better-widgets/class-better-archives.php:185, pluggable/better-widgets/class-better-recent-comments.php:158, pluggable/better-widgets/class-better-recent-posts.php:172, pluggable/better-widgets/class-better-subscribe.php:131, pluggable/better-widgets/class-wprig-recent-comments.php:158, pluggable/better-widgets/class-wprig-recent-posts.php:170, pluggable/better-widgets/class-wprig-subscribe.php:131
+msgid "Title"
+msgstr ""
+
+#: pluggable/better-widgets/class-better-archives.php:27
+msgid "A yearly, then monthly, archive of your site&#8217;s Posts."
+msgstr ""
+
+#: pluggable/better-widgets/class-better-archives.php:29, pluggable/better-widgets/class-better-archives.php:55
+msgid "Better Archives"
+msgstr ""
+
+#: pluggable/better-widgets/class-better-archives.php:48
+msgid "Archives"
+msgstr ""
+
+#: pluggable/better-widgets/class-better-recent-comments.php:27, pluggable/better-widgets/class-wprig-recent-comments.php:27
+msgid "Displays recent comments with user avatar and excerpt."
+msgstr ""
+
+#: pluggable/better-widgets/class-better-recent-comments.php:29, pluggable/better-widgets/class-wprig-recent-comments.php:29
+msgid "Better Recent Comments"
+msgstr ""
+
+#: pluggable/better-widgets/class-better-recent-comments.php:56, pluggable/better-widgets/class-wprig-recent-comments.php:56
+msgid "Better Comments"
+msgstr ""
+
+#: pluggable/better-widgets/class-better-recent-comments.php:91, pluggable/better-widgets/class-wprig-recent-comments.php:91
+msgid "said:"
+msgstr ""
+
+#: pluggable/better-widgets/class-better-recent-comments.php:163, pluggable/better-widgets/class-wprig-recent-comments.php:163
+msgid "Number of comments to display"
+msgstr ""
+
+#: pluggable/better-widgets/class-better-recent-comments.php:165, pluggable/better-widgets/class-better-recent-posts.php:179, pluggable/better-widgets/class-wprig-recent-comments.php:165, pluggable/better-widgets/class-wprig-recent-posts.php:177
+msgid "Defaults to 5 if empty"
+msgstr ""
+
+#: pluggable/better-widgets/class-better-recent-posts.php:27, pluggable/better-widgets/class-wprig-recent-posts.php:27
+msgid "Displays most recent posts with featured image and publishing date."
+msgstr ""
+
+#: pluggable/better-widgets/class-better-recent-posts.php:31, pluggable/better-widgets/class-wprig-recent-posts.php:30
+msgid "Better Recent Posts"
+msgstr ""
+
+#: pluggable/better-widgets/class-better-recent-posts.php:52, pluggable/better-widgets/class-better-recent-posts.php:60, pluggable/better-widgets/class-wprig-recent-posts.php:50, pluggable/better-widgets/class-wprig-recent-posts.php:58
+msgid "Better Posts"
+msgstr ""
+
+#: pluggable/better-widgets/class-better-recent-posts.php:177, pluggable/better-widgets/class-wprig-recent-posts.php:175
+msgid "Number of posts to display"
+msgstr ""
+
+#: pluggable/better-widgets/class-better-subscribe.php:24, pluggable/better-widgets/class-wprig-subscribe.php:24
+msgid "A basic (non-functional) Subscribe box."
+msgstr ""
+
+#: pluggable/better-widgets/class-better-subscribe.php:26, pluggable/better-widgets/class-better-subscribe.php:52, pluggable/better-widgets/class-wprig-subscribe.php:26, pluggable/better-widgets/class-wprig-subscribe.php:52
+msgid "Better Subscribe"
+msgstr ""
+
+#: pluggable/better-widgets/class-better-subscribe.php:45, pluggable/better-widgets/class-wprig-subscribe.php:45
+msgid "Subscribe"
+msgstr ""
+
+#: pluggable/post-formats/video.php:49
+msgid "No video found in post."
+msgstr ""

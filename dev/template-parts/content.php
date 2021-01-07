@@ -25,12 +25,30 @@
 
 		<?php wprig_post_thumbnail(); ?>
 
-		<?php if ( is_singular() && has_excerpt() ) : ?>
+		<?php if ( 'post' !== get_post_type() && is_singular() && has_excerpt() ) : ?>
 		<div class="entry-excerpt">
 			<?php the_excerpt(); ?>
 		</div>
 		<?php endif; ?>
 	</header><!-- .entry-header -->
+
+	<?php if ( 'post' === get_post_type() && is_singular() && has_excerpt() ) : ?>
+		<div class="entry-meta">
+			<?php
+				wprig_posted_by();
+				wprig_posted_on();
+				wprig_reading_time();
+				wprig_comments_link();
+				wprig_edit_post_link();
+			?>
+		</div><!-- .entry-meta -->
+
+		<div class="entry-excerpt with-meta">
+			<?php the_excerpt(); ?>
+		</div>
+		<?php
+		endif;
+	?>
 
 	<?php
 	/* Ad Above Post */
@@ -43,7 +61,20 @@
 
 	<?php
 	if ( 'post' === get_post_type() && is_singular() ) :
-		?>
+		if ( has_excerpt() ) {
+			?>
+
+			<div class="entry-meta">
+				<?php
+					wprig_comments_link();
+					wprig_edit_post_link();
+				?>
+			</div><!-- .entry-meta -->
+
+			<?php
+		} else {
+			?>
+
 		<div class="entry-meta">
 			<?php
 				wprig_posted_by();
@@ -53,7 +84,8 @@
 				wprig_edit_post_link();
 			?>
 		</div><!-- .entry-meta -->
-		<?php
+			<?php
+		}
 	endif;
 	?>
 

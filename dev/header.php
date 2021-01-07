@@ -163,7 +163,7 @@
 							'theme_location' => 'primary',
 							'menu_id'        => 'primary-menu',
 							'container'      => 'ul',
-							'depth'          => 1,
+							// 'depth'          => 1,
 						)
 					);
 					?>

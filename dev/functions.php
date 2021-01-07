@@ -355,6 +355,10 @@ function wprig_fonts_url() {
 	 */
 	$nanum_gothic = esc_html_x( 'on', 'Nanum Gothic font: on or off', 'wprig' );
 	/**
+	 * Translator: If Nanum Gothic does not support characters in your language, translate this to 'off'.
+	 */
+	$nanum_mono = esc_html_x( 'on', 'Nanum Mono font: on or off', 'wprig' );
+	/**
 	 * Translator: If Satisfy does not support characters in your language, translate this to 'off'.
 	 */
 	$satisfy = esc_html_x( 'on', 'Satisfy font: on or off', 'wprig' );
@@ -373,11 +377,15 @@ function wprig_fonts_url() {
 		$font_families[] = 'Nanum Gothic:400,700,800';
 	}
 
+	if ( 'off' !== $nanum_mono ) {
+		$font_families[] = 'Nanum Gothic Coding:400,700';
+	}
+
 	if ( 'off' !== $satisfy ) {
 		$font_families[] = 'Satisfy';
 	}
 
-	if ( in_array( 'on', array( $noto_sans, $noto_serif, $nanum_gothic, $satisfy ), true ) ) {
+	if ( in_array( 'on', array( $noto_sans, $noto_serif, $nanum_gothic, $nanum_mono, $satisfy ), true ) ) {
 		$query_args = array(
 			'family' => rawurlencode( implode( '|', $font_families ) ),
 			'subset' => rawurlencode( 'latin,latin-ext,korean' ),
@@ -416,7 +424,7 @@ add_filter( 'wp_resource_hints', 'wprig_resource_hints', 10, 2 );
  */
 function wprig_gutenberg_styles() {
 	// Add custom fonts, used in the main stylesheet.
-	wp_enqueue_style( 'wprig-fonts', wprig_fonts_url(), array(), '20190906' );
+	wp_enqueue_style( 'wprig-fonts', wprig_fonts_url(), array(), '20200514' );
 
 	// Enqueue main stylesheet.
 	wp_enqueue_style( 'wprig-base-style', get_theme_file_uri( '/css/editor-styles.css' ), array(), filemtime( get_stylesheet_directory() . '/css/editor-styles.css' ) );
@@ -576,6 +584,10 @@ function wprig_scripts() {
 	wp_enqueue_script( 'wprig-dismissable', get_theme_file_uri( '/js/dismissable.js' ), array(), filemtime( get_stylesheet_directory() . '/js/dismissable.js' ), true );
 	wp_script_add_data( 'wprig-dismissable', 'async', true );
 
+	// Enqueue Load More Comments script.
+	wp_enqueue_script( 'wprig-comments-loadmore', get_theme_file_uri( '/js/more-comments.js' ), array( 'jquery' ), filemtime( get_stylesheet_directory() . '/js/more-comments.js' ), true );
+	wp_script_add_data( 'wprig-comments-loadmore', 'async', true );
+
 	// @TODO @DEBUG Find overflowing elements.
 	wp_enqueue_script( 'wprig-overflow', get_theme_file_uri( '/js/find-overflow.js' ), array(), filemtime( get_stylesheet_directory() . '/js/find-overflow.js' ), true );
 	wp_script_add_data( 'wprig-overflow', 'async', true );
@@ -671,6 +683,30 @@ function wprig_site_notice() {
 	<?php
 }
 add_action( 'wp_footer', 'wprig_site_notice' );
+
+/**
+ * Retrieve the next comment page in PHP.
+ *
+ * @link https://rudrastyh.com/wordpress/load-more-comments.html
+ */
+function wprig_comments_loadmore_handler() {
+	global $post;
+	$post = get_post( $_POST['post_id'] );
+	setup_postdata( $post );
+
+	// Actually, copy params from wp_list_comments() in our theme.
+	wp_list_comments(
+		array(
+			'style'      => 'ol',
+			'short_ping' => true,
+			// 'page'       => $_POST['cpage'], // current comment page.
+			// 'per_page'   => get_option( 'comments_per_page' ),
+		)
+	);
+	die; // Do this so "0" is not displayed.
+}
+add_action( 'wp_ajax_comments_loadmore', 'wprig_comments_loadmore_handler' );
+add_action( 'wp_ajax_nopriv_comments_loadmore', 'wprig_comments_loadmore_handler' );
 
 /**
  * If active, add a custom class to the first footer widget.

@@ -32,7 +32,7 @@ if ( post_password_required() ) {
 		?>
 		<h2 class="comments-title">
 			<?php
-			$comment_count = get_comments_number();
+			$comment_count = absint( get_comments_number() );
 			if ( 1 === $comment_count ) {
 					/* translators: 1: title. */
 					esc_html_e( 'One thought', 'wprig' );
@@ -46,19 +46,20 @@ if ( post_password_required() ) {
 			?>
 		</h2><!-- .comments-title -->
 
-		<?php // the_comments_navigation();. ?>
-		<nav class="navigation comment-navigation">
-		<?php
-			paginate_comments_links(
-				array(
-					'screen_reader_text' => __( 'Comments Navigation', 'wprig' ),
-					'prev_text'          => __( '<i class="fa fa-chevron-left"></i>', 'wprig' ),
-					'next_text'          => __( '<i class="fa fa-chevron-right"></i>', 'wprig' ),
-					'type'               => 'list',
-				)
-			);
-		?>
-		</nav>
+		<?php if ( get_comment_pages_count() > 1 ) { ?>
+			<nav class="navigation comment-navigation comment-navigation-top">
+			<?php
+				paginate_comments_links(
+					array(
+						'screen_reader_text' => __( 'Comments Navigation', 'wprig' ),
+						'prev_text'          => __( '<i class="fa fa-chevron-left"></i>', 'wprig' ),
+						'next_text'          => __( '<i class="fa fa-chevron-right"></i>', 'wprig' ),
+						'type'               => 'list',
+					)
+				);
+			?>
+			</nav>
+		<?php } ?>
 
 		<?php if ( wprig_using_amp_live_list_comments() ) : ?>
 			<amp-live-list
@@ -87,18 +88,40 @@ if ( post_password_required() ) {
 
 		// the_comments_navigation();.
 		?>
-		<nav class="navigation comment-navigation">
-		<?php
-			paginate_comments_links(
-				array(
-					'screen_reader_text' => __( 'Comments Navigation', 'wprig' ),
-					'prev_text'          => __( '<i class="fa fa-chevron-left"></i>', 'wprig' ),
-					'next_text'          => __( '<i class="fa fa-chevron-right"></i>', 'wprig' ),
-					'type'               => 'list',
-				)
-			);
-		?>
-		</nav>
+
+		<?php if ( get_comment_pages_count() > 1 ) { ?>
+			<!-- <nav class="navigation comment-navigation"> -->
+			<?php
+				// paginate_comments_links(
+				// 	array(
+				// 		'screen_reader_text' => __( 'Comments Navigation', 'wprig' ),
+				// 		'prev_text'          => __( '<i class="fa fa-chevron-left"></i>', 'wprig' ),
+				// 		'next_text'          => __( '<i class="fa fa-chevron-right"></i>', 'wprig' ),
+				// 		'type'               => 'list',
+				// 	)
+				// );
+			?>
+			<!-- </nav> -->
+			<?php
+			/**
+			 * NEW Ajax Load Comments
+			 * @link https://rudrastyh.com/wordpress/load-more-comments.html
+			 */
+			$cpage = get_query_var( 'cpage' ) ? get_query_var( 'cpage' ) : 1;
+
+			if ( get_comment_pages_count() > 1 ) {
+				?>
+					<div class="gaya-comments-loadmore"><?php esc_html_e( 'Load more', 'gaya' ); ?></div>
+					<script>
+						var ajaxurl = <?php echo esc_url( site_url( 'wp-admin/admin-ajax.php' ) ); ?>,
+								parent_post_id = <?php echo get_the_ID(); ?>,
+								cpage = <?php echo $cpage; ?>;
+					</script>
+				<?php
+			}
+			?>
+
+			<?php } ?>
 
 		<?php
 		if ( wprig_using_amp_live_list_comments() ) {
@@ -121,10 +144,10 @@ if ( post_password_required() ) {
 		endif;
 
 	endif; // Check for have_comments().
-
-	comment_form();
 	?>
 
 	</section>
 
 </div><!-- #comments -->
+
+<?php comment_form(); ?>
