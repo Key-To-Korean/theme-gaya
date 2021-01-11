@@ -44,21 +44,28 @@ if ( post_password_required() ) {
 				);
 			}
 			?>
+			<span id="comments-quick-reply" class="comments-reply-button"><?php esc_html_e( 'Click to Quick Reply', 'wprig' ); ?></span>
 		</h2><!-- .comments-title -->
 
 		<?php if ( get_comment_pages_count() > 1 ) { ?>
-			<nav class="navigation comment-navigation comment-navigation-top">
-			<?php
-				paginate_comments_links(
-					array(
-						'screen_reader_text' => __( 'Comments Navigation', 'wprig' ),
-						'prev_text'          => __( '<i class="fa fa-chevron-left"></i>', 'wprig' ),
-						'next_text'          => __( '<i class="fa fa-chevron-right"></i>', 'wprig' ),
-						'type'               => 'list',
-					)
-				);
-			?>
-			</nav>
+			<div>
+				<nav class="navigation comment-navigation comment-navigation-top">
+				<?php
+					paginate_comments_links(
+						array(
+							'screen_reader_text' => __( 'Comments Navigation', 'wprig' ),
+							'prev_text'          => __( '<i class="fa fa-chevron-left"></i>', 'wprig' ),
+							'next_text'          => __( '<i class="fa fa-chevron-right"></i>', 'wprig' ),
+							'type'               => 'list',
+						)
+					);
+				?>
+				</nav>
+			</div>
+
+			<div class="comments-form-small">
+				<?php comment_form( array( 'title_reply' => __( 'Reply', 'wprig' ) ) ); ?>
+			</div>
 		<?php } ?>
 
 		<?php if ( wprig_using_amp_live_list_comments() ) : ?>

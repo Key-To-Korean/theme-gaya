@@ -179,6 +179,11 @@ jQuery( document ).ready( function( $ ) {
 		$( '.view-the-comments' ).toggleClass( 'active' );
 	});
 
+	/* Comments Quick Reply */
+	$( '#comments-quick-reply' ).click(function() {
+		$( '.comments-form-small' ).toggleClass( 'active' );
+	})
+
 	/*
 	 * Toggle Author box
 	 */

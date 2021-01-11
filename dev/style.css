@@ -2405,9 +2405,13 @@ input[type="submit"]:active {
 	/*padding-top: 20px;*/
 }
 
-/* .site-search-overlay .search-form, */
-.site-search-overlay .search-form-input {
+.site-search-overlay .search-form {
 	padding: 4rem;
+	max-width: calc(720px + 8rem);
+	margin: 0 auto;
+}
+
+.site-search-overlay .search-form-input {
 	/* text-align: center; */
 	height: 100%;
 	/* display: flex; */
@@ -3277,6 +3281,10 @@ SVG Fallbacks
 	padding-top: 2rem;
 }
 
+.site-main .comment-navigation {
+	padding: 1rem 0;
+}
+
 .author .paging-navigation {
 	grid-column: span 2;
 }
@@ -3288,11 +3296,16 @@ SVG Fallbacks
 	text-align: center;
 }
 
-.paging-navigation li,
-.comment-navigation li {
+.paging-navigation li {
 	display: inline-block;
 	width: 52px;
 	height: 50px;
+}
+
+.comment-navigation li {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
 }
 
 .paging-navigation a,
@@ -3313,6 +3326,15 @@ SVG Fallbacks
 	text-decoration: none;
 	font-size: 1rem;
 	display: inline-block;
+}
+
+.comment-navigation a,
+.comment-navigation span {
+	padding: 0.15rem;
+	height: 30px;
+	min-width: 30px;
+	font-size: 0.8rem;
+	line-height: 1.4rem;
 }
 
 .paging-navigation span.current,

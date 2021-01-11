@@ -9,7 +9,7 @@ module.exports = {
 	dev: {
 		browserSync: {
 			live: true,
-			proxyURL: 'keytokorean.test',
+			proxyURL: 'k2k.test',
 			bypassPort: '8181'
 		},
 		browserslist: [ // See https://github.com/browserslist/browserslist

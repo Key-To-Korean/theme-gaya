@@ -75,7 +75,7 @@ class Better_Archives extends WP_Widget {
 			"WHERE post_status = 'publish' and post_date <= now() and post_type = 'post' " .
 			'GROUP BY month, year ' .
 			'ORDER BY post_date DESC',
-			esc_sql_name( $wpdb->posts )
+			esc_sql( $wpdb->posts )
 		);
 
 		// Old -> $months = $wpdb->get_results( $sql );.
