@@ -619,14 +619,24 @@ add_action( 'wp_enqueue_scripts', 'wprig_scripts' );
 /**
  * Remove Jetpack Sharedaddy Sharing and Jetpack Likes from post excerpts
  */
-function remove_sharedaddy_excerpt_sharing() {
+function wprig_remove_sharedaddy_excerpt_sharing() {
 	remove_filter( 'the_excerpt', 'sharing_display', 19 );
 	if ( class_exists( 'Jetpack_Likes' ) ) {
 			remove_filter( 'the_excerpt', array( Jetpack_Likes::init(), 'post_likes' ), 30, 1 );
 	}
 }
-add_action( 'init', 'remove_sharedaddy_excerpt_sharing', 20 );
-add_action( 'loop_start', 'remove_sharedaddy_excerpt_sharing' );
+add_action( 'init', 'wprig_remove_sharedaddy_excerpt_sharing', 20 );
+add_action( 'loop_start', 'wprig_remove_sharedaddy_excerpt_sharing' );
+
+/**
+ * Set Jetpack's default lazy load image.
+ *
+ * @param String $image The path to the lazy load image default.
+ */
+function wprig_jetpackcom_lazyload_placeholder_image( $image ) {
+	return get_theme_file_uri( '/images/placeholder.svg' );
+}
+add_filter( 'lazyload_images_placeholder_image', 'wprig_jetpackcom_lazyload_placeholder_image' );
 
 /**
  * Add Custom Logo to Login Screen
@@ -811,33 +821,27 @@ require get_template_directory() . '/pluggable/post-functions.php';
 require get_template_directory() . '/pluggable/social-menu.php';
 
 /**
- * Pluggable: Pseduo Jetpack Related Posts
+ * Pluggable: Pseudo Jetpack Related Posts
  */
-require get_template_directory() . '/pluggable/related-posts.php';
+// require get_template_directory() . '/pluggable/related-posts.php';.
 
 /**
  * Optional: Adds Link Section and Links Widget back into WordPress
  */
 add_filter( 'pre_option_link_manager_enabled', '__return_true' );
 
-// Check if a "Grammar" Post Type exists.
-if ( post_type_exists( 'jkl-grammar' ) ) {
-
-	/**
-	 * Check for "Grammar" Post Type and add it to the main query if it exists.
-	 *
-	 * @param array $query The WP Posts Query.
-	 */
-	function wprig_add_grammar_to_main_query( $query ) {
-
-		if ( $query->is_home() && $query->is_main_query() ) {
-			$query->set( 'post_type', array( 'post', 'jkl-grammar' ) );
-		}
-
+/**
+ * Limit Search Results.
+ *
+ * @param array $query The Search array variables.
+ */
+function k2k_limit_search_results_per_page( $query ) {
+	if ( $query->is_search ) {
+		$query->set( 'posts_per_page', 12 );
 	}
-	add_action( 'pre_get_posts', 'wprig_add_grammar_to_main_query' );
-
+	return $query;
 }
+add_filter( 'pre_get_posts', 'k2k_limit_search_results_per_page' );
 
 /**
  * DEV ONLY!!

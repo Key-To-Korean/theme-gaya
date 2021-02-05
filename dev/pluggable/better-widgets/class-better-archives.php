@@ -47,12 +47,12 @@ class Better_Archives extends WP_Widget {
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? esc_html__( 'Archives', 'wprig' ) : $instance['title'], $instance, $this->id_base );
 
-		echo esc_html( $args['before_widget'] );
+		echo wp_kses_post( $args['before_widget'] );
 
 		if ( ! empty( $title ) ) {
-			echo esc_html( $args['before_title'] . $title . $args['after_title'] );
+			echo wp_kses_post( $args['before_title'] . $title . $args['after_title'] );
 		} else {
-			echo esc_html( $args['before_title'] . __( 'Better Archives', 'wprig' ) . $args['after_title'] );
+			echo wp_kses_post( $args['before_title'] . __( 'Better Archives', 'wprig' ) . $args['after_title'] );
 		}
 
 		/**
@@ -105,7 +105,7 @@ class Better_Archives extends WP_Widget {
 							<a href="<?php echo esc_url( home_url() ); ?>/<?php echo esc_attr( $month->year ); ?>/"><?php echo esc_attr( $month->year ); ?></a>
 							<ul class="children"> 
 								<li class="archive-month">
-									<a href="<?php echo esc_url( home_url() ); ?>/<?php echo esc_attr( $month->year ); ?>/<?php echo esc_attr( date( 'm', mktime( 0, 0, 0, $month->month, 1, $month->year ) ) ); ?>">
+									<a href="<?php echo esc_url( home_url() ); ?>/<?php echo esc_attr( $month->year ); ?>/<?php echo esc_attr( gmdate( 'm', mktime( 0, 0, 0, $month->month, 1, $month->year ) ) ); ?>">
 										<span class="archive-month-name"><?php echo esc_attr( date_i18n( 'F', mktime( 0, 0, 0, $month->month, 1, $month->year ) ) ); ?></span>
 									</a>
 									<span class="archive-month-count post_count"><?php echo esc_attr( $month->post_count ); ?></span>
@@ -117,7 +117,7 @@ class Better_Archives extends WP_Widget {
 					?>
 
 					<li class="archive-month">
-						<a href="<?php echo esc_url( home_url() ); ?>/<?php echo esc_attr( $month->year ); ?>/<?php echo esc_attr( date( 'm', mktime( 0, 0, 0, $month->month, 1, $month->year ) ) ); ?>">
+						<a href="<?php echo esc_url( home_url() ); ?>/<?php echo esc_attr( $month->year ); ?>/<?php echo esc_attr( gmdate( 'm', mktime( 0, 0, 0, $month->month, 1, $month->year ) ) ); ?>">
 							<span class="archive-month-name"><?php echo esc_attr( date_i18n( 'F', mktime( 0, 0, 0, $month->month, 1, $month->year ) ) ); ?></span>
 						</a>
 						<span class="archive-month-count post_count"><?php echo esc_attr( $month->post_count ); ?></span>
@@ -132,7 +132,7 @@ class Better_Archives extends WP_Widget {
 
 		endif;
 
-		echo esc_html( $args['after_widget'] );
+		echo wp_kses_post( $args['after_widget'] );
 
 	} // end widget()
 

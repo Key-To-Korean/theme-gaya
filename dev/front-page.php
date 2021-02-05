@@ -156,7 +156,7 @@ wp_print_styles( array( 'gaya-content', 'gaya-front-page' ) ); // Note: If this 
 				default:
 					echo '<div class="one-per-row">';
 					get_template_part( 'template-parts/content', 'front' );
-					echo '</div><!-- .one-per-row -->';
+					echo '</div><!-- .one-per-row default -->';
 			}
 
 			if ( in_array( $count, $new_rows_ends, true ) || $num_posts === $count ) {

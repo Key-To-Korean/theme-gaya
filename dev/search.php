@@ -48,7 +48,7 @@ wp_print_styles( array( 'wprig-content' ) ); // Note: If this was already done i
 
 		/* Start the Loop */
 		$count = 0;
-		while ( have_posts() && $count < 8 ) :
+		while ( have_posts() ) :
 			the_post();
 
 			/**
@@ -64,7 +64,7 @@ wp_print_styles( array( 'wprig-content' ) ); // Note: If this was already done i
 		echo '</ul>';
 
 		/* the_posts_navigation(); */
-		wprig_paging_nav();
+		gaya_paging_nav();
 
 		else :
 

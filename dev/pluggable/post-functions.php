@@ -238,7 +238,7 @@ if ( ! function_exists( 'wprig_paging_nav' ) ) :
 
 		$index_query = array(
 			'post__not_in'   => $stickies,
-			'posts_per_page' => 30,
+			'posts_per_page' => $wp_query->is_home() ? 30 : 12,
 			'paged'          => $paged,
 		);
 
@@ -246,7 +246,7 @@ if ( ! function_exists( 'wprig_paging_nav' ) ) :
 
 		// Don't print empty markup if there's only one page.
 		if ( $query_object->max_num_pages < 2 ) {
-			return;
+			// return;
 		}
 
 		$pagenum_link = html_entity_decode( get_pagenum_link() );

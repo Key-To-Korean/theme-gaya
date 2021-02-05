@@ -44,12 +44,12 @@ class Better_Subscribe extends WP_Widget {
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? esc_html__( 'Subscribe', 'wprig' ) : $instance['title'], $instance, $this->id_base );
 
-		echo esc_html( $args['before_widget'] );
+		echo wp_kses_post( $args['before_widget'] );
 
 		if ( ! empty( $title ) ) {
-			echo esc_html( $args['before_title'] . $title . $args['after_title'] );
+			echo wp_kses_post( $args['before_title'] . $title . $args['after_title'] );
 		} else {
-			echo esc_html( $args['before_title'] . __( 'Better Subscribe', 'wprig' ) . $args['after_title'] );
+			echo wp_kses_post( $args['before_title'] . __( 'Better Subscribe', 'wprig' ) . $args['after_title'] );
 		}
 		?>
 
@@ -73,7 +73,7 @@ class Better_Subscribe extends WP_Widget {
 			</form>
 
 		<?php
-		echo esc_html( $args['after_widget'] );
+		echo wp_kses_post( $args['after_widget'] );
 
 	} // end widget()
 
