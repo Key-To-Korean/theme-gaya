@@ -42,7 +42,7 @@
     "gulp-phpcs": "^2.1.0",
     "gulp-postcss": "^7.0.1",
     "gulp-print": "^5.0.0",
-    "gulp-sass": "^4.0.0",
+    "gulp-sass": "^5.1.0",
     "gulp-sort": "^2.0.0",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-string-replace": "^1.0.0",
