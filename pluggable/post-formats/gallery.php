@@ -1,0 +1,63 @@
+<?php
+/**
+ * Post Format: Gallery
+ *
+ * @package gaya
+ */
+
+/**
+ * Show thumbnail image sizes in galleries on index/archive pages
+ *
+ * @param [type] $output The Post Output.
+ * @param [type] $pairs The Image pairs.
+ * @param [type] $atts The Attributes.
+ *
+ * @link http://wordpress.stackexchange.com/questions/125781/changing-gallery-images-size
+ */
+function gaya_gallery_thumbnails( $output, $pairs, $atts ) {
+	if ( ! is_singular() ) {
+			$output['size'] = 'thumbnail';
+	}
+	return $output;
+}
+add_filter( 'shortcode_atts_gallery', 'gaya_gallery_thumbnails', 10, 3 );
+
+/**
+ * Post Format: Gallery
+ *
+ * Get specified number of Gallery images from the first Gallery in a post
+ * Used primarily on index and archive pages
+ *
+ * @param int $num The number of images.
+ */
+function gaya_get_gallery_images( $num = 3 ) {
+
+	// Array to hold all the images we retrieve.
+	$images = get_post_gallery_images();
+	if ( ! empty( $images ) ) {
+		$size = count( $images ) > $num ? $num : count( $images );
+		if ( has_post_thumbnail() ) {
+			$size--;
+		}
+
+		$images = array_slice( $images, 0, $size );
+	}
+	return $images;
+
+}
+
+/**
+ * Post Format: Gallery (Count)
+ *
+ * Count the number of images in the Gallery (or Galleries)
+ */
+function gaya_get_gallery_count() {
+
+	$images = get_post_galleries_images();  // from WordPress 3.6.0.
+
+	$total_galleries[] = count( $images );
+	$total_galleries[] = count( $images, COUNT_RECURSIVE ) - $total_galleries[0];
+	$image             = reset( $images );
+
+	return $total_galleries;
+}

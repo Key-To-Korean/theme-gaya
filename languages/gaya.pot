@@ -1,4 +1,4 @@
-# Copyright (C) 2019 Gaya
+# Copyright (C) 2021 Gaya
 # This file is distributed under the same license as the Gaya package.
 msgid ""
 msgstr ""
@@ -32,7 +32,7 @@ msgstr ""
 msgid "Try looking in the monthly archives. %1$s"
 msgstr ""
 
-#: author.php:30, pluggable/author-box.php:77
+#: author.php:30, pluggable/author-box.php:84
 msgid "Website"
 msgstr ""
 
@@ -53,36 +53,28 @@ msgid_plural "%1$s thoughts"
 msgstr[0] ""
 msgstr[1] ""
 
-#: comments.php:56, comments.php:107
+#: comments.php:54
 msgid "Comments Navigation"
 msgstr ""
 
-#: comments.php:57, comments.php:108, pluggable/post-functions.php:275
+#: comments.php:55, pluggable/post-functions.php:275
 msgid "<i class=\"fa fa-chevron-left\"></i>"
 msgstr ""
 
-#: comments.php:58, comments.php:109, pluggable/post-functions.php:276
+#: comments.php:56, pluggable/post-functions.php:276
 msgid "<i class=\"fa fa-chevron-right\"></i>"
 msgstr ""
 
-#: comments.php:65
-msgid "Click to Quick Reply"
+#: comments.php:114
+msgid "Load more"
 msgstr ""
 
-#: comments.php:69
-msgid "Reply"
-msgstr ""
-
-#: comments.php:125
+#: comments.php:133
 msgid "New comment(s)"
 msgstr ""
 
-#: comments.php:134
+#: comments.php:142
 msgid "Comments are closed."
-msgstr ""
-
-#: footer.php:33
-msgid "All rights reserved."
 msgstr ""
 
 #: footer.php:52
@@ -249,112 +241,105 @@ msgid "on"
 msgstr ""
 
 #: functions.php:360
+msgctxt "Nanum Mono font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:364
 msgctxt "Satisfy font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:434
+#: functions.php:442
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:436
+#: functions.php:444
 msgid "Add widgets here."
 msgstr ""
 
-#: functions.php:446
+#: functions.php:454
 msgid "Footer Widgets Top"
 msgstr ""
 
-#: functions.php:447
+#: functions.php:455
 msgid "Widgets appearing in the top of the footer of the site."
 msgstr ""
 
-#: functions.php:458
+#: functions.php:466
 msgid "Footer Widgets Bottom"
 msgstr ""
 
-#: functions.php:459
+#: functions.php:467
 msgid "Widgets appearing in the bottom of the footer of the site."
 msgstr ""
 
-#: functions.php:470
+#: functions.php:478
 msgid "Ad Above Header"
 msgstr ""
 
-#: functions.php:471
+#: functions.php:479
 msgid "Space for an ad above the header."
 msgstr ""
 
-#: functions.php:482
+#: functions.php:490
 msgid "Ad Above Post"
 msgstr ""
 
-#: functions.php:483
+#: functions.php:491
 msgid "Space for an ad above the Post or Page content."
 msgstr ""
 
-#: functions.php:494
+#: functions.php:502
 msgid "Ad After Post"
 msgstr ""
 
-#: functions.php:495
+#: functions.php:503
 msgid "Space for an ad after the Post or Page content."
 msgstr ""
 
-#: functions.php:506
+#: functions.php:514
 msgid "Ad Post Bottom"
 msgstr ""
 
-#: functions.php:507
+#: functions.php:515
 msgid "Space for an ad at the bottom of the Post or Page."
 msgstr ""
 
-#: functions.php:518
+#: functions.php:526
 msgid "Ad Fixed Footer"
 msgstr ""
 
-#: functions.php:519
+#: functions.php:527
 msgid "Space for an an in a fixed (disappearing) footer at the bottom of the Post or Page."
 msgstr ""
 
-#: functions.php:587
+#: functions.php:599
 msgid "Expand child menu"
 msgstr ""
 
-#: functions.php:588
+#: functions.php:600
 msgid "Collapse child menu"
 msgstr ""
 
-#: functions.php:666
+#: functions.php:678
 msgid "Dismiss site notice"
 msgstr ""
 
-#: header.php:37
-msgid "Social Links Menu"
-msgstr ""
-
-#: header.php:53
+#: header.php:55
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:126
+#: header.php:128
 msgid "Open menu"
 msgstr ""
 
-#: header.php:132
+#: header.php:134
 msgid "Menu"
 msgstr ""
 
-#: header.php:137
-msgid "Search this site"
-msgstr ""
-
-#: header.php:141
+#: header.php:143
 msgid "Main menu"
-msgstr ""
-
-#: header.php:178
-msgid "Open Sidebar"
 msgstr ""
 
 #: inc/customizer.k2k.php:18, inc/customizer.php:102
@@ -506,10 +491,6 @@ msgstr ""
 msgid "This image will be displayed at the top of any 404 Error pages."
 msgstr ""
 
-#: inc/customizer.php:405
-msgid "Show Login button in Top Menu?"
-msgstr ""
-
 #: inc/customizer.php:445
 msgid "Load images immediately"
 msgstr ""
@@ -589,11 +570,11 @@ msgstr ""
 msgid "Category Index"
 msgstr ""
 
-#: pluggable/author-box.php:73
+#: pluggable/author-box.php:80
 msgid "Read more posts by "
 msgstr ""
 
-#: pluggable/author-box.php:86
+#: pluggable/author-box.php:93
 msgid "Hide"
 msgstr ""
 
@@ -664,16 +645,16 @@ msgstr ""
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:42, template-parts/content.php:79
+#: template-parts/content-page.php:42, template-parts/content.php:111
 msgid "Pages:"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/content.php:66
+#: template-parts/content.php:98
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#: pluggable/better-widgets/class-ad-placeholder.php:24, pluggable/better-widgets/class-ad-placeholders.php:24
+#: pluggable/better-widgets/class-ad-placeholder.php:24
 msgid "A basic Ad Placeholder."
 msgstr ""
 
@@ -681,16 +662,12 @@ msgstr ""
 msgid "Ad Placeholder"
 msgstr ""
 
-#: pluggable/better-widgets/class-ad-placeholder.php:45, pluggable/better-widgets/class-ad-placeholder.php:52, pluggable/better-widgets/class-ad-placeholders.php:45, pluggable/better-widgets/class-ad-placeholders.php:52
+#: pluggable/better-widgets/class-ad-placeholder.php:45, pluggable/better-widgets/class-ad-placeholder.php:52
 msgid "Ad"
 msgstr ""
 
-#: pluggable/better-widgets/class-ad-placeholder.php:119, pluggable/better-widgets/class-ad-placeholders.php:116, pluggable/better-widgets/class-better-archives.php:185, pluggable/better-widgets/class-better-recent-comments.php:158, pluggable/better-widgets/class-better-recent-posts.php:172, pluggable/better-widgets/class-better-subscribe.php:131, pluggable/better-widgets/class-wprig-recent-comments.php:158, pluggable/better-widgets/class-wprig-recent-posts.php:170, pluggable/better-widgets/class-wprig-subscribe.php:131
+#: pluggable/better-widgets/class-ad-placeholder.php:119, pluggable/better-widgets/class-better-archives.php:185, pluggable/better-widgets/class-better-recent-comments.php:158, pluggable/better-widgets/class-better-recent-posts.php:172, pluggable/better-widgets/class-better-subscribe.php:131, pluggable/better-widgets/class-wprig-recent-comments.php:158, pluggable/better-widgets/class-wprig-recent-posts.php:170, pluggable/better-widgets/class-wprig-subscribe.php:131
 msgid "Title"
-msgstr ""
-
-#: pluggable/better-widgets/class-ad-placeholders.php:26
-msgid "Ad Placeholders"
 msgstr ""
 
 #: pluggable/better-widgets/class-better-archives.php:27

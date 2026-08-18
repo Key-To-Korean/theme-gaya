@@ -1,0 +1,1 @@
+"use strict";var docWidth=document.documentElement.offsetWidth;[].forEach.call(document.querySelectorAll("*"),function(t){t.offsetWidth>docWidth&&console.log(t)});

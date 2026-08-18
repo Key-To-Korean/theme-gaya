@@ -1,0 +1,19 @@
+<?php
+/**
+ * The sidebar containing the main widget area
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package gaya
+ */
+
+if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+	return;
+}
+?>
+
+<?php wp_print_styles( array( 'gaya-sidebar', 'gaya-widgets' ) ); ?>
+<aside id="secondary" class="primary-sidebar widget-area">
+	<i class="dismiss-drawer fa fa-times"></i>
+	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+</aside><!-- #secondary -->
