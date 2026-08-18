@@ -822,25 +822,6 @@ require get_template_directory() . '/pluggable/related-posts.php';
  */
 add_filter( 'pre_option_link_manager_enabled', '__return_true' );
 
-// Check if a "Grammar" Post Type exists.
-if ( post_type_exists( 'jkl-grammar' ) ) {
-
-	/**
-	 * Check for "Grammar" Post Type and add it to the main query if it exists.
-	 *
-	 * @param array $query The WP Posts Query.
-	 */
-	function gaya_add_grammar_to_main_query( $query ) {
-
-		if ( $query->is_home() && $query->is_main_query() ) {
-			$query->set( 'post_type', array( 'post', 'jkl-grammar' ) );
-		}
-
-	}
-	add_action( 'pre_get_posts', 'gaya_add_grammar_to_main_query' );
-
-}
-
 /**
  * DEV ONLY: local BrowserSync CSP header support. Never loaded outside WP_DEBUG.
  */

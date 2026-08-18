@@ -30,7 +30,7 @@
 	<div class="site-info <?php echo ( is_active_sidebar( 'sidebar-footer-1' ) || is_active_sidebar( 'sidebar-footer-2' ) ) ? 'with-widgets' : ''; ?>">
 		<div class="copyright">
 			<span class="copyright-dates"><?php gaya_dynamic_copyright(); ?></span>
-			<span class="copyright-message"><?php esc_html_e( 'All rights reserved.', 'k2k' ); ?></span>
+			<span class="copyright-message"><?php esc_html_e( 'All rights reserved.', 'gaya' ); ?></span>
 		</div>
 		<div class="credits">
 			<?php gaya_footer_credits(); ?>
